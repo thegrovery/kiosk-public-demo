@@ -6,16 +6,11 @@
   import $ from 'jquery'
   import interact from 'interactjs'
   import Layout, { siteData } from '@components/layout'
-  //import DynamicHeader from '@components/DynamicHeader'
+  import DynamicHeader from '@components/DynamicHeader'
   import DynamicFooter from '@components/DynamicFooter'
-  //import DragDrop from '@components/DragDrop'
-  //import IDCard from '@components/IDCard'
-  //import HomeBG from '@components/SVGComponents/HomeBG'
-
-  import SimpleHeader from '@components/SimpleHeader'
-
-  //New Components
-  import PageSlider from '@components/PageSlider'
+  import DragDrop from '@components/DragDrop'
+  import IDCard from '@components/IDCard'
+  import HomeBG from '@components/SVGComponents/HomeBG'
 
 /*===== Styles =====*/
   import pageStyles from '@styles/pages.module.scss'
@@ -54,25 +49,27 @@ export default function Home({ allPostsData }) {
         className={pageStyles.pageLayout} 
       >
         
-        <SimpleHeader/>
+        <DynamicHeader
+          
+          heading={["The Grovery | ", <strong>Kiosk Experience</strong>]}
+          subhead="This template is designed for a fullscreen, touch-based experience.  Drag and drop the below elements to navigate the site.  The site is always locked in to 100% screen height and width, has smooth transitions between pages, and will reset after 2 minutes of inactivity."
+        />
 
         <div className={pageStyles.pageLevel1}>
 
-          {/*<div className={pageStyles.background}>
+          <div className={pageStyles.background}>
             <HomeBG/>
-          </div>*/}
+          </div>
 
-          {/*<section className={pageStyles.mainSection}>
+          <section className={pageStyles.mainSection}>
             <DragDrop/>
-          </section>*/}
-
-          <PageSlider/>
+          </section>
           
         </div>
 
-        {/*<DynamicFooter
+        <DynamicFooter
           dynamicText=""
-        />*/}
+        />
       </div>
       
       

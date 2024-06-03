@@ -7,6 +7,11 @@ import 'normalize.css';
 //Drag n Drop 
 import interact from 'interactjs'
 
+//Swiper
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+
 //Device Detection
 import {isTablet, isSafari, isIPad13} from 'react-device-detect';
 

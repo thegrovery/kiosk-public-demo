@@ -95,7 +95,7 @@ export default function SupportModal({
             <div className={componentStyles.columnBody}>
               <ul>
                 <li key="li-3-1">Real-time responses to Access Support and case-related questions</li>
-                <li key="li-3-1">Assistance with case status tracking, reimbursement claims, and appeals</li>
+                <li key="li-3-2">Assistance with case status tracking, reimbursement claims, and appeals</li>
               </ul>
             </div>            
           </div>

@@ -1,0 +1,15 @@
+@import "@styles/vars.module.scss";
+
+.Slide1Background{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	.testSquare1{
+		width: 35vw;
+		height: 35vw;
+		background-color: #bee330;
+		position: absolute;
+		left: 10%;
+		top: 0%;
+	}
+}

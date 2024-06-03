@@ -173,7 +173,7 @@
 
 
 /* =============================== */
-/* ===== Browser/Device Hide  ===== */
+/* ===== Browser/Device Hide ===== */
 /* =============================== */
   #LayoutOuter.detect--tablet,
   #LayoutOuter.detect--ipad,
@@ -185,3 +185,17 @@
     }
   }
   
+
+/* =================== */
+/* ===== Testing ===== */
+/* =================== */
+[data-testing]{
+  border: dashed 2px #000;
+  background: repeating-linear-gradient(
+      45deg,
+      #FFFFFF20,
+      #FFFFFF20 20px,
+      #00000020 20px,
+      #00000020 40px
+    );
+}

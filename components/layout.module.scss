@@ -20,7 +20,8 @@ $fixedWidth: clamp(250px, 20vw,360px);
   //z-index:  $zIndexMedium;
   overflow: hidden;
   .mainContent{
-    width:calc(100% - #{$fixedWidth});
+    //width:calc(100% - #{$fixedWidth});
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;

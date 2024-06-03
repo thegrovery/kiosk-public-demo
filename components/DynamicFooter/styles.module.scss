@@ -10,7 +10,7 @@ $footerHeight: 3rem;
 	left: 0px;
 	bottom: 0px;
 	width: 100%;
-	width:calc(100% - #{$fixedWidth});
+	//width:calc(100% - #{$fixedWidth});
 	//height: $footerHeight;
 	background-color: $white;
 	box-shadow: 0.1em -0.1em 0.25em rgba($black, 0.15);

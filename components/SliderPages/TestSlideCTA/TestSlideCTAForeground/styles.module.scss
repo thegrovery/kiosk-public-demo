@@ -1,0 +1,19 @@
+@import "@styles/vars.module.scss";
+
+.TestSlideCTAForeground{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 5vh 5vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.textSection{
+		width: 50vw;
+		position: absolute;
+		right: 5vw;
+		//top: 0;
+		color: $white;
+	}
+}

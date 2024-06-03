@@ -1,0 +1,60 @@
+@import "@styles/vars.module.scss";
+
+.PageSlider{
+	height: 100%;
+	position: relative;
+	swiper-container{
+		height: 100%;
+		width: 100%;
+	}
+	.header{
+		z-index: 200;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top:0; left: 0;
+	}
+	.foregroundSlider{
+		z-index: 300;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top:0; left: 0;
+	}
+	.backgroundSlider{
+		z-index: 100;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top:0; left: 0;
+	}
+	swiper-slide{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.controls{
+		position: absolute;
+		bottom: 1vw;
+		left: 1vw;
+		z-index: 500;
+		//control states
+		[data-visible="false"]{display: none;}
+
+	}
+
+	//MISC
+	[data-placeholder="true"]{
+		background: repeating-linear-gradient(
+		  45deg,
+		  #FFFFFF20,
+		  #FFFFFF20 20px,
+		  #00000020 20px,
+		  #00000020 40px
+		);
+	}
+}
+
+
