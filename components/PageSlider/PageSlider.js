@@ -3,8 +3,14 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 
 import SimpleHeader from '@components/SimpleHeader'
-import Slide1Foreground from '@components/SliderPages/Slide1/Slide1Foreground'
-import Slide1Background from '@components/SliderPages/Slide1/Slide1Background'
+
+//Slide 1
+  import Slide1Foreground from '@components/SliderPages/Slide1/Slide1Foreground'
+  import Slide1Background from '@components/SliderPages/Slide1/Slide1Background'
+
+//Slide 2
+  import Slide2Foreground from '@components/SliderPages/Slide2/Slide2Foreground'
+  import Slide2Background from '@components/SliderPages/Slide2/Slide2Background'
 
 //Test Slides
 import TestSlideCTAForeground from '@components/SliderPages/TestSlideCTA/TestSlideCTAForeground'
@@ -26,50 +32,49 @@ export default function PageSlider({
     //console.log(author);
 
     //define target elements
-    const foregroundSlider = document.querySelector('#foregroundSlider');
-    const backgroundSlider = document.querySelector('#backgroundSlider');
-    const controlNext = document.querySelector('#control-next');
-    const controlPrev = document.querySelector('#control-prev');
-    const controlInitial = document.querySelector('#control-initial');
+      const foregroundSlider = document.querySelector('#foregroundSlider');
+      const backgroundSlider = document.querySelector('#backgroundSlider');
+      const controlNext = document.querySelector('#control-next');
+      const controlPrev = document.querySelector('#control-prev');
+      const controlInitial = document.querySelector('#control-initial');
+
+    //initialize Swiper instances with options
+        
 
     //simple combined functions for ease-of-use
-    function nextSlide(){
-      foregroundSlider.swiper.slideNext();
-      backgroundSlider.swiper.slideNext();
-    }
-    function prevSlide(){
-      foregroundSlider.swiper.slidePrev();
-      backgroundSlider.swiper.slidePrev();
-      console.log(backgroundSlider.swiper.activeIndex);
-    }
-    function firstSlideDetect(){
-      let currentSlide = foregroundSlider.realIndex;
-      //console.log('current slide: ',currentSlide);
-      //console.log(backgroundSlider.swiper.activeIndex);
-    }
+      function nextSlide(){
+        foregroundSlider.swiper.slideNext();
+        //backgroundSlider.swiper.slideNext();
+      }
+      function prevSlide(){
+        foregroundSlider.swiper.slidePrev();
+        //backgroundSlider.swiper.slidePrev();
+        console.log(backgroundSlider.swiper.activeIndex);
+      }
+      function firstSlideDetect(){
+        let currentSlide = foregroundSlider.realIndex;
+        //console.log('current slide: ',currentSlide);
+        //console.log(backgroundSlider.swiper.activeIndex);
+      }
 
     //click actions
-    controlNext.addEventListener('click', () => {
-      nextSlide();
-      firstSlideDetect();
-    });
-    controlPrev.addEventListener('click', () => {
-      prevSlide();
-      firstSlideDetect();
-    });
-    controlInitial.addEventListener('click', () => {
-      nextSlide();
-      controlInitial.setAttribute("data-visible", "false");
-    });
+      controlNext.addEventListener('click', () => {
+        nextSlide();
+        firstSlideDetect();
+      });
+      controlPrev.addEventListener('click', () => {
+        prevSlide();
+        firstSlideDetect();
+      });
+      controlInitial.addEventListener('click', () => {
+        nextSlide();
+        controlInitial.setAttribute("data-visible", "false");
+      });
 
-    //progress actions - key off of background slider
-    backgroundSlider.addEventListener('swiperslidechange', (event) => {
-      //console.log('slide changed');
-      //console.log(backgroundSlider.swiper.activeIndex);
-    });
-
-   /* backgroundSlider.swiper.control = foregroundSlider.swiper;
-    foregroundSlider.swiper.control = backgroundSlider.swiper;*/
+    //progress actions
+      foregroundSlider.addEventListener('swiperslidechange', (event) => {
+        console.log('slide changed');
+      });
 
   });
 
@@ -85,30 +90,32 @@ export default function PageSlider({
       <div className={componentStyles.foregroundSlider}>
         <swiper-container 
           id="foregroundSlider"
-          className="foregroundSlider"
-          slides-per-view="1" 
-          speed="500" 
-          loop="true" 
+          scrollbar="true"
+          controller-control="#backgroundSlider"
+          /*slides-per-view="1" 
           css-mode="true"
-          //touch-mode="false"
-          allow-touch-move="false"
-          controller-control=".backgroundgroundSlider"
+          //touch-mode="false"*/
         >
-          <swiper-slide >
-            <Slide1Foreground/>
-          </swiper-slide>
           <swiper-slide>
             <Slide1Foreground/>
           </swiper-slide>
+
+          <swiper-slide>
+            <Slide2Foreground/>
+          </swiper-slide>
+
           <swiper-slide>
             <Slide1Foreground/>
           </swiper-slide>
+
           <swiper-slide>Slide 4</swiper-slide>
           <swiper-slide>Slide 5</swiper-slide>
           <swiper-slide>Slide 6</swiper-slide>
+          
           <swiper-slide>
             <TestSlideCTAForeground/>
           </swiper-slide>
+
         </swiper-container>
       </div>
       
@@ -116,28 +123,28 @@ export default function PageSlider({
       <div className={componentStyles.backgroundSlider}>
         <swiper-container 
           id="backgroundSlider"
-          className="backgroundSlider"
-          slides-per-view="1" 
-          speed="500" 
-          loop="true" 
-          css-mode="false"
-          //controller-by=".foregroundgroundSlider"
+          controller-by="#foregroundSlider"
         >
-          <swiper-slide >
-            <Slide1Background/>
-          </swiper-slide>
           <swiper-slide>
             <Slide1Background/>
           </swiper-slide>
+
+          <swiper-slide>
+            <Slide2Background/>
+          </swiper-slide>
+
           <swiper-slide>
             <Slide1Background/>
           </swiper-slide>
+
           <swiper-slide>Slide 4</swiper-slide>
           <swiper-slide>Slide 5</swiper-slide>
           <swiper-slide>Slide 6</swiper-slide>
-          <swiper-slide >
+          
+          <swiper-slide>
             <TestSlideCTABackground/>
           </swiper-slide>
+
         </swiper-container>
       </div>
       

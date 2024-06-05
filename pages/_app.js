@@ -9,6 +9,7 @@ import interact from 'interactjs'
 
 //Swiper
 import { register } from 'swiper/element/bundle';
+import { Controller } from 'swiper/modules';
 // register Swiper custom elements
 register();
 

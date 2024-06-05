@@ -1,0 +1,53 @@
+@import "@styles/vars.module.scss";
+
+.Slide2Foreground{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	.testSquare1{
+		width: 35vw;
+		height: 35vw;
+		background-color: #bee330;
+		position: absolute;
+		left: 50%;
+		top: 10%;
+	}
+	.textElement{
+		--size: 35vw;
+		width: var(--size);
+		height: var(--size);
+		//border: dashed 2px #000;
+		border-radius: 100%;
+		background-color: #137d99;
+		position: absolute;
+		left: 64%;
+		top: 55%;
+		transform: translate3d(-50%, -50%, 0px);
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 0.65rem;
+		padding: 3em;
+
+		.triangle {
+		   width: 0px;
+		   height: 0px;
+		   border-style: solid;
+		   border-width: 0 100px 250px 100px;
+		   border-color: transparent transparent #137d99 transparent;
+		   transform: rotate(-60deg);
+		   position: absolute;
+		   top: 20%;
+		   left: -60px;
+		   z-index: 2;
+		}
+
+		.inner{
+			color: #ffffff;
+			background-color: #137d99;
+			position: relative;
+			z-index: 3;
+		}
+	}
+
+}
