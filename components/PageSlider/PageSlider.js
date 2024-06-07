@@ -12,6 +12,10 @@ import SimpleHeader from '@components/SimpleHeader'
   import Slide2Foreground from '@components/SliderPages/Slide2/Slide2Foreground'
   import Slide2Background from '@components/SliderPages/Slide2/Slide2Background'
 
+//Slide 3
+  import Slide3Foreground from '@components/SliderPages/Slide3/Slide3Foreground'
+  import Slide3Background from '@components/SliderPages/Slide3/Slide3Background'
+
 //Test Slides
 import TestSlideCTAForeground from '@components/SliderPages/TestSlideCTA/TestSlideCTAForeground'
 import TestSlideCTABackground from '@components/SliderPages/TestSlideCTA/TestSlideCTABackground'
@@ -105,7 +109,7 @@ export default function PageSlider({
           </swiper-slide>
 
           <swiper-slide>
-            <Slide1Foreground/>
+            <Slide3Foreground/>
           </swiper-slide>
 
           <swiper-slide>Slide 4</swiper-slide>
@@ -134,7 +138,7 @@ export default function PageSlider({
           </swiper-slide>
 
           <swiper-slide>
-            <Slide1Background/>
+            <Slide3Background/>
           </swiper-slide>
 
           <swiper-slide>Slide 4</swiper-slide>
