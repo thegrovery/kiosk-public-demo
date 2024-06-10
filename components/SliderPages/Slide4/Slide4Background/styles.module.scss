@@ -1,0 +1,26 @@
+@import "@styles/vars.module.scss";
+
+.Slide4Background{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: $offWhite;
+	img{
+		width: 25vw;
+		height: auto;
+		position: absolute;
+		left: 25%;
+		bottom: 10%;
+		transform: translate3d(-50%, 0%, 0px);
+	}
+
+	.endPiece{
+		width: 300px;
+		height: 100%;
+		transform: skew(-5deg);
+		background: $darkBlue;
+		position: absolute;
+		top: 0;
+		right: -250px;
+	}
+}
