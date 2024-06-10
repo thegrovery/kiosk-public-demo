@@ -19,6 +19,7 @@ export default function Slide2Background({
 
   return (
     <div className={componentStyles.Slide2Background}>
+    <div className={componentStyles.endPiece}></div>
       <img src="/images/slide-2-background-asset.png" alt="" />
     </div>
   )

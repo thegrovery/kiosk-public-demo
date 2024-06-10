@@ -19,7 +19,8 @@ export default function Slide1Background({
 
   return (
     <div className={componentStyles.Slide1Background}>
-      <div className={componentStyles.testSquare1}></div>
+      <div className={componentStyles.endPiece}></div>
+      {/*<div className={componentStyles.testSquare1}></div>*/}
     </div>
   )
 }

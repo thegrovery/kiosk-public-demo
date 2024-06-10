@@ -19,12 +19,14 @@ export default function Slide2Foreground({
 
   return (
     <div className={componentStyles.Slide2Foreground}>
-      {/*<img src="/images/slide-2-asset.png" alt="" />*/}
+
+      
+
       <div className={componentStyles.textElement}>
         <div className={componentStyles.triangle}></div>
         <div className={componentStyles.inner}>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <strong>XpoConnect is a powerful &amp; integrated service offering that</strong> combines the strengths of The Grovery’s Digital Marketing and Brand Strategy expertise, along with strategic message development and graphic design to supercharge your trade show and conference presence.
           </p>
         </div>
         

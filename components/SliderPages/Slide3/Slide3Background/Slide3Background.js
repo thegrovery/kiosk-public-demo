@@ -19,6 +19,7 @@ export default function Slide3Background({
 
   return (
     <div className={componentStyles.Slide3Background}>
+    <div className={componentStyles.endPiece}></div>
       <img src="/images/slide-3-background-asset.png" alt="" />
     </div>
   )

@@ -19,7 +19,13 @@ export default function Slide1Foreground({
 
   return (
     <div className={componentStyles.Slide1Foreground}>
+      
+      <div className={componentStyles.text}>
+        <p><strong>Supercharge your trade show</strong> plus conference presence with Xpo Connect.</p>
+      </div>
+
       <img src="/images/slide-1-asset.png" alt="" />
+
     </div>
   )
 }
