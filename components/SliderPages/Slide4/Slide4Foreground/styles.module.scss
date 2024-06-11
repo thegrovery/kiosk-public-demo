@@ -45,10 +45,19 @@
 			position: relative;
 			z-index: 3;
 			font-size: 1rem;
-			text-align: center;
+			text-align: left;
 			max-width: 75%;
 			position: relative;
 			left: -2.5%;
+			ul{
+				color: #white;
+			}
+			li{
+				margin-bottom: 0.5em;
+			}
+			li::marker {
+			  color: $white;
+			}
 		}
 	}
 
