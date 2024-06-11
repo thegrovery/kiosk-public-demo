@@ -19,7 +19,7 @@ export default function SimpleHeader({
 
   return (
     <div className={componentStyles.SimpleHeader}>
-      <img src="/images/KioskHeaderGroup.png" alt="" />
+      <img src="/images/header.svg" alt="" />
     </div>
   )
 }

@@ -10,7 +10,7 @@
 /*===== Theme Components =====*/
   import HeadAnalytics from '@components/HeadComponents/HeadAnalytics'
   import HeadPWA from '@components/HeadComponents/HeadPWA'
-  import Sidebar from '@components/Sidebar'
+  //import Sidebar from '@components/Sidebar'
   import Modal from '@components/Modal'
   import SmallScreenWarning from '@components/SmallScreenWarning'
   import IdleTimer from '@components/IdleTimer'
@@ -497,18 +497,7 @@ export default function Layout({
             {children}
           </div>
 
-          {/*<div id="rightSidebar" className={styles.rightSidebar}>
-            <Sidebar 
-              card={card}
-              access={access}
-              enrollment={enrollment}
-              financial={financial}
-              resources={resources}
-              home={home}
-              cardTooltipText={cardTooltipText}
-              backButtonUrl={backButtonUrl}
-            />
-          </div>*/}
+          
   
       </main>
 

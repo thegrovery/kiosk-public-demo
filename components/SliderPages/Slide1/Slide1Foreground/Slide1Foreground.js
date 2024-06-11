@@ -24,7 +24,7 @@ export default function Slide1Foreground({
         <p><strong>Supercharge your trade show</strong> plus conference presence with Xpo Connect.</p>
       </div>
 
-      <img src="/images/slide-1-asset.png" alt="" />
+      <img src="/images/slide-1-background-asset.png" alt="" />
 
     </div>
   )

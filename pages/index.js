@@ -3,14 +3,9 @@
   import { router } from 'next/router'
   import Head from 'next/head'
   import Link from 'next/link'
-  import $ from 'jquery'
   import interact from 'interactjs'
   import Layout, { siteData } from '@components/layout'
-  //import DynamicHeader from '@components/DynamicHeader'
-  import DynamicFooter from '@components/DynamicFooter'
-  //import DragDrop from '@components/DragDrop'
-  //import IDCard from '@components/IDCard'
-  //import HomeBG from '@components/SVGComponents/HomeBG'
+  
 
   import SimpleHeader from '@components/SimpleHeader'
 
@@ -39,40 +34,28 @@ export default function Home({ allPostsData }) {
   
   //console.log(author);
    useEffect(() => {
-   /* window.onload = function() {
-      init();
-    }*/
+   
    });
 
   return (
     <Layout home pageActionState="lvl-1" >
       
       <Head>
-        <title>Home | {siteData.siteTitleBase}</title>
+        <title>KIOSK Demo | {siteData.siteTitleBase}</title>
       </Head>
       <div 
         className={pageStyles.pageLayout} 
       >
         
-        <SimpleHeader/>
-
+        
         <div className={pageStyles.pageLevel1}>
 
-          {/*<div className={pageStyles.background}>
-            <HomeBG/>
-          </div>*/}
-
-          {/*<section className={pageStyles.mainSection}>
-            <DragDrop/>
-          </section>*/}
-
+          
           <PageSlider/>
           
         </div>
 
-        {/*<DynamicFooter
-          dynamicText=""
-        />*/}
+        
       </div>
       
       
