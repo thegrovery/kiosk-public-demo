@@ -43,19 +43,13 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>KIOSK Demo | {siteData.siteTitleBase}</title>
       </Head>
-      <div 
-        className={pageStyles.pageLayout} 
-      >
-        
-        
-        <div className={pageStyles.pageLevel1}>
 
-          
+      <div className={pageStyles.pageLayout}>
+        <div className={pageStyles.mainSection}>
+
           <PageSlider/>
           
-        </div>
-
-        
+        </div>        
       </div>
       
       
