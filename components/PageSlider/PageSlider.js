@@ -20,6 +20,10 @@ import SimpleHeader from '@components/SimpleHeader'
   import Slide4Foreground from '@components/SliderPages/Slide4/Slide4Foreground'
   import Slide4Background from '@components/SliderPages/Slide4/Slide4Background'
 
+//Slide 5
+  import Slide5Foreground from '@components/SliderPages/Slide5/Slide5Foreground'
+  import Slide5Background from '@components/SliderPages/Slide5/Slide5Background'
+
 //Test Slides
 import TestSlideCTAForeground from '@components/SliderPages/TestSlideCTA/TestSlideCTAForeground'
 import TestSlideCTABackground from '@components/SliderPages/TestSlideCTA/TestSlideCTABackground'
@@ -121,8 +125,12 @@ export default function PageSlider({
           </swiper-slide>
                     
           <swiper-slide>
-            <TestSlideCTAForeground/>
+            <Slide5Foreground/>
           </swiper-slide>
+
+          <div className={componentStyles.lineElement}>
+            <img src="/images/line-full-length.png" alt=""/>
+          </div>
 
         </swiper-container>
       </div>
@@ -150,8 +158,9 @@ export default function PageSlider({
           </swiper-slide>
 
           <swiper-slide>
-            <TestSlideCTABackground/>
+            <Slide5Background/>
           </swiper-slide>
+
 
         </swiper-container>
       </div>

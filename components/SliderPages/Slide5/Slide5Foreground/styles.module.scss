@@ -1,0 +1,69 @@
+@import "@styles/vars.module.scss";
+
+.Slide5Foreground{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	.textElement{
+		--size: 38vw;
+		width: var(--size);
+		//height: var(--size);
+		//border: dashed 2px #000;
+		//border-radius: 1em;
+		/*background-image: url("/images/orange-shape.svg");
+		background-size: 90%;
+		background-repeat: no-repeat;
+		background-position: center;*/
+		position: absolute;
+		left: 75%;
+		bottom: 40%;
+		transform: translate3d(-50%, 50%, 0px);
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 0.65rem;
+		padding: 3em;
+
+		.triangle {
+		   width: 0px;
+		   height: 0px;
+		   border-style: solid;
+		   border-width: 0 100px 350px 100px;
+		   border-color: transparent transparent $orange transparent;
+		   transform: rotate(-80deg);
+		   position: absolute;
+		   bottom: 25%;
+		   left: 0px;
+		   z-index: 2;
+		}
+
+
+
+		.inner{
+			color: $white;
+			//background-color: $orange;
+			position: relative;
+			z-index: 3;
+			font-size: 1rem;
+			text-align: left;
+			//max-width: 75%;
+			position: relative;
+			//left: -2.5%;
+
+			h2{
+
+			}
+			p{
+				margin-bottom: 1.5em;
+			}
+		}
+
+	}
+
+	.button{
+		color: $white;
+		background-color: $darkGreen;
+		padding: 0.5em 3em;
+		border-radius: 2em;
+	}
+}

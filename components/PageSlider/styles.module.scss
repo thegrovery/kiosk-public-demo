@@ -3,6 +3,7 @@
 .PageSlider{
 	height: 100%;
 	position: relative;
+	background-color: $darkBlue;
 	swiper-container{
 		height: 100%;
 		width: 100%;
@@ -20,6 +21,15 @@
 		width: 100%;
 		position: absolute;
 		top:0; left: 0;
+		.lineElement{
+			/*NOTE: width should equal umber of slides times 100vw, then use that sizing basis to psotion it horizontally*/
+			position: absolute;
+			top: 60%;
+			left: 0vw;
+			transform: translate3d(0%, -50%, 0px);
+			width: 450vw;
+			z-index: -1;
+		}
 	}
 	.backgroundSlider{
 		z-index: 100;
