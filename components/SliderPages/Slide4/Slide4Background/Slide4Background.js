@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
-
+import pageStyles from '@styles/pages.module.scss'
 
 export default function Slide4Background({ 
   //Props
@@ -19,7 +19,13 @@ export default function Slide4Background({
 
   return (
     <div className={componentStyles.Slide4Background}>
-    <div className={componentStyles.endPiece}></div>
+      
+      <div 
+        className={pageStyles.slideEndPiece} 
+        data-direction="down"
+        data-color="darkBlue"
+      ></div>
+
       <img src="/images/slide-4-background-asset.png" alt="" />
     </div>
   )

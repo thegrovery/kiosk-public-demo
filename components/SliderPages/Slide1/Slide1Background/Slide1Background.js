@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
-
+import pageStyles from '@styles/pages.module.scss'
 
 export default function Slide1Background({ 
   //Props
@@ -19,7 +19,13 @@ export default function Slide1Background({
 
   return (
     <div className={componentStyles.Slide1Background}>
-      <div className={componentStyles.endPiece}></div>
+      
+      <div 
+        className={pageStyles.slideEndPiece} 
+        data-direction="up"
+        data-color="offWhite"
+      ></div>
+
       {/*<div className={componentStyles.testSquare1}></div>*/}
     </div>
   )

@@ -24,9 +24,6 @@ import SimpleHeader from '@components/SimpleHeader'
   import Slide5Foreground from '@components/SliderPages/Slide5/Slide5Foreground'
   import Slide5Background from '@components/SliderPages/Slide5/Slide5Background'
 
-//Test Slides
-import TestSlideCTAForeground from '@components/SliderPages/TestSlideCTA/TestSlideCTAForeground'
-import TestSlideCTABackground from '@components/SliderPages/TestSlideCTA/TestSlideCTABackground'
 
 //import Button1 from '@components/Button1'
 

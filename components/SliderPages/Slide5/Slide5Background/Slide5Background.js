@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
-
+import pageStyles from '@styles/pages.module.scss'
 
 export default function Slide5Background({ 
   //Props

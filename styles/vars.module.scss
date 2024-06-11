@@ -40,30 +40,14 @@ Description:	Store SCSS vars here
 	//$darkBlue:		#007B98;
 	$grey:				#F4EFEF;
 
-	//Card colors
-	$mutedRed: 		#FDD7C2;
-	$mutedYellow: 	#FEEEC4;
-	$mutedBlue: 		#C8EAEC;
-	$mutedGreen: 		#CEECCE;
-
-	//Primar y Palette
+	//Primary Palette
 	$primaryGray: 			#A69F9F;
 	$primaryLightGray: 	#EEE7E7;
 	$primaryPurple: 		#BE2BBB;
 	$primaryDarkGray: 	#595454;
 	$primaryWhite:			#FFFFFF;
 
-	//Dark Palette
-	$darkPeach: 	#671112;
-	$darkAmber: 	#C06005;
-	$darkAqua: 		#225C6E;
-	$darkMint: 		#267148;
-
-	//Door Colors
-	$doorPeach: 	#FDD7C2;
-	$doorAmber: 	#FFD186;
-	$doorAqua: 		#C0F2FB;
-	$doorMint: 		#C5FFE6;
+	
 
 /***** Named Colors *****/
 	//only use other vars
@@ -73,10 +57,6 @@ Description:	Store SCSS vars here
 	$textColor:					$black;
 	$accentColor:				$darkBlue;
 	$accentColor2:			$midBlue;
-
-
-
-	
 
 	//Named Vars
 	$fontBody:			'gilroyregular';
