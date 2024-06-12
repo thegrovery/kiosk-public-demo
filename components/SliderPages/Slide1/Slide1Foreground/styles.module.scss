@@ -4,18 +4,35 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
-	.testSquare1{
-		width: 35vw;
-		height: 35vw;
-		background-color: #bee330;
-		position: absolute;
-		left: 50%;
-		top: 10%;
+	
+	.slideLayout{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		.slideLayoutRight{
+			width: 50%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.slideLayoutLeft{
+			width: 50%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+		}
 	}
+
+
 	.text{
-		position: absolute;
+		/*position: absolute;
 		left: 18%;
-		top: 40%;
+		top: 40%;*/
 		max-width: 25ch;
 		color: #FFFFFF;
 		weight: 100;
@@ -25,7 +42,7 @@
 		width: 45vw;
 		height: auto;
 		position: absolute;
-		left: 40%;
+		right: 20%;
 		top: 5%;
 	}
 }
