@@ -26,7 +26,7 @@ export default function Slide4Background({
         data-color="darkBlue"
       ></div>
 
-      <img src="/images/slide-4-background-asset.png" alt="" />
+      {/*<img src="/images/slide-4-background-asset.png" alt="" />*/}
     </div>
   )
 }
