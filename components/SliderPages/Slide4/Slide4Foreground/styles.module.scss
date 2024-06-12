@@ -66,7 +66,7 @@
 		   border-color: transparent transparent $orange transparent;
 		   transform: rotate(-80deg);
 		   position: absolute;
-		   bottom: 5%;
+		   bottom: max(5%, 25px);
 		   left: 0px;
 		   z-index: 2;
 		}
