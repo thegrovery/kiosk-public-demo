@@ -1,5 +1,8 @@
 @import "@styles/vars.module.scss";
 
+$buttonWidth: 25vw;
+$buttonWidthShort: 12vw;
+
 .PageSlider{
 	height: 100%;
 	position: relative;
@@ -22,7 +25,7 @@
 		position: absolute;
 		top:0; left: 0;
 		.lineElement{
-			/*NOTE: width should equal umber of slides times 100vw, then use that sizing basis to psotion it horizontally*/
+			/*NOTE: width should equal number of slides times 100vw, then use that sizing basis to psotion it horizontally*/
 			position: absolute;
 			top: 60%;
 			left: 0vw;
@@ -45,15 +48,8 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.controls{
-		position: absolute;
-		bottom: 1vw;
-		left: 1vw;
-		z-index: 500;
-		//control states
-		[data-visible="false"]{display: none;}
 
-	}
+
 
 	//MISC
 	[data-placeholder="true"]{
@@ -68,3 +64,66 @@
 }
 
 
+.controls{
+	position: absolute;
+	bottom: 1vw;
+	left: 1vw;
+	z-index: 500;
+	
+	//control states
+	[data-visible="false"]{display: none;}
+
+	//Control Buttons
+	//NOTE: control state CSS is being set in the `main.scss` file, due it it using global <body> classes
+	.controlButton{
+		$safeZone: 2em;
+		width: $buttonWidth;
+		border: solid 0.12em $offWhite;
+		border-radius: 1em;
+		padding: 1em 1em;
+		margin-bottom: 0.5em;
+		color: $limeGreen;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		transition: $transitionMedium;
+
+		.text{
+			width: calc(100% - #{$safeZone});
+		}
+		.icon{
+			width: $safeZone;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		//flip arrow icon to re-use for prev button
+		&[data-control="initial"]{}
+		&[data-control="prev"]{
+			.icon img{
+				transform: scale(-1, -1);
+			}
+		}
+
+
+	}
+
+	//prev/next group layout
+	.nextPrevGroup{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		[data-control="prev"]{
+			margin-right: 1em;
+			width: $buttonWidthShort;
+		}
+		[data-control="next"]{
+			margin-right: 1em;
+			width: $buttonWidthShort;
+		}
+	}
+
+
+}

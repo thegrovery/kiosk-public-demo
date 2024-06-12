@@ -52,7 +52,6 @@ export default function Home({ allPostsData }) {
         </div>        
       </div>
       
-      
     </Layout>
   )
 }
