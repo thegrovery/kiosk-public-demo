@@ -103,6 +103,20 @@ export default function PageSlider({
           console.log('slide changed');
           slideDetect();
         });
+        function scrollDetect(){
+          window.onwheel = e => {
+            if(e.deltaY >= 0){
+              // Wheel Down
+              console.log('Down');
+              nextSlide();
+            } else {
+              // Wheel Up
+              console.log('Up');
+              prevSlide();
+            }
+          }
+        }
+        
 
 
       //control functions
@@ -119,6 +133,7 @@ export default function PageSlider({
 
     //on-load actions, run immediately
       slideDetect();
+      scrollDetect();
 
     //click actions
       controlNext.addEventListener('click', () => {
