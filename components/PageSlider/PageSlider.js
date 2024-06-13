@@ -124,16 +124,17 @@ export default function PageSlider({
         //Run 
         function nextSlide(){
           foregroundSlider.swiper.slideNext();
-          slideDetect();
+          //slideDetect();
         }
         function prevSlide(){
           foregroundSlider.swiper.slidePrev();
-          slideDetect();
+          //slideDetect();
         }
 
     //on-load actions, run immediately
       slideDetect();
       scrollDetect();
+      //foregroundSlider.setAttribute('focusableElements', 'p');
 
     //click actions
       controlNext.addEventListener('click', () => {

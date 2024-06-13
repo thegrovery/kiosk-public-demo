@@ -25,7 +25,7 @@
   import {isTablet, isSafari, isIPad13} from 'react-device-detect';
 
 /*===== Data Vars =====*/
-  export const siteTitle = 'BMS Congress Access Support'
+  export const siteTitle = 'Grovery Kiosk Demo'
   export const siteData = data
 
 export default function Layout({ 
@@ -200,7 +200,7 @@ export default function Layout({
           <link rel="icon" href="/favicon.png" />
           <meta
             name="description"
-            content="Bristol Myers Squibb Access Support - Learn more about how we can help you."
+            content="Demo site for The Grovey's KIOSK product. A lightweight website that acts as a full-screen informational experience for in-person events and unique campaigns."
           />
           <meta property="og:image"
             content={`/images/BMSLogo.svg`}
@@ -221,8 +221,8 @@ export default function Layout({
           <meta name="application-name" content="PWA App" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="apple-mobile-web-app-title" content="PWA App" />
-          <meta name="description" content="Best PWA App in the world" />
+          <meta name="apple-mobile-web-app-title" content="Grovery Kiosk Demo" />
+          <meta name="description" content="Demo site for The Grovey's KIOSK product. A lightweight website that acts as a full-screen informational experience for in-person events and unique campaigns." />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-TileColor" content="#2B5797" />
