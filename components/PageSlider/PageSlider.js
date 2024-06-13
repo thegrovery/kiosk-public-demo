@@ -99,10 +99,11 @@ export default function PageSlider({
 
           //return currentSlide; 
         }
-        foregroundSlider.addEventListener('swiperprogress', (event) => {
+        foregroundSlider.addEventListener('slidechange', (event) => {
           console.log('slide changed');
-          //slideDetect();
+          slideDetect();
         });
+
 
       //control functions
         //NOTE: only foreground slider needs to move, they're tied together
@@ -131,10 +132,7 @@ export default function PageSlider({
         //controlInitial.setAttribute("data-visible", "false");
       });
 
-    //progress actions
-      foregroundSlider.addEventListener('swiperslidechange', (event) => {
-        console.log('slide changed');
-      });
+    
 
   });
 
