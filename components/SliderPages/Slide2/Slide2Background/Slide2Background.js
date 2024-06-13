@@ -26,7 +26,7 @@ export default function Slide2Background({
         data-color="midBlue"
       ></div>
 
-      <img src="/images/slide-2-background-asset.png" alt="" />
+      {/*<img src="/images/slide-2-background-asset.png" alt="" />*/}
     </div>
   )
 }

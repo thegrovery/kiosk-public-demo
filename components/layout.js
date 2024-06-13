@@ -41,31 +41,6 @@ export default function Layout({
     /* ===== Global Action State ===== */
     /* ============================= */
       //define function
-      /*function updateActionState(stateValue, delay, thread) {
-        setTimeout(function() {
-          const LayoutOuter = document.querySelector("#LayoutOuter");
-          if(thread == "load"){
-            LayoutOuter.setAttribute("data-action-state-load", stateValue);
-          } else if(thread == "transition"){
-            LayoutOuter.setAttribute("data-action-state-transition", stateValue);
-          } else if(thread == "tooltips"){
-            LayoutOuter.setAttribute("data-action-state-tooltips", stateValue);
-          } else if(thread == "cards"){
-            LayoutOuter.setAttribute("data-action-state-cards", stateValue);
-          }else if(thread == "cards-show"){
-            LayoutOuter.setAttribute("data-action-state-cards-show", stateValue);
-          } else if(thread == "page"){
-            LayoutOuter.setAttribute("data-action-state-page", stateValue);
-          } else if(thread == "home-bg"){
-            LayoutOuter.setAttribute("data-action-state-home-bg", stateValue);
-          } else if(thread == "transition-screen"){
-            LayoutOuter.setAttribute("data-action-state-transition-screen", stateValue);
-          } else{
-            LayoutOuter.setAttribute("data-action-state", stateValue);
-          }
-        }, delay);
-      }*/
-
       //revised, fully dynamic function
       function updateActionState(thread, stateValue, delay) {
         let actionStateTarget = document.querySelector("#LayoutOuter");
@@ -83,25 +58,25 @@ export default function Layout({
       }
 
       /* ===== General  ===== */
-        updateActionState('', 'initial', 0);       
+        //updateActionState('', 'initial', 0);       
 
       /* ===== Cards ===== */
-        updateActionState('cards-show', 'initial', 0);
-        updateActionState('cards-show', 'animate-start', 1500);
-        updateActionState('cards-show', 'visible', 1550);
-        updateActionState('cards-show', 'post-visible', 2500);
+        //updateActionState('cards-show', 'initial', 0);
+        //updateActionState('cards-show', 'animate-start', 1500);
+        //updateActionState('cards-show', 'visible', 1550);
+        //updateActionState('cards-show', 'post-visible', 2500);
 
       /* ===== Tooltips ===== */
-        clearActionState('tooltips', 'initial', 0);
-        clearActionState('tooltips', 'show-after-load', 5000);
+        //clearActionState('tooltips', 'initial', 0);
+        //clearActionState('tooltips', 'show-after-load', 5000);
 
       /* ===== Load Sequence ===== */
-        updateActionState('load', 'initial', 0);
-        updateActionState('load', 'post-initial', 250);
-        updateActionState('load', 'load-finished', 1000);
-        updateActionState('load', 'just-after-load', 2000);
-        updateActionState('load', 'just-after-load-2', 3500);
-        updateActionState('load', 'load-sequence-complete', 5000);
+        //updateActionState('load', 'initial', 0);
+        //updateActionState('load', 'post-initial', 250);
+        //updateActionState('load', 'load-finished', 1000);
+        //updateActionState('load', 'just-after-load', 2000);
+        //updateActionState('load', 'just-after-load-2', 3500);
+        //updateActionState('load', 'load-sequence-complete', 5000);
 
     
     /* ========================== */
@@ -145,212 +120,7 @@ export default function Layout({
           });
         });
 
-    /* =========================== */
-    /* ===== Drag & Drop code =====  */
-    /* =========================== */
-      //Destroy drag & drop instance so dragging is not compounded
-      interact('.draggable').unset();
-
-      function DragDropInit() {
-          var startPos = null;
-          interact
-          interact('.draggable').draggable({
-            inertia: true,
-            snap: {
-              targets: [startPos],
-              range: Infinity,
-              relativePoints: [ { x: 0.5, y: 0.5 } ],
-              endOnly: true
-            },
-            onstart: function (event) {
-                var rect = interact.getElementRect(event.target);
-
-                // record center point when starting the very first drag
-                startPos = {
-                  x: rect.left + rect.width  / 2,
-                  y: rect.top  + rect.height / 2
-                }
-                
-                var target = event.target,
-                  // keep the dragged position in the data-x/data-y attributes
-                  x = (parseFloat(target.getAttribute('data-origin-x')) || 0) + event.dx,
-                  y = (parseFloat(target.getAttribute('data-origin-y')) || 0) + event.dy;
-
-              // translate the element
-              target.style.webkitTransform =
-              target.style.transform =
-                'translate(' + x + 'px, ' + y + 'px)';
-
-              // update the posiion attributes
-              target.setAttribute('data-x', x);
-              target.setAttribute('data-y', y);
-
-              //update global event state
-              clearActionState('tooltips', 'card-interaction', 0);
-              clearActionState('cards', 'card-interaction', 0);
-
-              event.interactable.draggable({
-                snap: {
-                  targets: [startPos]
-                }
-              });
-            },
-            // call this function on every dragmove event
-            onmove: function (event) {
-              var target = event.target,
-                  // keep the dragged position in the data-x/data-y attributes
-                  x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-                  y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-              // translate the element
-              target.style.webkitTransform =
-              target.style.transform =
-                'translate(' + x + 'px, ' + y + 'px)';
-
-              // update the posiion attributes
-              target.setAttribute('data-x', x);
-              target.setAttribute('data-y', y);
-              target.classList.add('getting--dragged');
-            },
-
-            onend: function (event) {
-              event.target.classList.remove('getting--dragged');
-              clearActionState('tooltips', 'card-post-interaction', 0);
-              clearActionState('cards', 'card-post-interaction', 0);
-            }
-          });
-
-          interact('.droppable:not(.caught--it)').dropzone({
-            accept: '.draggable',
-            overlap: .15,
-
-            ondropactivate: function (event) {
-              console.log("ondropactivate");
-              event.target.classList.add('can--drop');
-            },
-
-            ondragenter: function (event) {
-              console.log("onDragEnter");
-              var draggableElement = event.relatedTarget,
-                  dropzoneElement  = event.target,
-                  dropRect         = interact.getElementRect(dropzoneElement),
-                  dropCenter       = {
-                    x: dropRect.left + dropRect.width  / 2,
-                    y: dropRect.top  + dropRect.height / 2
-                  };
-
-              event.draggable.draggable({
-                snap: {
-                  targets: [dropCenter]
-                }
-              });
-
-              // feedback the possibility of a drop
-              dropzoneElement.classList.add('can--catch');
-              draggableElement.classList.add('drop--me');
-            },
-
-            ondragleave: function (event) {
-              // remove the drop feedback style
-              console.log("onDragLeave");
-              console.log(startPos);
-              event.target.classList.remove('can--catch', 'caught--it');
-              event.relatedTarget.classList.remove('drop--me');
-              event.draggable.draggable({
-                 snap: {
-                   targets: [startPos],
-                   range: Infinity,
-                   relativePoints: [ { x: 0.5, y: 0.5 } ],
-                   endOnly: true
-                 }
-               });
-            },
-
-            ondrop: function (event) {
-              console.log("Index of dropped node: " + (event.target));
-              console.log("Index of dragged node: " + getNodeIndex(event.relatedTarget.parentNode));
-              //event.relatedTarget.textContent = 'Dropped';
-              console.log("Dropped!");
-              console.log("related target: " + event.relatedTarget.parentNode);
-              console.log(event.draggable);
-              event.target.classList.add('caught--it');
-
-              if($(".drop--me").attr("data-link")){
-                console.log("get link home");
-                var link = $(".drop--me").attr("data-link");
-                updateActionState('cards-show', 'transition-out-pre', 0);
-                updateActionState('cards-show', 'transition-out', 250);
-              } else{
-                console.log("get link inner");
-                var link = $(".droppable.caught--it").attr("data-link");
-              }
-
-              console.log(link);
-              if(link  == null){
-               //do nothing
-              } else if(link  == "/enrollment/"){
-                console.log("enrollment card dropped");
-                updateActionState('home-bg', 'home-bg-init-enrollment', 0);
-                updateActionState('home-bg', 'home-bg-zoom-enrollment', 1200);
-                updateActionState('home-bg', 'home-bg-open-enrollment', 2000);
-                pageTransition(link, 2800);
-              }else if(link  == "/access/"){
-                console.log("access card dropped");
-                updateActionState('home-bg', 'home-bg-init-access', 0);
-                updateActionState('home-bg', 'home-bg-zoom-access', 1200);
-                updateActionState('home-bg', 'home-bg-open-access', 2000);
-                pageTransition(link, 2800);
-              }else if(link  == "/financial/"){
-                console.log("financial card dropped");
-                updateActionState('home-bg', 'home-bg-init-financial', 0);
-                updateActionState('home-bg', 'home-bg-zoom-financial', 1200);
-                updateActionState('home-bg', 'home-bg-open-financial', 2000);
-                pageTransition(link, 2800);
-              }else if(link  == "/resources/"){
-                console.log("resources card dropped");
-                updateActionState('home-bg', 'home-bg-init-resources', 0);
-                updateActionState('home-bg', 'home-bg-zoom-resources', 1200);
-                updateActionState('home-bg', 'home-bg-open-resources', 2000);
-                pageTransition(link, 2800);
-              }else{
-                //updateActionState('card-drop-success', 0);
-                pageTransition(link, 500);
-                /* ===== Transition Screens ===== */
-                 /*updateActionState('initial', 0, 'transition-screen');
-                 updateActionState('zoom', 2000, 'transition-screen');
-                 updateActionState('fade', 3500, 'transition-screen');
-                 updateActionState('end', 5000, 'transition-screen');*/
-              }
-
-            },
-
-            ondropdeactivate: function (event) {
-              // remove active dropzone feedback
-              console.log("ondropdeactivate");
-              event.target.classList.remove('can--drop');
-              event.target.classList.remove('can--catch');
-            }
-
-          });
-        }
-
-        function getNodeIndex(node) {
-          var index = 0;
-          while ( (node = node.previousSibling) ) {
-            if (node.nodeType != 3 || !/^\s*$/.test(node.data)) {
-              index++;
-            }
-          }
-          return index;
-        }
-
-      function eleHasClass(el, cls) {
-        return el.className && new RegExp("(\\s|^)" + cls + "(\\s|$)").test(el.className);
-      }
-
-      DragDropInit();
     
-
     /* ==================================== */
     /* ===== Content Overflow Detection ===== */
     /* ==================================== */

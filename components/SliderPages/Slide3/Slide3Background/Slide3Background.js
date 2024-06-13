@@ -26,7 +26,7 @@ export default function Slide3Background({
         data-color="offWhite"
       ></div>
 
-      <img src="/images/slide-3-background-asset.png" alt="" />
+      {/*<img src="/images/slide-3-background-asset.png" alt="" />*/}
     </div>
   )
 }
