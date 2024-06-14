@@ -50,6 +50,65 @@ export default function PageSlider({
 
   useEffect(() => {
     //console.log(author);
+    
+    /*===== ============================ =====*/
+    /*===== LINE ANIMATION FUNCTIONALITY =====*/
+    /*===== ============================ =====*/
+      //define vars
+      let path = document.querySelector('#lineElement path');
+      let length = path.getTotalLength();
+      let screenWidth = window.screen.availWidth;
+      let numberOfSlides = 5;
+      let timePerSlide = 2500; //in ms
+      let totalTime = timePerSlide * numberOfSlides;
+
+      //console logs
+      console.log("line path length: ", length);
+      console.log("screen width: ", screenWidth);
+
+      console.log("numberOfSlides: ", numberOfSlides);
+      console.log("timePerSlide: ", timePerSlide);
+      console.log("totalTime: ", totalTime);
+
+      //set dynamic CSS
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      path.style.animationName = "lineDraw";
+      path.style.animationDuration = "15s";
+      //path.style.animationDelay = "1s";
+      path.style.animationDirection = "forward"
+      path.style.animationIterationCount = "infinite"
+      path.style.animationPlayState = "paused";
+      
+      function lineDrawStart(){
+        path.style.animationPlayState = "paused";
+
+        //initial delay
+        setTimeout(() => {
+          path.style.animationPlayState = "running";
+        }, 2000); //time in ms
+
+
+        setTimeout(() => {
+          path.style.animationPlayState = "paused";
+        }, timePerSlide + 2000); //time in ms
+      }
+
+      function lineDrawSection(){
+        path.style.animationPlayState = "running";
+
+        setTimeout(() => {
+          path.style.animationPlayState = "paused";
+        }, timePerSlide); //time in ms
+      }
+
+      //Run functions
+        lineDrawStart();
+        //lineDrawSection();
+
+    /*===== ==================== =====*/
+    /*===== SLIDER FUNCTIONALITY =====*/
+    /*===== ==================== =====*/
 
     //define target elements
       const foregroundSlider = document.querySelector('#foregroundSlider');
@@ -96,13 +155,23 @@ export default function PageSlider({
           bodyTarget.setAttribute("data-current-slide",currentSlide);
           controlState(currentSlide)
           console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
-
           //return currentSlide; 
         }
+
+        function slideDetectDirection(){
+          foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
+            console.log('slideDetectDirection() | NEXT');
+          });
+          foregroundSlider.addEventListener('slideprevtransitionend', (event) => {
+            console.log('slideDetectDirection() | PREV');
+          });
+        }
+
         foregroundSlider.addEventListener('slidechange', (event) => {
-          console.log('slide changed');
+          //console.log('slide changed');
           slideDetect();
         });
+
         function scrollDetect(){
           window.onwheel = e => {
             if(e.deltaY >= 0){
@@ -117,11 +186,8 @@ export default function PageSlider({
           }
         }
         
-
-
       //control functions
         //NOTE: only foreground slider needs to move, they're tied together
-        //Run 
         function nextSlide(){
           foregroundSlider.swiper.slideNext();
           //slideDetect();
@@ -134,6 +200,7 @@ export default function PageSlider({
     //on-load actions, run immediately
       slideDetect();
       scrollDetect();
+      slideDetectDirection();
       //foregroundSlider.setAttribute('focusableElements', 'p');
 
     //click actions
@@ -145,11 +212,10 @@ export default function PageSlider({
       });
       controlInitial.addEventListener('click', () => {
         nextSlide();
-        //controlInitial.setAttribute("data-visible", "false");
       });
 
     
-
+    
   });
 
   return (
@@ -187,8 +253,13 @@ export default function PageSlider({
             <Slide5Foreground/>
           </swiper-slide>
 
-          <div className={componentStyles.lineElement}>
-            <img src="/images/line-full-length.png" alt=""/>
+          <div id="lineElement" className={componentStyles.lineElement}>
+            {/*<img src="/images/line-full-length.svg" alt=""/>*/}
+
+            <svg width="11634" height="712" viewBox="0 0 11634 712" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-17.9685 422.119C297.914 250.22 888.515 399.178 1132.02 484.711C1408.93 581.977 1863.71 510.741 2213.3 359.528C2503.05 234.201 2893.09 306.605 3273.44 543.329C3654.94 780.76 4229.11 732.821 4602.06 552.27C5012.51 353.562 5212.09 301.659 5563.9 310.845C5975.09 321.581 7085.35 670.284 7566.72 478.175C8048.86 285.758 8324.12 -150.791 9139.64 65.4463C9782.08 235.791 10028.5 458.259 10557 423.113C10953.2 396.766 11056.4 118.655 11633 101.213" stroke="#00DBBE" strokeWidth="12.87"/>
+            </svg>
+
           </div>
         </swiper-container>
       </div>

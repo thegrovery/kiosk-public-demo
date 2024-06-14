@@ -221,3 +221,12 @@ body{
     //default colors, might change later
   }
 }
+
+
+body{
+  @keyframes lineDraw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
