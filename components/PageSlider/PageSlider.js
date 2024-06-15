@@ -59,7 +59,7 @@ export default function PageSlider({
       let length = path.getTotalLength();
       let screenWidth = window.screen.availWidth;
       let numberOfSlides = 5;
-      let timePerSlide = 2500; //in ms
+      let timePerSlide = 2200; //in ms
       let totalTime = timePerSlide * numberOfSlides;
 
       //console logs
@@ -70,14 +70,15 @@ export default function PageSlider({
       console.log("timePerSlide: ", timePerSlide);
       console.log("totalTime: ", totalTime);
 
-      //set dynamic CSS
+      //CSS animation settings
       path.style.strokeDasharray = length;
       path.style.strokeDashoffset = length;
       path.style.animationName = "lineDraw";
-      path.style.animationDuration = "15s";
+      path.style.animationDuration = "10s";
       //path.style.animationDelay = "1s";
+      path.style.animationTimingFunction = "linear"
       path.style.animationDirection = "forward"
-      path.style.animationIterationCount = "infinite"
+      path.style.animationIterationCount = "1"
       path.style.animationPlayState = "paused";
       
       function lineDrawStart(){
@@ -88,7 +89,7 @@ export default function PageSlider({
           path.style.animationPlayState = "running";
         }, 2000); //time in ms
 
-
+        //initial animation + delay time
         setTimeout(() => {
           path.style.animationPlayState = "paused";
         }, timePerSlide + 2000); //time in ms
@@ -101,6 +102,16 @@ export default function PageSlider({
           path.style.animationPlayState = "paused";
         }, timePerSlide); //time in ms
       }
+
+      function lineDrawSectionShort(){
+        path.style.animationPlayState = "running";
+
+        setTimeout(() => {
+          path.style.animationPlayState = "paused";
+        }, timePerSlide *0.45); //time in ms
+      }
+
+
 
       //Run functions
         lineDrawStart();
@@ -149,6 +160,7 @@ export default function PageSlider({
               console.error("error: out of bounds for control scheme")
             }
         }
+
         function slideDetect(){
           let currentSlide = foregroundSlider.swiper.activeIndex;
           currentSlide = currentSlide +1; // +1 to account for 0 index
@@ -159,8 +171,21 @@ export default function PageSlider({
         }
 
         function slideDetectDirection(){
+          let lastSlide = false;
+          foregroundSlider.addEventListener('reachend', (event) => {
+            console.log(' ==== lastSlide ===== ');
+            //lineDrawSectionShort();
+            lastSlide = true;
+          });
+
           foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
             console.log('slideDetectDirection() | NEXT');
+            if(lastSlide == true){
+              lineDrawSectionShort();
+            }else{
+              lineDrawSection();
+            }
+            
           });
           foregroundSlider.addEventListener('slideprevtransitionend', (event) => {
             console.log('slideDetectDirection() | PREV');
