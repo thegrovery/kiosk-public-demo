@@ -1,5 +1,5 @@
 /*===== Components =====*/
-import React from "react"
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 
 
@@ -16,6 +16,12 @@ export default function Slide5Foreground({
 }) {
 
   //console.log(author);
+  useEffect(() => {
+
+   
+
+  })
+  
 
   return (
     <div className={componentStyles.Slide5Foreground}>
@@ -35,9 +41,10 @@ export default function Slide5Foreground({
               <p>
                 Elevate your conference engagements to new heights with The Grovery's XpoConnect, a strategic, streamlined, and results-driven solution for your events.
               </p>
-              <a 
-                href="#"
+              <a
+                id="ContactModalOpen" 
                 className={componentStyles.button}
+                data-modal-open='support'
               >Contact Us</a>
             </div>
             

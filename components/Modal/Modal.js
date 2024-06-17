@@ -4,6 +4,7 @@ import Link from 'next/link'
 import PDFModal from './PDFModal'
 import InactivityModal from './InactivityModal'
 import SupportModal from './SupportModal'
+import ContactModal from './ContactModal'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -60,6 +61,7 @@ export default function Modal({
       <div className={componentStyles.modalInner}>
         <SupportModal />
         <PDFModal  />
+        <ContactModal/>
         <InactivityModal />
 
       </div>

@@ -268,6 +268,7 @@ export default function PageSlider({
           id="foregroundSlider"
           scrollbar="true"
           controller-control="#backgroundSlider"
+          preventClicks="false"
         >
           <swiper-slide>
             <Slide1Foreground/>
