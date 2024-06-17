@@ -61,6 +61,8 @@ export default function PageSlider({
       let numberOfSlides = 5;
       let timePerSlide = 2200; //in ms
       let totalTime = timePerSlide * numberOfSlides;
+      let lastSlide = false;
+      let lastSlideExecute = false;
 
       //console logs
       console.log("line path length: ", length);
@@ -171,7 +173,7 @@ export default function PageSlider({
         }
 
         function slideDetectDirection(){
-          let lastSlide = false;
+          
           foregroundSlider.addEventListener('reachend', (event) => {
             console.log(' ==== lastSlide ===== ');
             //lineDrawSectionShort();
@@ -180,8 +182,10 @@ export default function PageSlider({
 
           foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
             console.log('slideDetectDirection() | NEXT');
-            if(lastSlide == true){
+            if(lastSlide == true && lastSlideExecute != true){
+
               lineDrawSectionShort();
+              lastSlideExecute = true;
             }else{
               lineDrawSection();
             }
