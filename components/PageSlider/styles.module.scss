@@ -104,6 +104,7 @@ $buttonWidthShort: 12vw;
 		justify-content: flex-start;
 		align-items: center;
 		transition: $transitionMedium;
+		filter: $filterShadow1;
 
 		.text{
 			width: calc(100% - #{$safeZone});
