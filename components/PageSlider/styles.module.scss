@@ -32,6 +32,7 @@ $buttonWidthShort: 12vw;
 			transform: translate3d(0%, -50%, 0px);
 			width: 450vw;
 			z-index: -1;
+			filter: $filterShadow1;
 
 			svg{
 				path {
