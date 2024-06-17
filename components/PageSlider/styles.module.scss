@@ -32,6 +32,7 @@ $buttonWidthShort: 12vw;
 			transform: translate3d(0%, -50%, 0px);
 			width: 450vw;
 			z-index: -1;
+			filter: $filterShadow1;
 
 			svg{
 				path {
@@ -103,6 +104,7 @@ $buttonWidthShort: 12vw;
 		justify-content: flex-start;
 		align-items: center;
 		transition: $transitionMedium;
+		filter: $filterShadow1;
 
 		.text{
 			width: calc(100% - #{$safeZone});

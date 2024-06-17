@@ -182,12 +182,19 @@ export default function PageSlider({
 
           foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
             console.log('slideDetectDirection() | NEXT');
-            if(lastSlide == true && lastSlideExecute != true){
-
-              lineDrawSectionShort();
-              lastSlideExecute = true;
+            if(lastSlide == true){
+              if(lastSlideExecute == true){
+                //do nothing, deactivates this code
+              } else{
+                lineDrawSectionShort();
+                lastSlideExecute = true;
+              }
+              console.log("lastSlide: ", lastSlide);
+              console.log("lastSlideExecute: ", lastSlideExecute);
             }else{
               lineDrawSection();
+              console.log("lastSlide: ", lastSlide);
+              console.log("lastSlideExecute: ", lastSlideExecute);
             }
             
           });

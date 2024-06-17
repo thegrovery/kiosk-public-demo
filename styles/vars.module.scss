@@ -129,6 +129,11 @@
 			-0.25em -0.25em 1em rgba($black, 0.1),
 			1em 1em 1em rgba($black, 0.25);
 
+		//Filter - use for non-standard shapes
+			$filterShadow1: drop-shadow(0.15rem 0.15rem 0.25rem rgba($black, 0.25)); 
+			$filterShadow2: drop-shadow(0.15rem 0.15rem 0.5rem rgba($black, 0.25)); 
+
+
 		/* source: https://brumm.af/shadows */
 		$niceShadow:
 			0 2.8px 2.2px rgba($black, 0.02),

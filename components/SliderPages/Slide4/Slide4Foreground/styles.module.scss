@@ -36,6 +36,7 @@
 		right: 10%;
 		bottom: 45%;
 		transform: translate3d(0%, 50%, 0px);
+		//filter: $filterShadow2;
 	}
 
 	.textElement{
@@ -57,6 +58,7 @@
 		align-items: center;
 		font-size: 0.65rem;
 		padding: 1em;
+		filter: $filterShadow2;
 
 		.triangle {
 		   width: 0px;
