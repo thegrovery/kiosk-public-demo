@@ -17,7 +17,7 @@
   import VersionNotice from '@components/UtilityComponents/VersionNotice'
   import PrecacheControl from '@components/UtilityComponents/PrecacheControl'
 
-  import Functions from '@components/Functions'
+  //import Functions from '@components/Functions'
 
 /*===== Styles =====*/
   import styles from './layout.module.scss'
@@ -296,8 +296,8 @@ export default function Layout({
       </VersionNotice>*/}
 
       {/*<PrecacheControl/>*/}
-      <Functions/>
-      
+      {/*<Functions/>
+*/}      
     </div>
   )
 }
