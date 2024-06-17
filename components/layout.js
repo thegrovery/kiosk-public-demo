@@ -296,8 +296,8 @@ export default function Layout({
       </VersionNotice>*/}
 
       {/*<PrecacheControl/>*/}
-      <Functions/>
-      
+      {/*<Functions/>
+*/}      
     </div>
   )
 }
