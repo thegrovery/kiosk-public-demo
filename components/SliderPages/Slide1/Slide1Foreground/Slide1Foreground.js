@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 
 //import Button1 from '@components/Button1'
+import Slide1Graphic from '@components/SVGComponents/Slide1Graphic'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -28,7 +29,11 @@ export default function Slide1Foreground({
         </div>
         
         <div className={componentStyles.slideLayoutLeft}>
-          <img src="/images/slide-1-background-asset.png" alt="" />         
+          {/*<img src="/images/slide-1-background-asset.png" alt="" />*/}
+          <div className={componentStyles.imageAsset}>
+            <Slide1Graphic/>
+          </div>
+                   
         </div>
 
       </div>

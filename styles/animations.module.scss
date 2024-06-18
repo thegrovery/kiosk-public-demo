@@ -6,9 +6,140 @@
 /*========================================*/
 @import "@styles/vars.module.scss";
 
-/* ================= */
+/* ========================== */
+/* ===== HTML/Body/Root ===== */
+/* ========================== */
+
+/* ============================== */
+/* ===== Slide 1 Animations ===== */
+/* ============================== */
+	#phone-blue-chat-bubble{
+		animation: slide-1-bump-1 5s infinite;
+		animation-delay: 0s;
+		z-index: 5;
+	}
+	#lightbulb-green-chat-bubble{
+		animation: slide-1-bump-2 5s infinite;
+		animation-delay: 0.15s;
+		z-index: 4;
+	}
+	#megaphones-orange-chat-bubble{
+		animation: slide-1-bump-3 5s infinite;
+		animation-delay: 0.3s;
+		z-index: 3;
+	}
+
+	/* ===== Animation Sequences ===== */
+		@keyframes slide-1-bump-1 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(-2vw, -2vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-1-bump-2 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(0vw, -2vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-1-bump-3 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(2vw, -2vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+
+/* ============================ */
+/* ===== Burst Animations ===== */
+/* ============================ */
+	#slide-3-burst1{
+		animation: burstBump1 5s infinite;
+		animation-delay: 0s;
+	}
+	#slide-3-burst2{
+		animation: burstBump2 5s infinite;
+		animation-delay: 0.15s;
+	}
+	#slide-3-burst3{
+		animation: burstBump3 5s infinite;
+		animation-delay: 0.3s;
+	}
+
+	/* ===== Animation Sequences ===== */
+		@keyframes burstBump1 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(-2vw, -2.5vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes burstBump2 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(-5vw, -0.15vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes burstBump3 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(-4vw, 1.5vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  
+		}
+
+/* ================== */
 /* ===== Clouds ===== */
-/* ================= */
+/* ================== */
 	.animateCloud1{
 		opacity: 0;
 		animation: 30s linear cloudMove infinite;
@@ -38,9 +169,9 @@
 	}
 
 
-/* ================ */
+/* ================= */
 /* ===== Trees ===== */
-/* ================ */
+/* ================= */
 	.animateTree1{
 		animation: 5s linear treeMove infinite;
 		transform-origin: bottom;
@@ -67,9 +198,9 @@
 	}
 
 
-/* ================== */
+/* =================== */
 /* ===== Windows ===== */
-/* ================== */
+/* =================== */
 	$lightColorOn: #00DFC3;
 	$lightColorOff: rgb(233, 225, 224);
 	.animateWindow1-1{

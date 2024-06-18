@@ -39,9 +39,9 @@ export default function Layout({
   
   useEffect(() => {
 
-    /* ============================= */
+    /* =============================== */
     /* ===== Global Action State ===== */
-    /* ============================= */
+    /* =============================== */
       //define function
       //revised, fully dynamic function
       function updateActionState(thread, stateValue, delay) {
@@ -81,9 +81,9 @@ export default function Layout({
         //updateActionState('load', 'load-sequence-complete', 5000);
 
     
-    /* ========================== */
+    /* =========================== */
     /* ===== Page Transition ===== */
-    /* ========================== */
+    /* =========================== */
         updateActionState('transition', 'visible', 1000);
         function pageTransition(url, delay){
           console.log("page-transition: " + url + " | "+ delay);
@@ -93,6 +93,7 @@ export default function Layout({
             router.push(url);
           }, delay);
         } //END pageTransition function
+
 
     /* ================================== */
     /* ===== Page Transition Clicks ===== */
@@ -212,9 +213,7 @@ export default function Layout({
         });
 
 
-
-  //END useEffect()
-  });
+  }); //END useEffect()
 
   return (
     <div 
