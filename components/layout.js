@@ -94,9 +94,9 @@ export default function Layout({
           }, delay);
         } //END pageTransition function
 
-    /* ================================= */
+    /* ================================== */
     /* ===== Page Transition Clicks ===== */
-    /* ================================= */
+    /* ================================== */
       /* ===== Link Clicks ===== */
         let url = "";
         let delay = 1000;
@@ -123,9 +123,9 @@ export default function Layout({
         });
 
     
-    /* ==================================== */
+    /* ====================================== */
     /* ===== Content Overflow Detection ===== */
-    /* ==================================== */
+    /* ====================================== */
       // Select all elements with the data-attribute "data-target"
       const elements = document.querySelectorAll('[data-overflow-detect]');
 
@@ -161,9 +161,9 @@ export default function Layout({
         });
 
 
-    /* ================================= */
+    /* ================================== */
     /* ===== Browser/Device Detect  ===== */
-    /* ================================= */
+    /* ================================== */
         function deviceDetect(){
           let element = document.querySelector("#LayoutOuter");
           if(isTablet){
@@ -178,18 +178,21 @@ export default function Layout({
         }
         //run function
         deviceDetect();
-        
+ 
+
     /* ================================ */
     /* ===== Modal/Popup Controls ===== */
     /* ================================ */
       //define DOM targets
         let ModalWrapper = document.querySelector("#ModalWrapper");
         let ContactModalButton = document.querySelector("#ContactModalOpen");
+        let docBody = document.querySelector("body");
 
       //Open modal functions
         function ContactModalOpen(){
           ModalWrapper.setAttribute("data-modal-status", "active");
           ModalWrapper.setAttribute("data-modal-show", "ContactModal");
+          docBody.setAttribute("data-slider-scroll","false");
 
           //IMPORTANT: add function for turning off scroll detect on sliders
         }
@@ -199,13 +202,18 @@ export default function Layout({
           e.preventDefault();
           //$("#SupportModal").attr("data-modal-status", "inactive");
           ModalWrapper.setAttribute("data-modal-status", "inactive");
+          docBody.setAttribute("data-slider-scroll","true");
         }
 
+      //EventListeners
+        ContactModalButton.addEventListener('click', () => {
+         console.log("ContactModalButton event listener");
+         ContactModalOpen();
+        });
 
-      ContactModalButton.addEventListener('click', () => {
-       console.log("ContactModalButton event listener");
-       ContactModalOpen();
-      });
+
+
+  //END useEffect()
   });
 
   return (

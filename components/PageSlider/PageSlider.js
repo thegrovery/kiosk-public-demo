@@ -129,6 +129,7 @@ export default function PageSlider({
       const controlNext = document.querySelector('#control-next');
       const controlPrev = document.querySelector('#control-prev');
       const controlInitial = document.querySelector('#control-initial');
+      const docBody = document.querySelector('body');
       //control state vars
       const bodyTarget = document.querySelector('body');
       const controlStateAttr = 'data-control-state';
@@ -210,14 +211,18 @@ export default function PageSlider({
 
         function scrollDetect(){
           window.onwheel = e => {
-            if(e.deltaY >= 0){
-              // Wheel Down
-              console.log('Down');
-              nextSlide();
-            } else {
-              // Wheel Up
-              console.log('Up');
-              prevSlide();
+            if(docBody.getAttribute('data-slider-scroll') == 'false'){
+              //modal is open, no scrolling
+            }else{
+              if(e.deltaY >= 0){
+                // Wheel Down
+                console.log('Down');
+                nextSlide();
+              } else {
+                // Wheel Up
+                console.log('Up');
+                prevSlide();
+              }
             }
           }
         }
