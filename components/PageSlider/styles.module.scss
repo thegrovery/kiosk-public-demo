@@ -93,13 +93,13 @@ $buttonWidthShort: 12vw;
 	[data-visible="false"]{display: none;}
 
 	//Control Buttons
-	//NOTE: control state CSS is being set in the `main.scss` file, due it it using global <body> classes
+	//NOTE: control state CSS is being set in the `main.scss` file, due to it using global <body> classes
 	.controlButton{
 		$safeZone: 2em;
 		width: $buttonWidth;
 		border: solid 0.12em $offWhite;
-		border-radius: 1em;
-		padding: 1em 1em;
+		border-radius: 1rem;
+		padding: 1rem 1rem;
 		margin-bottom: 0.5em;
 		color: $limeGreen;
 		display: flex;

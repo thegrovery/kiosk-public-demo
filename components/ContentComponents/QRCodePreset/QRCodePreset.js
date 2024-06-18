@@ -39,7 +39,7 @@ export default function QRCodePreset({
           value={link ? link : "https://bms-kiosk-staging.netlify.app/"}
           size={256}
           bgColor="#ffffff"
-          fgColor="#212121"
+          fgColor="#1d1d1d"
           style={{ height:"auto", width:"200px" }}
          /* data-qr-code-tooltip
           data-tippy-content={toolTipText}

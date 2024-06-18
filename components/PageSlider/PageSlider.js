@@ -78,9 +78,9 @@ export default function PageSlider({
       path.style.animationName = "lineDraw";
       path.style.animationDuration = "10s";
       //path.style.animationDelay = "1s";
-      path.style.animationTimingFunction = "linear"
-      path.style.animationDirection = "forward"
-      path.style.animationIterationCount = "1"
+      path.style.animationTimingFunction = "linear";
+      path.style.animationDirection = "forward";
+      path.style.animationIterationCount = "1";
       path.style.animationPlayState = "paused";
       
       function lineDrawStart(){
@@ -211,7 +211,7 @@ export default function PageSlider({
 
         function scrollDetect(){
           window.onwheel = e => {
-            if(docBody.getAttribute('data-slider-scroll') == 'false'){
+            if(docBody.getAttribute('data-slider-scroll') === 'false'){
               //modal is open, no scrolling
             }else{
               if(e.deltaY >= 0){

@@ -10,7 +10,10 @@ import ResourcesForm from "@components/ResourcesForm";
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
 
-const formHtml = '<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script><script>hbspt.forms.create({region: "na1",      portalId: "39959608",formId: "a94bc5f2-8821-4981-bca9-8b00272101e9"});  </script>';
+/*const formHtml = '<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script><script>hbspt.forms.create({region: "na1",      portalId: "39959608",formId: "a94bc5f2-8821-4981-bca9-8b00272101e9"});  </script>';*/
+
+//new version
+const formHtml = '<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script><script>hbspt.forms.create({region: "na1",      portalId: "39959608",formId: "bd7c288a-968c-425f-8c43-b9e3fc25e60e"});  </script>';
 
 export default function ContactModal({ 
   //Props
@@ -21,6 +24,8 @@ export default function ContactModal({
   const modalClose = () => {
     const element = document.getElementById("ModalWrapper");
     element.setAttribute('data-modal-status', 'inactive');
+    const docBody = document.querySelector('body');
+    docBody.setAttribute("data-slider-scroll","false");
   }
 
   const closeClick = () => {
