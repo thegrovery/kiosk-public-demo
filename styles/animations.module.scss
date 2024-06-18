@@ -10,6 +10,71 @@
 /* ===== HTML/Body/Root ===== */
 /* ========================== */
 
+/* ============================== */
+/* ===== Slide 1 Animations ===== */
+/* ============================== */
+	#phone-blue-chat-bubble{
+		animation: slide-1-bump-1 5s infinite;
+		animation-delay: 0s;
+		z-index: 5;
+	}
+	#lightbulb-green-chat-bubble{
+		animation: slide-1-bump-2 5s infinite;
+		animation-delay: 0.15s;
+		z-index: 4;
+	}
+	#megaphones-orange-chat-bubble{
+		animation: slide-1-bump-3 5s infinite;
+		animation-delay: 0.3s;
+		z-index: 3;
+	}
+
+	/* ===== Animation Sequences ===== */
+		@keyframes slide-1-bump-1 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(-3vw, -3vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-1-bump-2 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(0vw, -3vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-1-bump-3 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(3vw, -3vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
 
 /* ============================ */
 /* ===== Burst Animations ===== */
