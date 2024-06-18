@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 
 //import Button1 from '@components/Button1'
+import Slide3Graphic from '@components/SVGComponents/Slide3Graphic'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -25,7 +26,8 @@ export default function Slide3Foreground({
         
         <div className={componentStyles.slideLayoutRight}>
           {/*right side*/}
-          <img className={componentStyles.imageAsset} src="/images/slide-3-background-asset.png" alt="" />
+          <img className={componentStyles.imageAsset} src="/images/slide-3-woman-lightbulb.png" alt="" />
+          <div className={componentStyles.extraGraphic}><Slide3Graphic/></div>
         </div>
         
         <div className={componentStyles.slideLayoutLeft}>
