@@ -86,6 +86,8 @@ $buttonWidthShort: 12vw;
 	bottom: 1vw;
 	left: 1vw;
 	z-index: 500;
+	-webkit-user-select: none;
+	user-select: none;
 	
 	//control states
 	[data-visible="false"]{display: none;}
