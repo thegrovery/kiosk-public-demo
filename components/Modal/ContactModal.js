@@ -25,7 +25,7 @@ export default function ContactModal({
     const element = document.getElementById("ModalWrapper");
     element.setAttribute('data-modal-status', 'inactive');
     const docBody = document.querySelector('body');
-    docBody.setAttribute("data-slider-scroll","false");
+    docBody.setAttribute("data-slider-scroll","true");
   }
 
   const closeClick = () => {
