@@ -179,7 +179,33 @@ export default function Layout({
         //run function
         deviceDetect();
         
+    /* ================================ */
+    /* ===== Modal/Popup Controls ===== */
+    /* ================================ */
+      //define DOM targets
+        let ModalWrapper = document.querySelector("#ModalWrapper");
+        let ContactModalButton = document.querySelector("#ContactModalOpen");
 
+      //Open modal functions
+        function ContactModalOpen(){
+          ModalWrapper.setAttribute("data-modal-status", "active");
+          ModalWrapper.setAttribute("data-modal-show", "ContactModal");
+
+          //IMPORTANT: add function for turning off scroll detect on sliders
+        }
+
+      //Close Modal Function (global)
+        function ModalClose(){
+          e.preventDefault();
+          //$("#SupportModal").attr("data-modal-status", "inactive");
+          ModalWrapper.setAttribute("data-modal-status", "inactive");
+        }
+
+
+      ContactModalButton.addEventListener('click', () => {
+       console.log("ContactModalButton event listener");
+       ContactModalOpen();
+      });
   });
 
   return (
@@ -296,8 +322,7 @@ export default function Layout({
       </VersionNotice>*/}
 
       {/*<PrecacheControl/>*/}
-      {/*<Functions/>
-*/}      
+      {/*<Functions/>*/}      
     </div>
   )
 }
