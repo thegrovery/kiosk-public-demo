@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 
 //import Button1 from '@components/Button1'
+import Slide2Graphic from '@components/SVGComponents/Slide2Graphic'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -24,7 +25,8 @@ export default function Slide2Foreground({
         
         <div className={componentStyles.slideLayoutRight}>
           {/*right side*/}
-          <img src="/images/slide-2-background-asset.png" alt=""/>
+          <img className={componentStyles.imageAsset} src="/images/slide-2-phone-with-mouth.png" alt=""/>
+          <div className={componentStyles.extraGraphic}><Slide2Graphic/></div>
         </div>
         
         <div className={componentStyles.slideLayoutLeft}>
