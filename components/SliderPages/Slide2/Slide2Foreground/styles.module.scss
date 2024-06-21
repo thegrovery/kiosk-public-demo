@@ -29,7 +29,7 @@
 		}
 	}
 
-	img{
+	.imageAsset{
 		width: 25vw;
 		height: auto;
 		position: absolute;
@@ -37,6 +37,15 @@
 		bottom: 0px;
 		transform: translate3d(-50%, 0%, 0px);
 		//filter: $filterShadow2;
+	}
+	.extraGraphic{
+		width: 16vw;
+		height: auto;
+		position: absolute;
+		right: 3%;
+		bottom: 17%;
+		transform: translate3d(0%, 0%, 0px);
+
 	}
 
 	.textElement{

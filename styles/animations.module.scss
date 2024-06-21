@@ -79,6 +79,85 @@
 /* ============================ */
 /* ===== Burst Animations ===== */
 /* ============================ */
+	#slide-2-burst1{
+		animation: slide-2-burstBump1 5s infinite;
+		animation-delay: 0s;
+	}
+	#slide-2-burst2{
+		animation: slide-2-burstBump2 5s infinite;
+		animation-delay: 0.15s;
+	}
+	#slide-2-burst3{
+		animation: slide-2-burstBump3 5s infinite;
+		animation-delay: 0.3s;
+	}
+	#slide-2-burst4{
+		animation: slide-2-burstBump4 5s infinite;
+		animation-delay: 0.45s;
+	}
+
+	/* ===== Animation Sequences ===== */
+		@keyframes slide-2-burstBump1 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(1vw, -0.5vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-2-burstBump2 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(1.5vw, 0.15vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-2-burstBump3 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(1.25vw, 0.5vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+		@keyframes slide-2-burstBump4 {
+		  0%, 100% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  25% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(1vw, 0.5vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(0vw, 0vw, 0vw);
+		  }
+		}
+
+
+/* ============================ */
+/* ===== Burst Animations ===== */
+/* ============================ */
 	#slide-3-burst1{
 		animation: burstBump1 5s infinite;
 		animation-delay: 0s;

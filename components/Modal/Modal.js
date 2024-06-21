@@ -32,11 +32,15 @@ export default function Modal({
   };*/
 
   //console.log(author);
+  
+
   const modalClose = () => {
     const element = document.getElementById("ModalWrapper");
     const iframe = document.getElementById("ModalIframe");
+    const docBody = document.querySelector('body');
     element.setAttribute('data-modal-status', 'inactive');
     iframe.setAttribute('src', '/images/BMSLogo.svg');
+    docBody.setAttribute("data-slider-scroll","true");
   }
 
   const closeClick = () => {

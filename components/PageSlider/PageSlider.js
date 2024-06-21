@@ -50,7 +50,12 @@ export default function PageSlider({
 
   useEffect(() => {
     //console.log(author);
-    
+    /*===== =================== =====*/
+    /*===== TOP-LEVEL VARIABLES =====*/
+    /*===== =================== =====*/
+      const foregroundSlider = document.querySelector('#foregroundSlider');
+      const backgroundSlider = document.querySelector('#backgroundSlider');
+
     /*===== ============================ =====*/
     /*===== LINE ANIMATION FUNCTIONALITY =====*/
     /*===== ============================ =====*/
@@ -78,14 +83,25 @@ export default function PageSlider({
       path.style.animationName = "lineDraw";
       path.style.animationDuration = "10s";
       //path.style.animationDelay = "1s";
-      path.style.animationTimingFunction = "linear"
-      path.style.animationDirection = "forward"
-      path.style.animationIterationCount = "1"
+      path.style.animationTimingFunction = "linear";
+      path.style.animationDirection = "forward";
+      path.style.animationIterationCount = "1";
       path.style.animationPlayState = "paused";
+
+      function sliderLock(){
+        console.log("sliderLock()");
+        foregroundSlider.allowSlideNext="false";
+        foregroundSlider.allowSlidePrev="false";
+      }
+      function sliderUnlock(){
+        console.log("sliderUnlock()");
+        foregroundSlider.allowSlideNext="true"
+        foregroundSlider.allowSlidePrev="true"
+      }
       
       function lineDrawStart(){
         path.style.animationPlayState = "paused";
-
+        sliderLock();
         //initial delay
         setTimeout(() => {
           path.style.animationPlayState = "running";
@@ -94,22 +110,26 @@ export default function PageSlider({
         //initial animation + delay time
         setTimeout(() => {
           path.style.animationPlayState = "paused";
+          sliderUnlock();
         }, timePerSlide + 2000); //time in ms
+        
       }
 
       function lineDrawSection(){
         path.style.animationPlayState = "running";
-
+        sliderLock();
         setTimeout(() => {
           path.style.animationPlayState = "paused";
+          sliderUnlock();
         }, timePerSlide); //time in ms
       }
 
       function lineDrawSectionShort(){
         path.style.animationPlayState = "running";
-
+        sliderLock();
         setTimeout(() => {
           path.style.animationPlayState = "paused";
+          sliderUnlock();
         }, timePerSlide *0.45); //time in ms
       }
 
@@ -124,8 +144,7 @@ export default function PageSlider({
     /*===== ==================== =====*/
 
     //define target elements
-      const foregroundSlider = document.querySelector('#foregroundSlider');
-      const backgroundSlider = document.querySelector('#backgroundSlider');
+      
       const controlNext = document.querySelector('#control-next');
       const controlPrev = document.querySelector('#control-prev');
       const controlInitial = document.querySelector('#control-initial');
@@ -211,7 +230,7 @@ export default function PageSlider({
 
         function scrollDetect(){
           window.onwheel = e => {
-            if(docBody.getAttribute('data-slider-scroll') == 'false'){
+            if(docBody.getAttribute('data-slider-scroll') === 'false'){
               //modal is open, no scrolling
             }else{
               if(e.deltaY >= 0){
