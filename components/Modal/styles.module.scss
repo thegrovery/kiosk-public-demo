@@ -342,6 +342,14 @@ $backdropColor: rgba($black, 0.25);
 			font-size: 1rem;
 			margin-bottom: 1rem;
 		}
+		a{
+			font-size: 0.65rem;
+			color: $black;
+			margin-top: 0.5em;
+			/*padding: 0.5em 1em;
+			background: $darkBlue;
+			border-radius: 0.5rem;*/
+		}
 	}
 
 	.modalFooter{

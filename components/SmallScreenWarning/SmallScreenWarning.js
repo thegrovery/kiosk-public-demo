@@ -18,9 +18,9 @@ export default function SmallScreenWarning({
        
        <Container>
          <div className={componentStyles.content}>
-           <img src="/images/BMSLogo.svg" alt="Bristol Myers Squibb - Access Support"/>
+           <img src="/images/grovery-logo-update.svg" alt="The Grovery - Creative Solutions"/>
             <p >
-             Looks like you're viewing this site on too small of a small screen.  This experience is meant to be viewed in landscape orientation on a large display or tablet, and doesn't quite  translate to small or portrait-oriented screens.
+             Looks like you're viewing this site on a screen that's too small. This experience is meant to be viewed in landscape orientation on a large display or tablet, and doesn't translate to small or portrait-oriented screens.
              <br/>
              <br/>
              Minimum size: 3:2 aspect ratio or 1000px wide.
