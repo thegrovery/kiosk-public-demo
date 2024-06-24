@@ -58,9 +58,9 @@ export default function ContactModal({
               <h3>Scan to <br/>Learn More:</h3>
               <QRCodePreset 
                 /*link="https://bms.claravine.com/global/599a76c9-d5ec-4ea5-98ba-683a3e967122"*/
-                link="https://thegrovery.com/?utm_source=kiosk_demo&utm_medium=qr_code_scan"
+                link="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_scan"
               />    
-              <a href="https://thegrovery.com/?utm_source=kiosk_demo&utm_medium=qr_code_link_click">[thegrovery.com]</a>          
+              <a href="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_link_click">[thegrovery.com/xpoconnect]</a>          
             </div>
 
           </div>
