@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 
 //import Button1 from '@components/Button1'
+import Slide5Graphic from '@components/SVGComponents/Slide5Graphic'
+
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -29,7 +31,8 @@ export default function Slide5Foreground({
         
         <div className={componentStyles.slideLayoutRight}>
           {/*right side*/}
-          <img className={componentStyles.imageAsset} src="/images/slide-5-background-asset.png" alt="" />
+          <img className={componentStyles.imageAsset} src="/images/watering-can-hand.png" alt="" />
+          <div className={componentStyles.extraGraphic}><Slide5Graphic/></div>
         </div>
         
         <div className={componentStyles.slideLayoutLeft}>
