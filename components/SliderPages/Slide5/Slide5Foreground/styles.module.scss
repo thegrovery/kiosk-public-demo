@@ -38,7 +38,15 @@
 		transform: translate3d(0%, 0%, 0px);
 		filter: $filterShadow2;
 	}
+	.extraGraphic{
+		width: 11vw;
+		height: auto;
+		position: absolute;
+		right: 11%;
+		bottom: 27%;
+		transform: translate3d(0%, 0%, 0px);
 
+	}
 	.textElement{
 		--size: 38vw;
 		width: var(--size);

@@ -216,6 +216,64 @@
 		  
 		}
 
+
+/* ================================== */
+/* ===== Watering Can Animation ===== */
+/* ================================== */
+	#slide-5-line1{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0s;
+	}
+	#slide-5-line2{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0.25s;
+	}
+	#slide-5-line3{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0.5s;
+	}
+	#slide-5-line4{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0s;
+	}
+	#slide-5-line5{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0.25s;
+	}
+	#slide-5-line6{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0.5s;
+	}
+	#slide-5-line7{
+		stroke-dasharray: 5;
+		animation: water-dash 5s linear reverse infinite;
+		animation-delay: 0s;
+	}
+	
+
+	/* ===== Animation Sequences ===== */
+		@keyframes water-dash {
+		  to {
+		    stroke-dashoffset: 100;
+		  }
+		}
+
+		
+
+
+
+
+/*====================================*/
+/*===== OLD - READY FOR DELETION =====*/
+/*====================================*/
+
+
 /* ================== */
 /* ===== Clouds ===== */
 /* ================== */
