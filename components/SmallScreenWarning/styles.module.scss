@@ -35,13 +35,15 @@
 	}
 
 	.content{
-		font-size: $fontSizeBody;
+		font-size: 1.5rem;
 		background-color: $white;
 		padding: 1em;
 		text-align: center;
 
 		img{
 			margin: 0 auto 1em;
+			max-width: 50vw;
+			width: 100%;
 		}
 	}
 }
