@@ -6,6 +6,8 @@
   import Link from 'next/link'
   import data from "@data/data.json"
   import $ from 'jquery'
+  import { GoogleTagManager } from '@next/third-parties/google'
+
 
 /*===== Theme Components =====*/
   import HeadAnalytics from '@components/HeadComponents/HeadAnalytics'
@@ -29,6 +31,8 @@
 /*===== Data Vars =====*/
   export const siteTitle = 'Grovery Kiosk Demo'
   export const siteData = data
+
+
 
 export default function Layout({ 
   //PROPS
@@ -277,6 +281,7 @@ export default function Layout({
           
           {/*<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" />*/}
           <link rel="shortcut icon" href="/favicon.ico" />
+           <GoogleTagManager gtmId="GTM-P9HZ9592" />
       </Head>
 
       <SmallScreenWarning/>
