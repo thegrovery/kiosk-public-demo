@@ -289,7 +289,7 @@ export default function Layout({
       {/*<SupportModal/>*/}
       <Modal/>
       
-      <IdleTimer/>
+      {/*<IdleTimer/>*/}
             
       {/* MAIN SECTION */}
       <main className={styles.main}>
