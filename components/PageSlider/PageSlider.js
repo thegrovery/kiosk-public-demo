@@ -153,6 +153,7 @@ export default function PageSlider({
       const bodyTarget = document.querySelector('body');
       const controlStateAttr = 'data-control-state';
       const controlColorAttr = 'data-control-color';
+      bodyTarget.setAttribute("data-reached-slide", "1");
 
 
     //simple combined functions for ease-of-use
@@ -185,10 +186,26 @@ export default function PageSlider({
 
         function slideDetect(){
           let currentSlide = foregroundSlider.swiper.activeIndex;
+          let reachedSlide = bodyTarget.getAttribute("data-reached-slide");
           currentSlide = currentSlide +1; // +1 to account for 0 index
-          bodyTarget.setAttribute("data-current-slide",currentSlide);
-          controlState(currentSlide);
-          console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
+            if(currentSlide <= reachedSlide){
+              //do nothing
+            } else {
+              reachedSlide = currentSlide;
+              bodyTarget.setAttribute("data-reached-slide", reachedSlide);
+              if(reachedSlide == 5){
+                lineDrawSectionShort();
+              }else{
+                lineDrawSection();
+              }
+              
+            }
+
+          //set new data
+            bodyTarget.setAttribute("data-current-slide",currentSlide);
+            controlState(currentSlide);
+          //debug info
+            console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
           //return currentSlide; 
         }
 
@@ -206,13 +223,13 @@ export default function PageSlider({
               if(lastSlideExecute == true){
                 //do nothing, deactivates this code
               } else{
-                lineDrawSectionShort();
+                //lineDrawSectionShort();
                 lastSlideExecute = true;
               }
               console.log("lastSlide: ", lastSlide);
               console.log("lastSlideExecute: ", lastSlideExecute);
             }else{
-              lineDrawSection();
+              //lineDrawSection();
               console.log("lastSlide: ", lastSlide);
               console.log("lastSlideExecute: ", lastSlideExecute);
             }
