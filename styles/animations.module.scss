@@ -20,12 +20,12 @@
 	}
 	#lightbulb-green-chat-bubble{
 		animation: slide-1-bump-2 5s infinite;
-		animation-delay: 0.15s;
+		animation-delay: 0.25s;
 		z-index: 4;
 	}
 	#megaphones-orange-chat-bubble{
 		animation: slide-1-bump-3 5s infinite;
-		animation-delay: 0.3s;
+		animation-delay: 0.5s;
 		z-index: 3;
 	}
 
@@ -85,15 +85,15 @@
 	}
 	#slide-2-burst2{
 		animation: slide-2-burstBump2 5s infinite;
-		animation-delay: 0.15s;
+		animation-delay: 0.25s;
 	}
 	#slide-2-burst3{
 		animation: slide-2-burstBump3 5s infinite;
-		animation-delay: 0.3s;
+		animation-delay: 0.5s;
 	}
 	#slide-2-burst4{
 		animation: slide-2-burstBump4 5s infinite;
-		animation-delay: 0.45s;
+		animation-delay: 0.75s;
 	}
 
 	/* ===== Animation Sequences ===== */
@@ -164,11 +164,11 @@
 	}
 	#slide-3-burst2{
 		animation: burstBump2 5s infinite;
-		animation-delay: 0.15s;
+		animation-delay: 0.25s;
 	}
 	#slide-3-burst3{
 		animation: burstBump3 5s infinite;
-		animation-delay: 0.3s;
+		animation-delay: 0.5s;
 	}
 
 	/* ===== Animation Sequences ===== */
@@ -214,6 +214,42 @@
 		    transform: translate3d(0vw, 0vw, 0vw);
 		  }
 		  
+		}
+
+/* ============================== */
+/* ===== Slide 1 Animations ===== */
+/* ============================== */
+	//$animationSettings: water-dash 5s linear reverse infinite;
+	#hand1{
+		animation: slide-4-hand1 5s infinite;
+		animation-delay: 0s;
+		position: relative;
+		right: -5vw;
+	}
+	#hand2{
+		animation: slide-4-hand1 5s infinite;
+		animation-delay: 0.25s;
+	}
+	#hand3{
+		animation: slide-4-hand1 5s infinite;
+		animation-delay: 0.5s;
+	}
+
+	/* ===== Animation Sequences ===== */
+		@keyframes slide-4-hand1 {
+		  0%, 100% {
+		    transform: translate3d(2vw, 0vw, 0vw);
+		  }
+
+		  25% {
+		    transform: translate3d(2vw, 0vw, 0vw);
+		  }
+		  50%{
+		  	transform: translate3d(2vw, 3vw, 0vw);
+		  }
+		  75% {
+		    transform: translate3d(2vw, 0vw, 0vw);
+		  }
 		}
 
 
