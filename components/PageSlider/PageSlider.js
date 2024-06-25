@@ -187,7 +187,7 @@ export default function PageSlider({
           let currentSlide = foregroundSlider.swiper.activeIndex;
           currentSlide = currentSlide +1; // +1 to account for 0 index
           bodyTarget.setAttribute("data-current-slide",currentSlide);
-          controlState(currentSlide)
+          controlState(currentSlide);
           console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
           //return currentSlide; 
         }
