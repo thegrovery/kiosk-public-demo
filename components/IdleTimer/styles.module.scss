@@ -103,13 +103,13 @@ $backdropColor: rgba($black, 0.25);
 		padding: $clampSmall;
 		font-size: $clampExtraSmall;
 
-		button{
+		/*button{
 			height: 95px;
 			width: 250px;
 			max-width: 100%;
 			position: relative;
 			background-color: $grey_2;
-			color: $white;
+			color: $black;
 			font-size: $clampSmall;
 			display: flex;
 			flex-direction: column;
@@ -121,6 +121,6 @@ $backdropColor: rgba($black, 0.25);
 			&:hover{
 				text-decoration: underline;
 			}
-		}
+		}*/
 	}
 }

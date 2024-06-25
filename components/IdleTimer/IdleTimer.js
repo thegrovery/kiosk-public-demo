@@ -139,7 +139,7 @@ export default function IdleTimer({
               <p>Resetting in {remaining} seconds</p>
             </div>
             <div className={componentStyles.buttonArea}>
-              <button onClick={handleStillHere}>KEEP BROWSING</button>
+              <button className="button" onClick={handleStillHere}>KEEP BROWSING</button>
             </div>
             
             
