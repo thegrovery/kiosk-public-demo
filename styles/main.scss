@@ -153,6 +153,18 @@
   }
 }
 
+.button{
+  color: $white;
+  background-color: $darkGreen;
+  padding: 0.5em 3em;
+  border-radius: 2em;
+  border: solid 3px $darkGreen;
+  font-size: 1rem;
+  &:hover{
+    //border: solid 3px $white;
+  }
+}
+
 
 /* =============================== */
 /* ===== Browser/Device Hide ===== */

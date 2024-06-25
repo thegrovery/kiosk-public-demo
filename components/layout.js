@@ -289,9 +289,7 @@ export default function Layout({
       {/*<SupportModal/>*/}
       <Modal/>
       
-      {/*{process.env.FEATURE_INACTIVITY_TIMER == true &&
-        <IdleTimer/>
-      }*/}
+      <IdleTimer/>
             
       {/* MAIN SECTION */}
       <main className={styles.main}>
