@@ -281,9 +281,9 @@ export default function Layout({
           
           {/*<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" />*/}
           <link rel="shortcut icon" href="/favicon.ico" />
-           <GoogleTagManager gtmId="GTM-P9HZ9592" />
+          
       </Head>
-
+      <GoogleTagManager gtmId="GTM-P9HZ9592" />
       <SmallScreenWarning/>
       {/*<FullScreenWidget/>*/}
       {/*<SupportModal/>*/}
