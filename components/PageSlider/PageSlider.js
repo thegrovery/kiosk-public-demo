@@ -277,7 +277,7 @@ export default function PageSlider({
 
     //on-load actions, run immediately
       slideDetect();
-      scrollDetect();
+      //scrollDetect();
       slideDetectDirection();
       //foregroundSlider.setAttribute('focusableElements', 'p');
 
@@ -311,6 +311,7 @@ export default function PageSlider({
           scrollbar="true"
           controller-control="#backgroundSlider"
           preventClicks="false"
+          mousewheel="true"
         >
           <swiper-slide>
             <Slide1Foreground/>
