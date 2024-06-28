@@ -189,10 +189,11 @@ export default function PageSlider({
           let reachedSlide = bodyTarget.getAttribute("data-reached-slide");
           currentSlide = currentSlide +1; // +1 to account for 0 index
             if(currentSlide <= reachedSlide){
-              //do nothing
+              //do nothing, already reached this slide
             } else {
               reachedSlide = currentSlide;
               bodyTarget.setAttribute("data-reached-slide", reachedSlide);
+              //check if last slide
               if(reachedSlide == 5){
                 lineDrawSectionShort();
               }else{
@@ -276,7 +277,7 @@ export default function PageSlider({
 
     //on-load actions, run immediately
       slideDetect();
-      scrollDetect();
+      //scrollDetect();
       slideDetectDirection();
       //foregroundSlider.setAttribute('focusableElements', 'p');
 
@@ -310,6 +311,7 @@ export default function PageSlider({
           scrollbar="true"
           controller-control="#backgroundSlider"
           preventClicks="false"
+          mousewheel="true"
         >
           <swiper-slide>
             <Slide1Foreground/>

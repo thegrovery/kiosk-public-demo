@@ -1,6 +1,6 @@
 @import "@styles/vars.module.scss";
 
-$qrCodeSize: clamp(100px, 1vw, 200px);
+$qrCodeSize: 10vw;
 $backgroundColor: $accentColor;
 $textColor: $white;
 
