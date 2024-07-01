@@ -312,24 +312,25 @@ export default function PageSlider({
           controller-control="#backgroundSlider"
           preventClicks="false"
           mousewheel="true"
+          hash-navigation="true"
         >
-          <swiper-slide>
+          <swiper-slide data-hash="slide1">
             <Slide1Foreground/>
           </swiper-slide>
 
-          <swiper-slide>
+          <swiper-slide data-hash="slide2">
             <Slide2Foreground/>
           </swiper-slide>
 
-          <swiper-slide>
+          <swiper-slide data-hash="slide3">
             <Slide3Foreground/>
           </swiper-slide>
 
-          <swiper-slide>
+          <swiper-slide data-hash="slide4">
             <Slide4Foreground/>
           </swiper-slide>
                     
-          <swiper-slide>
+          <swiper-slide data-hash="slide5">
             <Slide5Foreground/>
           </swiper-slide>
 
