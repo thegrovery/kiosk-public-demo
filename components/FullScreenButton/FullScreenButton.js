@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 
 //import Button1 from '@components/Button1'
-import FullScreenOpenIcon from '@components/SVGComponents/FullScreenOpenIcon'
-import FullScreenCloseIcon from '@components/SVGComponents/FullScreenCloseIcon'
+import FullscreenOpenIcon from '@components/SVGComponents/FullscreenOpenIcon'
+import FullscreenCloseIcon from '@components/SVGComponents/FullscreenCloseIcon'
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -83,10 +83,10 @@ export default function FullScreenButton({
       data-state="not-fullscreen"
     >
       <div className={componentStyles.open}>
-        <FullScreenOpenIcon/>
+        <FullscreenOpenIcon/>
       </div>
       <div className={componentStyles.close}>
-        <FullScreenCloseIcon/>
+        <FullscreenCloseIcon/>
       </div>
     </div>
   )
