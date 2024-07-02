@@ -16,6 +16,7 @@
   import Modal from '@components/Modal'
   import SmallScreenWarning from '@components/SmallScreenWarning'
   import IdleTimer from '@components/IdleTimer'
+  import FullScreenButton from '@components/FullScreenButton'
   import VersionNotice from '@components/UtilityComponents/VersionNotice'
   import PrecacheControl from '@components/UtilityComponents/PrecacheControl'
 
@@ -288,6 +289,7 @@ export default function Layout({
       {/*<FullScreenWidget/>*/}
       {/*<SupportModal/>*/}
       <Modal/>
+      <FullScreenButton/>
       
       {/*<IdleTimer/>*/}
             
