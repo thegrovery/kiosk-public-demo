@@ -1,0 +1,40 @@
+@import "@styles/vars.module.scss";
+
+.AnalyticsTestButton{
+	position:fixed;
+	right: 5vw;
+	bottom: 1vw;
+	z-index: 1000;
+	background-color: $darkGreen;
+	border: solid 0.12em $offWhite;
+	border-radius: 0.5rem;
+	padding: 0.25rem;
+	margin-bottom: 0.5em;
+	color: $limeGreen;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	transition: $transitionMedium;
+	filter: $filterShadow1;
+	svg{
+		height: auto;
+		width: 1rem;
+	}
+	.close{
+		display: none;
+	}
+	.open{
+		display: none;
+	}
+
+	&[data-state="fullscreen"]{
+		.close{
+			display: block;
+		}
+	}
+	&[data-state="not-fullscreen"]{
+		.open{
+			display: block;
+		}
+	}
+}

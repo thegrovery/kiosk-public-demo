@@ -21,6 +21,8 @@
   import PrecacheControl from '@components/UtilityComponents/PrecacheControl'
 
   //import Functions from '@components/Functions'
+  import Analytics from '@components/Analytics'
+  import AnalyticsTestButton from '@components/AnalyticsTestButton'
 
 /*===== Styles =====*/
   import styles from './layout.module.scss'
@@ -43,6 +45,10 @@ export default function Layout({
 }) {
   
   useEffect(() => {
+    /* ===== NOTES: ===== */
+    /*
+      Major functions are stored in the layout file here to keep them running only once in a single page app setting, otherwise they run multiple times per action
+    */
 
     /* =============================== */
     /* ===== Global Action State ===== */
@@ -290,6 +296,7 @@ export default function Layout({
       {/*<SupportModal/>*/}
       <Modal/>
       <FullScreenButton/>
+      <AnalyticsTestButton/>
       
       {/*<IdleTimer/>*/}
             
@@ -334,7 +341,8 @@ export default function Layout({
       </VersionNotice>*/}
 
       {/*<PrecacheControl/>*/}
-      {/*<Functions/>*/}      
+      {/*<Functions/>*/} 
+      <Analytics/>     
     </div>
   )
 }
