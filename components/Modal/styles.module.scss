@@ -77,7 +77,8 @@ $backdropColor: rgba($black, 0.25);
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 75%;
-	min-width: 1000px;
+	//min-width: 1000px;
+	max-width: 100%;
 	z-index: 2;
 	display: flex;
 	justify-content: center;
@@ -270,17 +271,19 @@ $backdropColor: rgba($black, 0.25);
 	}
 }
 
+
+//SEARCH: ContactModal
 .ContactModal{
 	position: relative;
 	height: 100%;
 	width: 100%;
 	background-color: $white;
-	padding: $clampLarge $clampExtraLarge;
+	padding: 1rem;
 	border-radius: 3px;
 	.scroll{
 		overflow-y: auto;
 		max-height: 85vh;
-		padding: $clampMedium;
+		padding: 0 1vw;
 	}
 
 	.closeButton{
@@ -311,8 +314,8 @@ $backdropColor: rgba($black, 0.25);
 
 	.splitLayout{
 		display: flex;
-		justify-content: center;
-		align-items: flex-start;
+		//justify-content: center;
+		//align-items: flex-start;
 		.left{
 			width: 50%;
 			padding: 0.5rem 1rem;
@@ -323,7 +326,7 @@ $backdropColor: rgba($black, 0.25);
 		}
 		.right{
 			width: 50%;
-			padding: 0.5rem 0.5rem 2rem;
+			padding: 0.5rem 2.5rem 2rem 2.5rem;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;

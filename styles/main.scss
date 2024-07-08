@@ -85,7 +85,7 @@
 /* ====================== */
   html{
 
-    a {
+    a{
       color:  $black;
       text-decoration: none;
       cursor: pointer;
@@ -249,6 +249,14 @@
 /* ============================ */
 
 #ContactForm{
+  height: 100%;
+  width: 100%;
+  >div{
+    height: 100%;
+    >.hbspt-form{
+      height: 100%;
+    }
+  }
   //labels
   label span{
     font-size: 0.65rem;
@@ -262,11 +270,16 @@
     border: solid 3px $black;
     border-radius: 0.5rem;
     padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  textarea::placeholder{
+    opacity: 0.65;
   }
   //submit button
   .hs-button{
     color: $white;
     background-color: $darkBlue;
+    font-size: 0.85rem;
     padding: 0.5em 3em;
     margin-top: 0.5em;
     border-radius: 2em;
@@ -282,5 +295,25 @@
   .hs-error-msgs{
     font-size: 0.5rem;
     list-style: none;
+  }
+
+  .submitted-message {
+    height: 100%;
+    width: 100%;
+    border: solid 3px $black;
+    border-radius: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    h3{
+      font-size: 1rem;
+    }
+    p{
+      font-size: 0.65rem;
+    }
   }
 }
