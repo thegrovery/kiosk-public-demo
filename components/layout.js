@@ -6,13 +6,17 @@
   import { router } from 'next/router'
   import Link from 'next/link'
   import data from "@data/data.json"
+
+/*===== 3rd Party JS Code =====*/
+  //import interact from 'interactjs'
+  import {isTablet, isSafari, isIPad13} from 'react-device-detect';
   import $ from 'jquery'
   import { GoogleTagManager } from '@next/third-parties/google'
 
 
 /*===== Theme Components =====*/
-  import HeadAnalytics from '@components/HeadComponents/HeadAnalytics'
-  import HeadPWA from '@components/HeadComponents/HeadPWA'
+  //import HeadAnalytics from '@components/HeadComponents/HeadAnalytics'
+  //import HeadPWA from '@components/HeadComponents/HeadPWA'
   //import Sidebar from '@components/Sidebar'
   import Modal from '@components/Modal'
   import SmallScreenWarning from '@components/SmallScreenWarning'
@@ -28,9 +32,7 @@
 /*===== Styles =====*/
   import styles from './layout.module.scss'
 
-/*===== JS Code =====*/
-  import interact from 'interactjs'
-  import {isTablet, isSafari, isIPad13} from 'react-device-detect';
+
 
 /*===== Data Vars =====*/
   export const siteTitle = 'Grovery Kiosk Demo'
@@ -249,9 +251,7 @@ export default function Layout({
             name="description"
             content="Demo site for The Grovey's KIOSK product. A lightweight website that acts as a full-screen informational experience for in-person events and unique campaigns."
           />
-          <meta property="og:image"
-            content={`/images/BMSLogo.svg`}
-          />
+          <meta property="og:image" content={`/images/BMSLogo.svg`}/>
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
 
@@ -260,8 +260,8 @@ export default function Layout({
           <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
 
         {/*COMPONENT IMPORTS*/}
-          <HeadAnalytics/>
-          <HeadPWA/>
+          {/*<HeadAnalytics/>
+          <HeadPWA/>*/}
 
         {/*PWA-RELATED*/}
           <link rel="manifest" href="/manifest.json" />
@@ -291,59 +291,44 @@ export default function Layout({
           <link rel="shortcut icon" href="/favicon.ico" />
           
       </Head>
-      <GoogleTagManager gtmId="GTM-P9HZ9592" />
-      <SmallScreenWarning/>
-      {/*<FullScreenWidget/>*/}
-      {/*<SupportModal/>*/}
-      <Modal/>
-      <FullScreenButton/>
-      {/*<AnalyticsTestButton/>*/}
+
+      {/*Analytics Connection*/}
+        <GoogleTagManager gtmId="GTM-P9HZ9592" />
+
+      {/*Popups, Modals, Floating Buttons*/}
+        <SmallScreenWarning/>
+        {/*<FullScreenWidget/>*/}
+        {/*<SupportModal/>*/}
+        <Modal/>
+        <FullScreenButton/>
       
-      {/*<IdleTimer/>*/}
+      {/*Comment/Uncomment to control if IdleTimer is present*/}
+      {/*Keep commented while working on development*/}
+        {/*<IdleTimer/>*/}
             
       {/* MAIN SECTION */}
       <main className={styles.main}>
         
-          {/* BREADCRUMBS */}
-          {/*{!home && (
-            <Container>
-              <div className={styles.backToHome}>
-                <Link href="/">
-                  <a>← Back to home</a>
-                </Link>
-              </div>
-            </Container>
-          )}*/}
-          
-          <div id="mainContent" className={styles.mainContent}>
-            {children}
-          </div>
+        {/* BREADCRUMBS */}
+        {/*{!home && (
+          <Container>
+            <div className={styles.backToHome}>
+              <Link href="/">
+                <a>← Back to home</a>
+              </Link>
+            </div>
+          </Container>
+        )}*/}
+        
+        <div id="mainContent" className={styles.mainContent}>
+          {children}
+        </div>
 
-          
-  
       </main>
 
-      {/*<section className={styles.footer}>
-        <Footer/>
-      </section>*/}
-      
-      {/* VERSION NOTICE */}
-      {/*<VersionNotice
-        projectName="Kiosk Template"
-        versionNumber="0.9.1"
-        updatePercentComplete="50%"
-        totalPercentComplete="91%"
-      >
-        <ul>
-          <li>Previous Update - BMS project finalization</li>
-          <li>Latest Update - Template creation</li>
-          <li>Next Update - Placeholder Content & Data files</li>
-        </ul>
-      </VersionNotice>*/}
+      {/*Internal JS Scripts*/}
+        <Script src="/scripts/analytics.js" /> 
 
-      {/*<PrecacheControl/>*/}
-      {/*<Functions/>*/} 
-      <Script src="/scripts/analytics.js" />    
     </div>
   )
 }

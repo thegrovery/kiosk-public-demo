@@ -2,22 +2,24 @@
 /*
   CUSTOM ANALYTICS EVENTS 
   - Connects to Google Analytics via Google Tag Manager
-  - Notes content
+  - "eventName" variable - MUST match the "Event contains" value in 
+    the "Custom GA Event Trigger" trigger in Google Tag Manager. 
+    This then triggers the "Custom GA Event Passer" tag that 
+    sends the data to Google Analytics as an event.
 */
 /* ============================================================ */
 
 //console.log test script file connection
 //console.log("===== analytics.js file working!!! =====");
 
-/* ===== =============== ===== */
-/* ===== EVENT FUNCTIONS ===== */
-/* ===== =============== ===== */
+/* ===== ========================= ===== */
+/* ===== ANALYTICS EVENT FUNCTIONS ===== */
+/* ===== ========================= ===== */
 
-  /* ===== MAIN FUNCTION ===== */
+  /* ===== Main Function - Event Pusher ===== */
     function AnalyticsEvent(eventCat, eventLab, eventAct, eventVal){
-      //Set vars
-      let eventName = "GAEvent"; //GTM keys off of this, must match the "Event" value in the GTM tag that passes on the event data
-
+      //Set vars - event name & sub-parameters
+      const eventName = "GAEvent"; //static, do not update
       eventCat = eventCat || 'no_category'; //gives default/fallback value
       eventLab = eventLab || 'no_label';
       eventAct = eventAct || 'no_action';
@@ -34,7 +36,7 @@
       console.groupEnd();
 
       try {
-       //Fire event
+       //Push event to datalayer
        window.dataLayer = window.dataLayer || [];
        dataLayer.push({
          'event':          eventName,
@@ -43,24 +45,16 @@
          'eventLabel':     eventLab,
          'eventValue':     eventVal,
        });
-
-       console.log("===== GA Event Pushed =====");
-
+       console.log("===== Custom Analytics Event Pushed =====");
       } catch (e) {
-       console.log("===== GA Event Error =====");
+       console.log("===== Custom Analytics Event Error =====");
       }
     };
 
 
   /* ===== HELPER FUNCTIONS ===== */
-    
-    /* ===== Returns the hash value of the current URL ===== */
-    function hasURLHash(hash) {
-      const searchHash = window.location.hash;
-      return hash;
-    }
 
-    /* ===== Returns the hash value of the current URL ===== */
+    /* ===== Formats the slide ID hash into the desired eventLabel format ===== */
     function slideHashEventLabel(hashValue){
       //define vars
       let eventLabel = "default_value";
@@ -70,7 +64,7 @@
         return inputString.replace(/#/g, '');
       }
 
-      //format hash value into event label
+      //format hash value into event label syntax
       hashValue = removeHash(hashValue);
       eventLabel = hashValue+"_view";
 
@@ -83,29 +77,33 @@
 /* ===== ========================== ===== */
 /* ===== TRIGGERS - EVENT LISTENERS ===== */
 /* ===== ========================== ===== */
-//NOTE: maybe remove control button events in favor of single hash change detect event
 
   /* ===== Primary "Page View" Event Trigger ===== */ 
     //NOTE: site is based on in-page slides, not pages. This allows us to measure "page views"
-    //hash navigation/url update detect 
+    //'popstate' detects hash navigation/url update 
     window.addEventListener('popstate', function (event) {
       //grab current URL hash, then send through formatter function
       let hashNav = window.location.hash;
       let slideViewEvent = slideHashEventLabel(hashNav);
       
       //console.log displays
-        //console.log(hashNav);
-        //console.log(slideViewEvent);
+        //console.log("hashNav: "+hashNav);
+        //console.log("slideViewEvent: "+slideViewEvent);
 
       //event settings
       let eventCat = "slide_navigation";
       let eventLab = slideViewEvent;
-      let eventAct = "navigation";
+      let eventAct = "in_page_navigation";
       let eventVal = "n_a";
       AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
     }, false);
 
+/* ===== =============================== ===== */
+/* ===== Deprecated but saving for later ===== */
+/* ===== =============================== ===== */
+
   /* ===== Define target element vars ===== */
+    //control buttons
     const controlNext = document.querySelector('#control-next');
     const controlPrev = document.querySelector('#control-prev');
     const controlInitial = document.querySelector('#control-initial');
