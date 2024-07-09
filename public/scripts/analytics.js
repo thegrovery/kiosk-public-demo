@@ -28,11 +28,13 @@ console.log("Analytics.js file working!!!");
 
   function TestAnalyticsEvent(targetElement){
     //Set vars
-    let eventName = "eventName";
-    let eventCat = "eventCat";
-    let eventAct = "eventAct";
-    let eventLab = "eventLab";
-    let eventVal = "eventVal";
+    let eventName = "GAEvent";
+    let eventCat = "test_eventCat";
+    let eventAct = "test_eventAct";
+    let eventLab = "test_eventLab";
+    let eventVal = "test_eventVal";
+
+    console.log("GA Event fired - Event Name: ["+eventName+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
 
     try {
      //Fire event
@@ -45,7 +47,7 @@ console.log("Analytics.js file working!!!");
        'eventValue':     eventVal,
      });
 
-     console.log("GA Event fired - Event Name: ["+eventName+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
+     console.log("GA Event Pushed");
 
     } catch (e) {
      console.log("GA Event Error");
