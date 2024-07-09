@@ -281,9 +281,11 @@ export default function PageSlider({
 
     /*===== RUN FUNCTIONS =====*/
       //on-load actions, run immediately
+      //firstSlide();
       slideDetect();
       //scrollDetect(); //deprecated in favor of swiper scroll method
       slideDetectDirection();
+
         
       //click actions
       controlNext.addEventListener('click', () => {
