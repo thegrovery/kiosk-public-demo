@@ -45,11 +45,9 @@
          'eventLabel':     eventLab,
          'eventValue':     eventVal,
        });
-
-       console.log("===== GA Event Pushed =====");
-
+       console.log("===== Custom Analytics Event Pushed =====");
       } catch (e) {
-       console.log("===== GA Event Error =====");
+       console.log("===== Custom Analytics Event Error =====");
       }
     };
 
