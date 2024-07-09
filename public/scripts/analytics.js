@@ -34,7 +34,7 @@ console.log("Analytics.js file working!!!");
     let eventLab = "test_eventLab";
     let eventVal = "test_eventVal";
 
-    console.log("GA Event fired - Event Name: ["+eventName+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
+    console.log("GA Event triggered - Event Name: ["+eventName+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
 
     try {
      //Fire event
