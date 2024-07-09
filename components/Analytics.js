@@ -42,7 +42,7 @@ export default function Analytics({
 
     function TestAnalyticsEvent(targetElement){
       //Set vars
-      let eventName = "eventName";
+      let eventName = "custom_event_test";
       let eventCat = "eventCat";
       let eventAct = "eventAct";
       let eventLab = "eventLab";

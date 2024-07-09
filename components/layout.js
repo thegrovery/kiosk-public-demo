@@ -1,5 +1,6 @@
 /*===== Ultility Components =====*/
   import React, { useState, useEffect } from 'react';
+  import Script from 'next/script'
   import Head from 'next/head'
   import Image from 'next/image'
   import { router } from 'next/router'
@@ -21,7 +22,7 @@
   import PrecacheControl from '@components/UtilityComponents/PrecacheControl'
 
   //import Functions from '@components/Functions'
-  import Analytics from '@components/Analytics'
+  //import Analytics from '@components/Analytics'
   import AnalyticsTestButton from '@components/AnalyticsTestButton'
 
 /*===== Styles =====*/
@@ -342,7 +343,7 @@ export default function Layout({
 
       {/*<PrecacheControl/>*/}
       {/*<Functions/>*/} 
-      <Analytics/>     
+      <Script src="/scripts/analytics.js" />    
     </div>
   )
 }
