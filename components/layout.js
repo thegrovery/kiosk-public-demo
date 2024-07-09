@@ -6,13 +6,17 @@
   import { router } from 'next/router'
   import Link from 'next/link'
   import data from "@data/data.json"
+
+/*===== 3rd Party JS Code =====*/
+  //import interact from 'interactjs'
+  import {isTablet, isSafari, isIPad13} from 'react-device-detect';
   import $ from 'jquery'
   import { GoogleTagManager } from '@next/third-parties/google'
 
 
 /*===== Theme Components =====*/
-  import HeadAnalytics from '@components/HeadComponents/HeadAnalytics'
-  import HeadPWA from '@components/HeadComponents/HeadPWA'
+  //import HeadAnalytics from '@components/HeadComponents/HeadAnalytics'
+  //import HeadPWA from '@components/HeadComponents/HeadPWA'
   //import Sidebar from '@components/Sidebar'
   import Modal from '@components/Modal'
   import SmallScreenWarning from '@components/SmallScreenWarning'
@@ -28,9 +32,7 @@
 /*===== Styles =====*/
   import styles from './layout.module.scss'
 
-/*===== 3rd Party JS Code =====*/
-  //import interact from 'interactjs'
-  import {isTablet, isSafari, isIPad13} from 'react-device-detect';
+
 
 /*===== Data Vars =====*/
   export const siteTitle = 'Grovery Kiosk Demo'
@@ -326,7 +328,7 @@ export default function Layout({
 
       {/*Internal JS Scripts*/}
         <Script src="/scripts/analytics.js" /> 
-           
+
     </div>
   )
 }
