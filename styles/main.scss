@@ -224,16 +224,28 @@
     /*===== secondary control track - colors =====*/
     &[data-control-color="darkBlueBackground"]{
       //default colors
+      #control-prev,
+      #control-next,
+      #control-initial,
+      #control-back-to-start{
+        background-color: $darkBlue;
+      }
     }
     &[data-control-color="whiteBackground"]{
       #control-prev,
       #control-next,
-      #control-initial{
+      #control-initial,
+      #control-back-to-start{
         background-color: $darkBlue;
       }
     }
     &[data-control-color="lightBlueBackground"]{
-      //default colors, might change later
+      #control-prev,
+      #control-next,
+      #control-initial,
+      #control-back-to-start{
+        background-color: $midBlue;
+      }
     }
   }
 
