@@ -136,6 +136,7 @@ export default function PageSlider({
 
 
       //Run functions
+        foregroundSlider.swiper.slideTo(0, 0);
         lineDrawStart();
         //lineDrawSection();
 
@@ -281,7 +282,6 @@ export default function PageSlider({
 
     /*===== RUN FUNCTIONS =====*/
       //on-load actions, run immediately
-      //firstSlide();
       slideDetect();
       //scrollDetect(); //deprecated in favor of swiper scroll method
       slideDetectDirection();
