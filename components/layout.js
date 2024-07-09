@@ -297,7 +297,7 @@ export default function Layout({
       {/*<SupportModal/>*/}
       <Modal/>
       <FullScreenButton/>
-      <AnalyticsTestButton/>
+      {/*<AnalyticsTestButton/>*/}
       
       {/*<IdleTimer/>*/}
             
