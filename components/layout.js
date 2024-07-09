@@ -1,5 +1,6 @@
 /*===== Ultility Components =====*/
   import React, { useState, useEffect } from 'react';
+  import Script from 'next/script'
   import Head from 'next/head'
   import Image from 'next/image'
   import { router } from 'next/router'
@@ -21,6 +22,8 @@
   import PrecacheControl from '@components/UtilityComponents/PrecacheControl'
 
   //import Functions from '@components/Functions'
+  //import Analytics from '@components/Analytics'
+  import AnalyticsTestButton from '@components/AnalyticsTestButton'
 
 /*===== Styles =====*/
   import styles from './layout.module.scss'
@@ -43,6 +46,10 @@ export default function Layout({
 }) {
   
   useEffect(() => {
+    /* ===== NOTES: ===== */
+    /*
+      Major functions are stored in the layout file here to keep them running only once in a single page app setting, otherwise they run multiple times per action
+    */
 
     /* =============================== */
     /* ===== Global Action State ===== */
@@ -290,6 +297,7 @@ export default function Layout({
       {/*<SupportModal/>*/}
       <Modal/>
       <FullScreenButton/>
+      <AnalyticsTestButton/>
       
       {/*<IdleTimer/>*/}
             
@@ -334,7 +342,8 @@ export default function Layout({
       </VersionNotice>*/}
 
       {/*<PrecacheControl/>*/}
-      {/*<Functions/>*/}      
+      {/*<Functions/>*/} 
+      <Script src="/scripts/analytics.js" />    
     </div>
   )
 }

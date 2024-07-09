@@ -85,8 +85,8 @@ export default function Slide1Graphic({
             </g>
           </g>
           <defs>
-              <filter id="filter0_d_124_6" x="569.79" y="121.633" width="405.299" height="378.296" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <filter id="filter0_d_124_6" x="569.79" y="121.633" width="405.299" height="378.296" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                   <feOffset dx="6.821" dy="1.575" />
                   <feGaussianBlur stdDeviation="5" />
@@ -97,8 +97,8 @@ export default function Slide1Graphic({
               <pattern id="pattern0_124_6" patternContentUnits="objectBoundingBox" width="1" height="1">
                   <use xlinkHref="#image0_124_6" transform="scale(0.00348432 0.0044843)" />
               </pattern>
-              <filter id="filter1_d_124_6" x="338.331" y="12.821" width="280.174" height="395.458" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <filter id="filter1_d_124_6" x="338.331" y="12.821" width="280.174" height="395.458" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                   <feOffset dx="5.362" dy="4.5" />
                   <feGaussianBlur stdDeviation="5" />
@@ -109,8 +109,8 @@ export default function Slide1Graphic({
               <pattern id="pattern1_124_6" patternContentUnits="objectBoundingBox" width="1" height="1">
                   <use xlinkHref="#image1_124_6" transform="scale(0.00617284 0.00359712)" />
               </pattern>
-              <filter id="filter2_d_124_6" x="0.583699" y="157.297" width="377.456" height="356.001" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <filter id="filter2_d_124_6" x="0.583699" y="157.297" width="377.456" height="356.001" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                   <feOffset dx="5.967" dy="-0.627" />
                   <feGaussianBlur stdDeviation="5" />

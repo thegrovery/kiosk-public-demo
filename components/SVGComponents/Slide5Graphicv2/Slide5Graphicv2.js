@@ -34,13 +34,13 @@ export default function Slide5Graphicv2({
                 </g>
             </g>
             <g id="water-outline 1">
-                <path id="slide-5-line1" d="M710.631 303C762.983 315.276 853.028 371.567 858.413 502.714" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
-                <path id="slide-5-line2" d="M721.4 323.061C756.102 336.835 815.335 378.454 834.48 483.252" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
-                <path id="slide-5-line3" d="M729.179 349.783C754.607 361.46 799.181 416.853 810.848 462.964" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
-                <path id="slide-5-line4" d="M731.572 375.226C752.214 388.401 791.702 430.02 800.976 534.818" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
-                <path id="slide-5-line5" d="M710.631 395.287C739.05 429.122 738.452 486.311 735.161 514.756" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
-                <path id="slide-5-line6" d="M733.666 401.276C742.94 410.558 761.487 465.352 765.975 490.803" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
-                <path id="slide-5-line7" d="M701.357 419.84C711.229 439.602 707.64 474.933 703.751 492.3" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" />
+                <path id="slide-5-line1" d="M710.631 303C762.983 315.276 853.028 371.567 858.413 502.714" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
+                <path id="slide-5-line2" d="M721.4 323.061C756.102 336.835 815.335 378.454 834.48 483.252" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
+                <path id="slide-5-line3" d="M729.179 349.783C754.607 361.46 799.181 416.853 810.848 462.964" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
+                <path id="slide-5-line4" d="M731.572 375.226C752.214 388.401 791.702 430.02 800.976 534.818" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
+                <path id="slide-5-line5" d="M710.631 395.287C739.05 429.122 738.452 486.311 735.161 514.756" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
+                <path id="slide-5-line6" d="M733.666 401.276C742.94 410.558 761.487 465.352 765.975 490.803" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
+                <path id="slide-5-line7" d="M701.357 419.84C711.229 439.602 707.64 474.933 703.751 492.3" stroke="white" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" />
             </g>
             <path id="Ellipse 27" d="M8.19615 177.972C21.5066 169.975 48.5578 187.411 68.6149 216.908C88.672 246.406 94.1425 276.804 80.8331 284.801C67.5237 292.798 40.4714 275.363 20.4153 245.865C0.359277 216.368 -5.11536 185.968 8.19615 177.972Z" fill="#89BC3E" />
         </g>
