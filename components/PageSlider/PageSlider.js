@@ -314,23 +314,23 @@ export default function PageSlider({
           mousewheel="true"
           hash-navigation="true"
         >
-          <swiper-slide data-hash="slide1">
+          <swiper-slide data-hash="slide_1">
             <Slide1Foreground/>
           </swiper-slide>
 
-          <swiper-slide data-hash="slide2">
+          <swiper-slide data-hash="slide_2">
             <Slide2Foreground/>
           </swiper-slide>
 
-          <swiper-slide data-hash="slide3">
+          <swiper-slide data-hash="slide_3">
             <Slide3Foreground/>
           </swiper-slide>
 
-          <swiper-slide data-hash="slide4">
+          <swiper-slide data-hash="slide_4">
             <Slide4Foreground/>
           </swiper-slide>
                     
-          <swiper-slide data-hash="slide5">
+          <swiper-slide data-hash="slide_5">
             <Slide5Foreground/>
           </swiper-slide>
 

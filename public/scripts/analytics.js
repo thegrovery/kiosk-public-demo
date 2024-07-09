@@ -6,15 +6,18 @@ console.log("Analytics.js file working!!!");
 
   function AnalyticsEvent(eventCat, eventLab, eventAct, eventVal){
     //Set vars
-    let eventName = "GAEvent"; //GTM keys off of this, must remain hard coded
+    let eventName = "GAEvent"; //GTM keys off of this, must match the "Event" value in the GTM tag that passes on the event data
+
     eventCat = eventCat || 'no_category'; //gives default/fallback value
     eventLab = eventLab || 'no_label';
     eventAct = eventAct || 'no_action';
     eventVal = eventVal || 'no_value';
 
     //console log tester
-    console.log("===== Custom Analytics Event Triggered =====");
-    console.group();
+    //console.log("===== Custom Analytics Event Triggered =====");
+    console.groupCollapsed("===== Custom Analytics Event Triggered =====");
+
+      console.log("Event Name: ["+eventName+"]");
       console.log("Event Category: ["+eventCat+"]");
       console.log("Event Label: ["+eventLab+"]");
       console.log("Event Action: ["+eventAct+"]");
@@ -90,20 +93,17 @@ console.log("Analytics.js file working!!!");
     function slideHashEventLabel(hashValue){
       let eventLabel = "default_value";
       console.log("slideHashEventLabel(hashValue) | "+hashValue);
-      if (hashValue == "#slide1") {
-        eventLabel = "slide_1_view";
-      }else if (hashValue == "#slide2") {
-        eventLabel = "slide_2_view";
-      }else if (hashValue == "#slide3") {
-        eventLabel = "slide_3_view";
-      }else if (hashValue == "#slide4") {
-        eventLabel = "slide_4_view";
-      }else if (hashValue == "#slide5") {
-        eventLabel = "slide_5_view";
-      }else {
-        eventLabel = "out_of_range";
+
+      //remove "#" if present
+      function removeHash(inputString) {
+        return inputString.replace(/#/g, '');
       }
 
+      //format hash value into event label
+      hashValue = removeHash(hashValue);
+      eventLabel = hashValue+"_view";
+
+      //function outputs eventLabel
       return eventLabel;
     }
 
