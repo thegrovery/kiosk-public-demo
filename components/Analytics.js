@@ -48,6 +48,8 @@ export default function Analytics({
         let eventLab = "eventLab";
         let eventVal = "eventVal";
 
+        console.log("GA Event fired - Event Name: ["+eventNametest+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
+
         try {
          //Fire event
          window.dataLayer = window.dataLayer || [];
@@ -59,7 +61,7 @@ export default function Analytics({
            'eventValue':     eventVal,
          });
 
-         console.log("GA Event fired - Event Name: ["+eventName+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
+         console.log("GA Event Pushed");
 
         } catch (e) {
          console.log("GA Event Error");
