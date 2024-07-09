@@ -206,16 +206,19 @@
       #control-prev{display: none;}
       #control-next{display: none;}
       #control-initial{display: flex;}
+      #control-back-to-start{display: none;}
     }
     &[data-control-state="lastSlide"]{
       #control-prev{display: flex;}
       #control-next{display: none;}
       #control-initial{display: none;}
+      #control-back-to-start{display: flex;}
     }
     &[data-control-state="general"]{
       #control-prev{display: flex;}
       #control-next{display: flex;}
       #control-initial{display: none;}
+      #control-back-to-start{display: none;}
     }
 
     /*===== secondary control track - colors =====*/

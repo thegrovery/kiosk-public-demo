@@ -143,145 +143,149 @@ export default function PageSlider({
     /*===== SLIDER FUNCTIONALITY =====*/
     /*===== ==================== =====*/
 
-    //define target elements
-      
-      const controlNext = document.querySelector('#control-next');
-      const controlPrev = document.querySelector('#control-prev');
-      const controlInitial = document.querySelector('#control-initial');
-      const docBody = document.querySelector('body');
-      //control state vars
-      const bodyTarget = document.querySelector('body');
-      const controlStateAttr = 'data-control-state';
-      const controlColorAttr = 'data-control-color';
-      bodyTarget.setAttribute("data-reached-slide", "1");
+      //define target elements
+        const controlNext = document.querySelector('#control-next');
+        const controlPrev = document.querySelector('#control-prev');
+        const controlInitial = document.querySelector('#control-initial');
+        const controlBackToStart = document.querySelector('#control-back-to-start');
+        const docBody = document.querySelector('body');
+        //control state vars
+        const bodyTarget = document.querySelector('body');
+        const controlStateAttr = 'data-control-state';
+        const controlColorAttr = 'data-control-color';
+        bodyTarget.setAttribute("data-reached-slide", "1");
 
 
-    //simple combined functions for ease-of-use
-      //detection functions
-        function controlState(slideNumber){
-          //primary control track - button visiblity
-            if(slideNumber == '1'){
-              bodyTarget.setAttribute(controlStateAttr,'firstSlide');
-            } else if(slideNumber == '5'){
-              bodyTarget.setAttribute(controlStateAttr,'lastSlide');
-            } else{
-              bodyTarget.setAttribute(controlStateAttr,'general');
-            }
-          //secondary control track - colors
-            if(slideNumber == '1'){
-              bodyTarget.setAttribute(controlColorAttr,'darkBlueBackground');
-            } else if(slideNumber == '2'){
-              bodyTarget.setAttribute(controlColorAttr,'whiteBackground');
-            } else if(slideNumber == '3'){
-              bodyTarget.setAttribute(controlColorAttr,'lightBlueBackground');
-            } else if(slideNumber == '4'){
-              bodyTarget.setAttribute(controlColorAttr,'whiteBackground');
-            } else if(slideNumber == '5'){
-              bodyTarget.setAttribute(controlColorAttr,'darkBlueBackground');
-            } else{
-              //exceeded number of slides
-              console.error("error: out of bounds for control scheme")
-            }
-        }
+      //simple combined functions for ease-of-use
+        //detection functions
+          function controlState(slideNumber){
+            //primary control track - button visiblity
+              if(slideNumber == '1'){
+                bodyTarget.setAttribute(controlStateAttr,'firstSlide');
+              } else if(slideNumber == '5'){
+                bodyTarget.setAttribute(controlStateAttr,'lastSlide');
+              } else{
+                bodyTarget.setAttribute(controlStateAttr,'general');
+              }
+            //secondary control track - colors
+              if(slideNumber == '1'){
+                bodyTarget.setAttribute(controlColorAttr,'darkBlueBackground');
+              } else if(slideNumber == '2'){
+                bodyTarget.setAttribute(controlColorAttr,'whiteBackground');
+              } else if(slideNumber == '3'){
+                bodyTarget.setAttribute(controlColorAttr,'lightBlueBackground');
+              } else if(slideNumber == '4'){
+                bodyTarget.setAttribute(controlColorAttr,'whiteBackground');
+              } else if(slideNumber == '5'){
+                bodyTarget.setAttribute(controlColorAttr,'darkBlueBackground');
+              } else{
+                //exceeded number of slides
+                console.error("error: out of bounds for control scheme")
+              }
+          }
 
-        function slideDetect(){
-          let currentSlide = foregroundSlider.swiper.activeIndex;
-          let reachedSlide = bodyTarget.getAttribute("data-reached-slide");
-          currentSlide = currentSlide +1; // +1 to account for 0 index
-            if(currentSlide <= reachedSlide){
-              //do nothing, already reached this slide
-            } else {
-              reachedSlide = currentSlide;
-              bodyTarget.setAttribute("data-reached-slide", reachedSlide);
-              //check if last slide
-              if(reachedSlide == 5){
-                lineDrawSectionShort();
+          function slideDetect(){
+            let currentSlide = foregroundSlider.swiper.activeIndex;
+            let reachedSlide = bodyTarget.getAttribute("data-reached-slide");
+            currentSlide = currentSlide +1; // +1 to account for 0 index
+              if(currentSlide <= reachedSlide){
+                //do nothing, already reached this slide
+              } else {
+                reachedSlide = currentSlide;
+                bodyTarget.setAttribute("data-reached-slide", reachedSlide);
+                //check if last slide
+                if(reachedSlide == 5){
+                  lineDrawSectionShort();
+                }else{
+                  lineDrawSection();
+                }
+                
+              }
+
+            //set new data
+              bodyTarget.setAttribute("data-current-slide",currentSlide);
+              controlState(currentSlide);
+            //debug info
+              console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
+            //return currentSlide; 
+          }
+
+          function slideDetectDirection(){
+            
+            foregroundSlider.addEventListener('reachend', (event) => {
+              console.log(' ==== lastSlide ===== ');
+              //lineDrawSectionShort();
+              lastSlide = true;
+            });
+
+            foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
+              console.log('slideDetectDirection() | NEXT');
+              if(lastSlide == true){
+                if(lastSlideExecute == true){
+                  //do nothing, deactivates this code
+                } else{
+                  //lineDrawSectionShort();
+                  lastSlideExecute = true;
+                }
+                console.log("lastSlide: ", lastSlide);
+                console.log("lastSlideExecute: ", lastSlideExecute);
               }else{
-                lineDrawSection();
+                //lineDrawSection();
+                console.log("lastSlide: ", lastSlide);
+                console.log("lastSlideExecute: ", lastSlideExecute);
               }
               
-            }
+            });
+            foregroundSlider.addEventListener('slideprevtransitionend', (event) => {
+              console.log('slideDetectDirection() | PREV');
+            });
+          }
 
-          //set new data
-            bodyTarget.setAttribute("data-current-slide",currentSlide);
-            controlState(currentSlide);
-          //debug info
-            console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
-          //return currentSlide; 
-        }
-
-        function slideDetectDirection(){
-          
-          foregroundSlider.addEventListener('reachend', (event) => {
-            console.log(' ==== lastSlide ===== ');
-            //lineDrawSectionShort();
-            lastSlide = true;
+          foregroundSlider.addEventListener('slidechange', (event) => {
+            //console.log('slide changed');
+            slideDetect();
           });
 
-          foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
-            console.log('slideDetectDirection() | NEXT');
-            if(lastSlide == true){
-              if(lastSlideExecute == true){
-                //do nothing, deactivates this code
-              } else{
-                //lineDrawSectionShort();
-                lastSlideExecute = true;
-              }
-              console.log("lastSlide: ", lastSlide);
-              console.log("lastSlideExecute: ", lastSlideExecute);
-            }else{
-              //lineDrawSection();
-              console.log("lastSlide: ", lastSlide);
-              console.log("lastSlideExecute: ", lastSlideExecute);
-            }
-            
-          });
-          foregroundSlider.addEventListener('slideprevtransitionend', (event) => {
-            console.log('slideDetectDirection() | PREV');
-          });
-        }
-
-        foregroundSlider.addEventListener('slidechange', (event) => {
-          //console.log('slide changed');
-          slideDetect();
-        });
-
-        function scrollDetect(){
-          window.onwheel = e => {
-            if(docBody.getAttribute('data-slider-scroll') === 'false'){
-              //modal is open, no scrolling
-            }else{
-              if(e.deltaY >= 0){
-                // Wheel Down
-                console.log('Down');
-                nextSlide();
-              } else {
-                // Wheel Up
-                console.log('Up');
-                prevSlide();
+          function scrollDetect(){
+            window.onwheel = e => {
+              if(docBody.getAttribute('data-slider-scroll') === 'false'){
+                //modal is open, no scrolling
+              }else{
+                if(e.deltaY >= 0){
+                  // Wheel Down
+                  console.log('Down');
+                  nextSlide();
+                } else {
+                  // Wheel Up
+                  console.log('Up');
+                  prevSlide();
+                }
               }
             }
           }
-        }
-        
-      //control functions
-        //NOTE: only foreground slider needs to move, they're tied together
-        function nextSlide(){
-          foregroundSlider.swiper.slideNext();
-          //slideDetect();
-        }
-        function prevSlide(){
-          foregroundSlider.swiper.slidePrev();
-          //slideDetect();
-        }
+          
+        //control functions
+          //NOTE: only foreground slider needs to move, they're tied together
+          function nextSlide(){
+            foregroundSlider.swiper.slideNext();
+            //slideDetect();
+          }
+          function prevSlide(){
+            foregroundSlider.swiper.slidePrev();
+            //slideDetect();
+          }
+          function firstSlide(){
+            foregroundSlider.swiper.slideTo(0, 1000);
+            //slideDetect();
+          }
 
-    //on-load actions, run immediately
+    /*===== RUN FUNCTIONS =====*/
+      //on-load actions, run immediately
       slideDetect();
-      //scrollDetect();
+      //scrollDetect(); //deprecated in favor of swiper scroll method
       slideDetectDirection();
-      //foregroundSlider.setAttribute('focusableElements', 'p');
-
-    //click actions
+        
+      //click actions
       controlNext.addEventListener('click', () => {
         nextSlide();
       });
@@ -291,10 +295,12 @@ export default function PageSlider({
       controlInitial.addEventListener('click', () => {
         nextSlide();
       });
+      controlBackToStart.addEventListener('click', () => {
+        firstSlide();
+      });
 
     
-    
-  });
+  }); //END useEffect()
 
   return (
     <div className={componentStyles.PageSlider}>
@@ -412,6 +418,21 @@ export default function PageSlider({
             </div>
           </div>
 
+          {/*back to first slide button*/}
+          <div 
+            id="control-back-to-start"
+            className={componentStyles.controlButton}
+            data-visible="true"
+            data-control="back-to-start"
+          >
+            <div className={componentStyles.text}>
+              Back to Start
+            </div>
+            <div className={componentStyles.icon}>
+              <img src="/images/control-button-icon.svg" alt=""/>
+            </div>
+          </div>
+
         </div>
         
         {/*initial/first slide button*/}
@@ -422,7 +443,7 @@ export default function PageSlider({
           data-control="initial"
         >
           <div className={componentStyles.text}>
-            Scroll to begin Xpo Connect experience
+            Scroll, Swipe, or Click to begin Xpo Connect experience
           </div>
           <div className={componentStyles.icon}>
             <img src="/images/control-button-icon.svg" alt=""/>

@@ -2,6 +2,7 @@
 
 $buttonWidth: 25vw;
 $buttonWidthShort: 12vw;
+$buttonWidthMed: 16vw;
 
 .PageSlider{
 	height: 100%;
@@ -120,7 +121,8 @@ $buttonWidthShort: 12vw;
 
 		//flip arrow icon to re-use for prev button
 		&[data-control="initial"]{}
-		&[data-control="prev"]{
+		&[data-control="prev"],
+		&[data-control="back-to-start"]{
 			.icon img{
 				transform: scale(-1, -1);
 			}
@@ -142,6 +144,10 @@ $buttonWidthShort: 12vw;
 		[data-control="next"]{
 			margin-right: 1em;
 			width: $buttonWidthShort;
+		}
+		[data-control="back-to-start"]{
+			margin-right: 1em;
+			width: $buttonWidthMed;
 		}
 	}
 
