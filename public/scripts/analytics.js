@@ -1,61 +1,144 @@
-console.log("Analytics.js file working!!!");
+/* ============================================================ */
+/*
+  CUSTOM ANALYTICS EVENTS 
+  - Connects to Google Analytics via Google Tag Manager
+  - Notes content
+*/
+/* ============================================================ */
 
+//console.log test script file connection
+//console.log("===== analytics.js file working!!! =====");
+
+/* ===== =============== ===== */
 /* ===== EVENT FUNCTIONS ===== */
-  function ClickAnalyticsEvent(targetElement){
-    //Set vars
-    var evCat = targetElement.attr('data-category') ? targetElement.attr('data-category') : '';
-    var evAct = targetElement.attr('data-action') ? targetElement.attr('data-action') : '';
-    var evLab = targetElement.attr('data-label')  ? targetElement.attr('data-label') : '';
-    var evVal = targetElement.attr('data-value')  ? targetElement.attr('data-value') : '';
+/* ===== =============== ===== */
 
-    try {
-     //Fire event
-     window.dataLayer = window.dataLayer || [];
-     dataLayer.push({
-       'event':          'GAEvent',
-       'eventCategory':  evCat,
-       'eventAction':    evAct,
-       'eventLabel':     evLab,
-       'eventValue':     evVal,
-     });
+  /* ===== MAIN FUNCTION ===== */
+    function AnalyticsEvent(eventCat, eventLab, eventAct, eventVal){
+      //Set vars
+      let eventName = "GAEvent"; //GTM keys off of this, must match the "Event" value in the GTM tag that passes on the event data
 
-     console.log("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
+      eventCat = eventCat || 'no_category'; //gives default/fallback value
+      eventLab = eventLab || 'no_label';
+      eventAct = eventAct || 'no_action';
+      eventVal = eventVal || 'no_value';
 
-    } catch (e) {
-     console.log("GA Event Error");
+      //console log tester
+      console.groupCollapsed("===== Custom Analytics Event Triggered =====");
+        console.log("Event Name: ["+eventName+"]");
+        console.log("Event Category: ["+eventCat+"]");
+        console.log("Event Label: ["+eventLab+"]");
+        console.log("Event Action: ["+eventAct+"]");
+        console.log("Event Value: ["+eventVal+"]");
+        console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
+      console.groupEnd();
+
+      try {
+       //Fire event
+       window.dataLayer = window.dataLayer || [];
+       dataLayer.push({
+         'event':          eventName,
+         'eventCategory':  eventCat,
+         'eventAction':    eventAct,
+         'eventLabel':     eventLab,
+         'eventValue':     eventVal,
+       });
+
+       console.log("===== GA Event Pushed =====");
+
+      } catch (e) {
+       console.log("===== GA Event Error =====");
+      }
+    };
+
+
+  /* ===== HELPER FUNCTIONS ===== */
+    
+    /* ===== Returns the hash value of the current URL ===== */
+    function hasURLHash(hash) {
+      const searchHash = window.location.hash;
+      return hash;
     }
-  };
 
-  function TestAnalyticsEvent(targetElement){
-    //Set vars
-    let eventName = "GAEvent";
-    let eventCat = "test_eventCat";
-    let eventAct = "test_eventAct";
-    let eventLab = "test_eventLab";
-    let eventVal = "test_eventVal";
+    /* ===== Returns the hash value of the current URL ===== */
+    function slideHashEventLabel(hashValue){
+      //define vars
+      let eventLabel = "default_value";
+      
+      //remove "#" if present
+      function removeHash(inputString) {
+        return inputString.replace(/#/g, '');
+      }
 
-    console.log("GA Event fired - Event Name: ["+eventName+"], Event Category: ["+eventCat+"], Event Label: ["+eventLab+"], Event Action: ["+eventAct+"]");
+      //format hash value into event label
+      hashValue = removeHash(hashValue);
+      eventLabel = hashValue+"_view";
 
-    try {
-     //Fire event
-     window.dataLayer = window.dataLayer || [];
-     dataLayer.push({
-       'event':          eventName,
-       'eventCategory':  eventCat,
-       'eventAction':    eventAct,
-       'eventLabel':     eventLab,
-       'eventValue':     eventVal,
-     });
-
-     console.log("GA Event Pushed");
-
-    } catch (e) {
-     console.log("GA Event Error");
+      //function outputs eventLabel
+      return eventLabel;
     }
-  };
 
 
+
+/* ===== ========================== ===== */
 /* ===== TRIGGERS - EVENT LISTENERS ===== */
-  let testElement = document.querySelector('#AnalyticsTestButton');
-  testElement.addEventListener("click", TestAnalyticsEvent, false);
+/* ===== ========================== ===== */
+//NOTE: maybe remove control button events in favor of single hash change detect event
 
+  /* ===== Primary "Page View" Event Trigger ===== */ 
+    //NOTE: site is based on in-page slides, not pages. This allows us to measure "page views"
+    //hash navigation/url update detect 
+    window.addEventListener('popstate', function (event) {
+      //grab current URL hash, then send through formatter function
+      let hashNav = window.location.hash;
+      let slideViewEvent = slideHashEventLabel(hashNav);
+      
+      //console.log displays
+        //console.log(hashNav);
+        //console.log(slideViewEvent);
+
+      //event settings
+      let eventCat = "slide_navigation";
+      let eventLab = slideViewEvent;
+      let eventAct = "navigation";
+      let eventVal = "n_a";
+      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+    }, false);
+
+  /* ===== Define target element vars ===== */
+    const controlNext = document.querySelector('#control-next');
+    const controlPrev = document.querySelector('#control-prev');
+    const controlInitial = document.querySelector('#control-initial');
+
+  /* ===== EventListeners with function settings ===== */
+    //next button click listener
+    /*controlNext.addEventListener('click', function() {
+      let eventCat = "slide_navigation";
+      let eventLab = "test_eventLab";
+      let eventAct = "next_control_button";
+      let eventVal = "n_a";
+      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+    }, false);*/
+
+    //prev button click listener
+    /*controlPrev.addEventListener('click', function() {
+      let eventCat = "slide_navigation";
+      let eventLab = "test_eventLab";
+      let eventAct = "next_control_button";
+      let eventVal = "n_a";
+      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+    }, false);*/
+
+    //init button click listener
+    /*controlInitial.addEventListener('click', function() {
+      let eventCat = "slide_navigation";
+      let eventLab = "test_eventLab";
+      let eventAct = "next_control_button";
+      let eventVal = "n_a";
+      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+    }, false);*/
+
+    
+    
+
+    
