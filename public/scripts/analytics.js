@@ -6,55 +6,193 @@
     the "Custom GA Event Trigger" trigger in Google Tag Manager. 
     This then triggers the "Custom GA Event Passer" tag that 
     sends the data to Google Analytics as an event.
+
+  - AnalyticsEvent usage syntax:
+    //event settings
+    let eventCat = "slide_navigation";
+    let eventLab = slideViewEvent;
+    let eventAct = "in_page_navigation";
+    let eventVal = "n_a";
+    AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+
 */
 /* ============================================================ */
 
 //console.log test script file connection
 //console.log("===== analytics.js file working!!! =====");
 
-/* ===== ========================= ===== */
-/* ===== ANALYTICS EVENT FUNCTIONS ===== */
-/* ===== ========================= ===== */
+/* ===== ==================================== ===== */
+/* ===== Main Function - General Event Pusher ===== */
+/* ===== ==================================== ===== */
 
-  /* ===== Main Function - Event Pusher ===== */
-    function AnalyticsEvent(eventCat, eventLab, eventAct, eventVal){
-      //Set vars - event name & sub-parameters
-      const eventName = "GAEvent"; //static, do not update
-      eventCat = eventCat || 'no_category'; //gives default/fallback value
-      eventLab = eventLab || 'no_label';
-      eventAct = eventAct || 'no_action';
-      eventVal = eventVal || 'no_value';
+  function AnalyticsEvent(eventCat, eventLab, eventAct, eventVal){
+    //Set vars - event name & sub-parameters
+    const eventName = "GAEvent"; //static, do not update
+    eventCat = eventCat || 'no_category'; //gives default/fallback value
+    eventLab = eventLab || 'no_label';
+    eventAct = eventAct || 'no_action';
+    eventVal = eventVal || 'no_value';
 
-      //console log tester
-      console.groupCollapsed("===== Custom Analytics Event Triggered =====");
+    //console log tester
+    console.groupCollapsed("===== Custom Analytics Event Triggered =====");
+      console.log("Event Name: ["+eventName+"]");
+      console.log("Event Category: ["+eventCat+"]");
+      console.log("Event Label: ["+eventLab+"]");
+      console.log("Event Action: ["+eventAct+"]");
+      console.log("Event Value: ["+eventVal+"]");
+      console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
+    console.groupEnd();
+
+    try {
+     //Push event to datalayer
+     window.dataLayer = window.dataLayer || [];
+     dataLayer.push({
+       'event':          eventName,
+       'eventCategory':  eventCat,
+       'eventAction':    eventAct,
+       'eventLabel':     eventLab,
+       'eventValue':     eventVal,
+     });
+     console.log("===== Custom Analytics Event Pushed =====");
+    } catch (e) {
+     console.log("===== Custom Analytics Event Error =====");
+    }
+  };
+
+/* ===== ================================ ===== */
+/* ===== Main Function - UTM Event Pusher ===== */
+/* ===== ================================ ===== */
+
+  function AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state){
+    //Set vars - event name & sub-parameters
+      const eventName = "custom_utm_event"; //static, do not update
+      
+      utm_campaign  = utm_campaign || "n_a"; //gives default/fallback value
+      utm_content   = utm_content  || "n_a";
+      utm_medium    = utm_medium   || "n_a";
+      utm_source    = utm_source   || "n_a";
+      utm_term      = utm_term     || "n_a";
+      utm_state     = utm_state    || "n_a";
+
+    //console log tester
+      console.groupCollapsed("===== Custom UTM Analytics Event Triggered =====");
         console.log("Event Name: ["+eventName+"]");
-        console.log("Event Category: ["+eventCat+"]");
-        console.log("Event Label: ["+eventLab+"]");
-        console.log("Event Action: ["+eventAct+"]");
-        console.log("Event Value: ["+eventVal+"]");
+        console.log("UTM Campaign: ["+utm_campaign+"]");
+        console.log("UTM Content: ["+utm_content+"]");
+        console.log("UTM Medium: ["+utm_medium+"]");
+        console.log("UTM Source: ["+utm_source+"]");
+        console.log("UTM Term: ["+utm_term+"]");
+        console.log("UTM State (experimental): ["+utm_state+"]");
         console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
       console.groupEnd();
 
+    //Push event to datalayer
       try {
-       //Push event to datalayer
+       
        window.dataLayer = window.dataLayer || [];
        dataLayer.push({
          'event':          eventName,
-         'eventCategory':  eventCat,
-         'eventAction':    eventAct,
-         'eventLabel':     eventLab,
-         'eventValue':     eventVal,
+         'utm_campaign': utm_campaign,
+         'utm_content':  utm_content,
+         'utm_medium':   utm_medium,
+         'utm_source':   utm_source,
+         'utm_term':     utm_term,
+         'utm_state':    utm_state,
        });
-       console.log("===== Custom Analytics Event Pushed =====");
+       console.log("===== Custom UTM Analytics Event Pushed =====");
       } catch (e) {
-       console.log("===== Custom Analytics Event Error =====");
+       console.log("===== Custom UTM Analytics Event Error =====");
       }
-    };
+  };
 
 
-  /* ===== HELPER FUNCTIONS ===== */
+/* ===== ==================================== ===== */
+/* ===== Main Function - URL Parameter Logger ===== */
+/* ===== ==================================== ===== */
+  function parameterLogger(param) {
+    var searchParams = new URLSearchParams(window.location.search); 
+    var paramValue = "";
+    var utm_state = "";
 
-    /* ===== Formats the slide ID hash into the desired eventLabel format ===== */
+    if(searchParams.has(param)) {
+      //if UTM parameters are present in URL
+      //console.log("===== UTM values detected - in URL =====");
+      utm_state = "url";
+      paramValue = searchParams.get(param);
+      sessionStorage.setItem(param, paramValue);
+      localStorage.setItem(param, paramValue);
+
+    }else if(sessionStorage.getItem(param)){
+      //if UTM parameters are not present in URL, but are in SessionStorage
+      //console.log("===== UTM values detected - in short-term session =====");
+      utm_state = "sessionStorage";
+      paramValue = sessionStorage.getItem(param);
+
+    }else if(localStorage.getItem(param)){
+      //if UTM parameters are not present in URL or SessionStorage, but are in LocalStorage
+      //console.log("===== UTM values detected - in long-term session =====");
+      utm_state = "localStorage";
+      paramValue = localStorage.getItem(param);
+
+    }
+    //console.log("UTM detected: "+param+": "+paramValue+", utm_state: "+utm_state);
+
+    //NOTES:
+    //paramValue: actual value of the UTM
+    //utm_state: context state of the individual value
+
+    //return paramValue;
+    return {paramValue, utm_state};
+  };
+
+/* ===== ============================ ===== */
+/* ===== Main Function - UTM Tracking ===== */
+/* ===== ============================ ===== */
+  function GetUTMs(){
+    /* ===== Grab UTMs ===== */
+      let utm_source = parameterLogger("utm_source");
+      let utm_medium = parameterLogger("utm_medium");
+      let utm_campaign = parameterLogger("utm_campaign");
+      let utm_term = parameterLogger("utm_term");
+      let utm_content = parameterLogger("utm_content");
+      let utm_state = utm_source.utm_state;
+
+    /* ===== Formatting for Ease Of Use ===== */
+      utm_source = utm_source.paramValue;
+      utm_medium = utm_medium.paramValue;
+      utm_campaign = utm_campaign.paramValue;
+      utm_term = utm_term.paramValue;
+      utm_content = utm_content.paramValue;
+      //utm_state = utm_source.utm_state;
+
+    /* ===== Package up data in a single object ===== */
+      var utm_values = {
+        utm_campaign : utm_campaign,
+        utm_content  : utm_content,
+        utm_medium   : utm_medium,
+        utm_source   : utm_source,
+        utm_term     : utm_term,
+        utm_state    : utm_state,
+      }
+
+    /* ===== console log tester ===== */
+      /*console.groupCollapsed("===== UTM Tracking Present =====");
+        console.log("utm_source: ["+utm_values.utm_source+"]");
+        console.log("utm_medium: ["+utm_values.utm_medium+"]");
+        console.log("utm_campaign: ["+utm_values.utm_campaign+"]");
+        console.log("utm_term: ["+utm_values.utm_term+"]");
+        console.log("utm_content: ["+utm_values.utm_content+"]");
+        console.log("utm_state: ["+utm_values.utm_state+"]");
+      console.groupEnd();*/
+
+    return utm_values;
+  }
+  
+/* ===== ====================== ===== */
+/* ===== Misc. Helper Functions ===== */
+/* ===== ====================== ===== */
+
+  /* ===== Formats the slide ID hash into the desired eventLabel format ===== */
     function slideHashEventLabel(hashValue){
       //define vars
       let eventLabel = "default_value";
@@ -72,13 +210,21 @@
       return eventLabel;
     }
 
-
+  /* ===== Determines if URL currently has a UTM present ===== */
+    function checkForUTM(){
+      if(GetUTMs().utm_state == "url"){
+        return true;
+      } else {
+        return false;
+      }
+    }
 
 /* ===== ========================== ===== */
 /* ===== TRIGGERS - EVENT LISTENERS ===== */
 /* ===== ========================== ===== */
 
   /* ===== Primary "Page View" Event Trigger ===== */ 
+
     //NOTE: site is based on in-page slides, not pages. This allows us to measure "page views"
     //'popstate' detects hash navigation/url update 
     window.addEventListener('popstate', function (event) {
@@ -97,6 +243,39 @@
       let eventVal = "n_a";
       AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
     }, false);
+
+  /* ===== UTM Event Trigger ===== */ 
+    if(checkForUTM()){
+      console.log("===== UTM check success =====");
+      //Grab all values at once for efficiency
+      let utm_values = GetUTMs();
+
+      //event settings
+      let utm_campaign = utm_values.utm_campaign;
+      let utm_content = utm_values.utm_content;
+      let utm_medium = utm_values.utm_medium;
+      let utm_source = utm_values.utm_source;
+      let utm_term = utm_values.utm_term;
+      let utm_state = utm_values.utm_state;
+      AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state);
+    }
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ===== =============================== ===== */
 /* ===== Deprecated but saving for later ===== */
