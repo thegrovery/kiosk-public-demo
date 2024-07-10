@@ -2,18 +2,59 @@
 /*
   CUSTOM ANALYTICS EVENTS 
   - Connects to Google Analytics via Google Tag Manager
-  - "eventName" variable - MUST match the "Event contains" value in 
-    the "Custom GA Event Trigger" trigger in Google Tag Manager. 
-    This then triggers the "Custom GA Event Passer" tag that 
-    sends the data to Google Analytics as an event.
+  
 
-  - AnalyticsEvent usage syntax:
-    //event settings
-    let eventCat = "slide_navigation";
-    let eventLab = slideViewEvent;
-    let eventAct = "in_page_navigation";
-    let eventVal = "n_a";
-    AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+============================================================
+  - Functions:
+
+  -- General Event Pusher 
+  --- what sends the events to GTM/GA
+  --- "eventName" variable: MUST match the "Event contains" value in 
+        the "Custom GA Event Trigger" trigger in Google Tag Manager. 
+        This then triggers the "Custom GA Event Passer" tag that 
+        sends the data to Google Analytics as an event.
+  --- USAGE:
+        //event settings
+        let eventCat = "slide_navigation";
+        let eventLab = slideViewEvent;
+        let eventAct = "in_page_navigation";
+        let eventVal = "n_a";
+        AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+
+  -- UTM Event Pusher 
+  --- modified event pusher
+  --- "eventName" variable: uses 'custom_utm_event'
+  --- note: 'utm_state' variable is non-standard and experimental
+  --- USAGE:
+        //event settings
+        let utm_campaign = utm_values.utm_campaign;
+        let utm_content = utm_values.utm_content;
+        let utm_medium = utm_values.utm_medium;
+        let utm_source = utm_values.utm_source;
+        let utm_term = utm_values.utm_term;
+        let utm_state = utm_values.utm_state;
+        AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state);
+
+  -- URL Parameter Logger 
+  --- grabs URL parameters and saves them to sessionStorage and 
+        localStorage, keeping the values availble for later use
+
+  -- Get UTMs 
+  --- returns latest live or saved UTM data
+  --- returns UTMs as single object, access like: 'utm_values.utm_campaign'
+  --- USAGE:
+        //Grab all values at once for efficiency
+        let utm_values = GetUTMs();
+        let utm_campaign = utm_values.utm_campaign;
+        let utm_content = utm_values.utm_content;
+        let utm_medium = utm_values.utm_medium;
+        let utm_source = utm_values.utm_source;
+        let utm_term = utm_values.utm_term;
+        let utm_state = utm_values.utm_state;
+
+  -- Misc. Helper Functions
+
+  -- Run Functions / Triggers
 
 */
 /* ============================================================ */
@@ -145,9 +186,10 @@
     return {paramValue, utm_state};
   };
 
-/* ===== ============================ ===== */
-/* ===== Main Function - UTM Tracking ===== */
-/* ===== ============================ ===== */
+
+/* ===== ======================== ===== */
+/* ===== Main Function - Get UTMs ===== */
+/* ===== ======================== ===== */
   function GetUTMs(){
     /* ===== Grab UTMs ===== */
       let utm_source = parameterLogger("utm_source");
@@ -188,6 +230,7 @@
     return utm_values;
   }
   
+
 /* ===== ====================== ===== */
 /* ===== Misc. Helper Functions ===== */
 /* ===== ====================== ===== */
@@ -219,9 +262,10 @@
       }
     }
 
-/* ===== ========================== ===== */
-/* ===== TRIGGERS - EVENT LISTENERS ===== */
-/* ===== ========================== ===== */
+
+/* ===== ========================================== ===== */
+/* ===== RUN FUNCTIONS - TRIGGERS & EVENT LISTENERS ===== */
+/* ===== ========================================== ===== */
 
   /* ===== Primary "Page View" Event Trigger ===== */ 
 
@@ -244,24 +288,30 @@
       AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
     }, false);
 
+
   /* ===== UTM Event Trigger ===== */ 
-    if(checkForUTM()){
-      console.log("===== UTM check success =====");
-      //Grab all values at once for efficiency
-      let utm_values = GetUTMs();
+    document.addEventListener("DOMContentLoaded", function(e){
+      //runs code after DOM load
+      if(checkForUTM()){
+        //Grab all values at once for efficiency
+        let utm_values = GetUTMs();
 
-      //event settings
-      let utm_campaign = utm_values.utm_campaign;
-      let utm_content = utm_values.utm_content;
-      let utm_medium = utm_values.utm_medium;
-      let utm_source = utm_values.utm_source;
-      let utm_term = utm_values.utm_term;
-      let utm_state = utm_values.utm_state;
-      AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state);
-    }
+        //event settings
+        let utm_campaign = utm_values.utm_campaign;
+        let utm_content = utm_values.utm_content;
+        let utm_medium = utm_values.utm_medium;
+        let utm_source = utm_values.utm_source;
+        let utm_term = utm_values.utm_term;
+        let utm_state = utm_values.utm_state;
+        AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state);
+      } else {
+        //UTMs not present in current URL, do nothing
+      }
+    });
+    
 
 
-
+/* ===== END of file ===== */
     
 
 
@@ -275,7 +325,7 @@
 
 
 
-
+/* ============================================================ */
 
 /* ===== =============================== ===== */
 /* ===== Deprecated but saving for later ===== */
