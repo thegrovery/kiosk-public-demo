@@ -38,6 +38,7 @@
   -- URL Parameter Logger 
   --- grabs URL parameters and saves them to sessionStorage and 
         localStorage, keeping the values availble for later use
+  --- sample URL: https://website.com?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test
 
   -- Get UTMs 
   --- returns latest live or saved UTM data
@@ -100,6 +101,7 @@
     }
   };
 
+
 /* ===== ================================ ===== */
 /* ===== Main Function - UTM Event Pusher ===== */
 /* ===== ================================ ===== */
@@ -124,12 +126,11 @@
         console.log("UTM Source: ["+utm_source+"]");
         console.log("UTM Term: ["+utm_term+"]");
         console.log("UTM State (experimental): ["+utm_state+"]");
-        console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
+        console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'custom_utm_event' > 'Event Label'.");
       console.groupEnd();
 
     //Push event to datalayer
       try {
-       
        window.dataLayer = window.dataLayer || [];
        dataLayer.push({
          'event':          eventName,
@@ -256,8 +257,10 @@
   /* ===== Determines if URL currently has a UTM present ===== */
     function checkForUTM(){
       if(GetUTMs().utm_state == "url"){
+        console.log("===== checkForUTM | [true] =====");
         return true;
       } else {
+        console.log("===== checkForUTM | [false] =====");
         return false;
       }
     }
@@ -290,24 +293,21 @@
 
 
   /* ===== UTM Event Trigger ===== */ 
-    document.addEventListener("DOMContentLoaded", function(e){
-      //runs code after DOM load
-      if(checkForUTM()){
-        //Grab all values at once for efficiency
-        let utm_values = GetUTMs();
+    if(checkForUTM()){
+      //Grab all values at once for efficiency
+      let utm_values = GetUTMs();
 
-        //event settings
-        let utm_campaign = utm_values.utm_campaign;
-        let utm_content = utm_values.utm_content;
-        let utm_medium = utm_values.utm_medium;
-        let utm_source = utm_values.utm_source;
-        let utm_term = utm_values.utm_term;
-        let utm_state = utm_values.utm_state;
-        AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state);
-      } else {
-        //UTMs not present in current URL, do nothing
-      }
-    });
+      //event settings
+      let utm_campaign = utm_values.utm_campaign;
+      let utm_content = utm_values.utm_content;
+      let utm_medium = utm_values.utm_medium;
+      let utm_source = utm_values.utm_source;
+      let utm_term = utm_values.utm_term;
+      let utm_state = utm_values.utm_state;
+      AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state);
+    } else {
+      //UTMs not present in current URL, do nothing
+    }
     
 
 
