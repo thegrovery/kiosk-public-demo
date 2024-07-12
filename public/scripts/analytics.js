@@ -63,13 +63,20 @@
 //console.log test script file connection
 //console.log("===== analytics.js file working!!! =====");
 
+/* ===== =================== ===== */
+/* ===== Top-Level Variables ===== */
+/* ===== =================== ===== */
+  //These variables are absolutely necessary for the GTM tags, and they MUST match the corresponding variables in GTM.
+  const analyticsEventName = "custom_ga_event";
+  const utmAnalyticsEventName = "custom_utm_event"
+
 /* ===== ==================================== ===== */
 /* ===== Main Function - General Event Pusher ===== */
 /* ===== ==================================== ===== */
 
   function AnalyticsEvent(eventCat, eventLab, eventAct, eventVal){
     //Set vars - event name & sub-parameters
-    const eventName = "GAEvent"; //static, do not update
+    const eventName = analyticsEventName; //static, do not update
     eventCat = eventCat || 'no_category'; //gives default/fallback value
     eventLab = eventLab || 'no_label';
     eventAct = eventAct || 'no_action';
@@ -108,7 +115,7 @@
 
   function AnalyticsEventUTM(utm_campaign, utm_content, utm_medium, utm_source, utm_term, utm_state){
     //Set vars - event name & sub-parameters
-      const eventName = "custom_utm_event"; //static, do not update
+      const eventName = utmAnalyticsEventName; //static, do not update
       
       utm_campaign  = utm_campaign || "n_a"; //gives default/fallback value
       utm_content   = utm_content  || "n_a";
