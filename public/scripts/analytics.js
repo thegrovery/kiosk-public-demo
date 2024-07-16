@@ -134,7 +134,7 @@ function CustomAnalyticsEvent(event_name){
    //Push event to datalayer
    window.dataLayer = window.dataLayer || [];
    dataLayer.push({
-     'event_name': event_name,
+     'event': event_name,
    });
    console.log("===== Custom Analytics Event Pushed =====");
   } catch (e) {
