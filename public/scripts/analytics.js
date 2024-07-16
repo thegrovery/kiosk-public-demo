@@ -322,8 +322,8 @@ function CustomAnalyticsEvent(event_name){
       let slideViewEvent = slideHashEventLabel(hashNav);
       
       //console.log displays
-        //console.log("hashNav: "+hashNav);
-        //console.log("slideViewEvent: "+slideViewEvent);
+        console.log("hashNav: "+hashNav);
+        console.log("slideViewEvent: "+slideViewEvent);
 
       //event settings
       let eventCat = "slide_navigation";
