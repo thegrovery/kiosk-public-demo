@@ -73,27 +73,7 @@ export default function Layout({
         }, delay);
       }
 
-      /* ===== General  ===== */
-        //updateActionState('', 'initial', 0);       
-
-      /* ===== Cards ===== */
-        //updateActionState('cards-show', 'initial', 0);
-        //updateActionState('cards-show', 'animate-start', 1500);
-        //updateActionState('cards-show', 'visible', 1550);
-        //updateActionState('cards-show', 'post-visible', 2500);
-
-      /* ===== Tooltips ===== */
-        //clearActionState('tooltips', 'initial', 0);
-        //clearActionState('tooltips', 'show-after-load', 5000);
-
-      /* ===== Load Sequence ===== */
-        //updateActionState('load', 'initial', 0);
-        //updateActionState('load', 'post-initial', 250);
-        //updateActionState('load', 'load-finished', 1000);
-        //updateActionState('load', 'just-after-load', 2000);
-        //updateActionState('load', 'just-after-load-2', 3500);
-        //updateActionState('load', 'load-sequence-complete', 5000);
-
+      
     
     /* =========================== */
     /* ===== Page Transition ===== */
@@ -255,9 +235,9 @@ export default function Layout({
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
 
-          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          {/* <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
-          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"/> */}
 
         {/*COMPONENT IMPORTS*/}
           {/*<HeadAnalytics/>
