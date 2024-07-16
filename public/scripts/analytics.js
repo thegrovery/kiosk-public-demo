@@ -135,7 +135,7 @@ function CustomAnalyticsEvent(event_name){
    window.dataLayer = window.dataLayer || [];
    dataLayer.push({
      'event': "dynamic_event_name",
-     'event_detail': event_name;
+     'event_detail': event_name,
    });
    console.log("===== Dynamically-Named Analytics Event Pushed =====");
   } catch (e) {
