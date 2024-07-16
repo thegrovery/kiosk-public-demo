@@ -125,7 +125,7 @@ function CustomAnalyticsEvent(event_name){
   event_name = customAnalyticsEventPrefix+event_name;
 
   //console log tester
-  console.groupCollapsed("===== Custom Analytics Event Triggered =====");
+  console.groupCollapsed("===== Dynamically-Named Analytics Event Triggered =====");
     console.log("Event Name: ["+event_name+"]");
     console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
   console.groupEnd();
@@ -134,11 +134,11 @@ function CustomAnalyticsEvent(event_name){
    //Push event to datalayer
    window.dataLayer = window.dataLayer || [];
    dataLayer.push({
-     'event': event_name,
+     'event': "dynamic_event_name",
    });
-   console.log("===== Custom Analytics Event Pushed =====");
+   console.log("===== Dynamically-Named Analytics Event Pushed =====");
   } catch (e) {
-   console.log("===== Custom Analytics Event Error =====");
+   console.log("===== Dynamically-Named Analytics Event Error =====");
   }
 };
 
