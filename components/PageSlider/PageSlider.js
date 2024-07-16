@@ -18,25 +18,18 @@
   //Slide 1
     import Slide1Foreground from '@components/SliderPages/Slide1/Slide1Foreground'
     import Slide1Background from '@components/SliderPages/Slide1/Slide1Background'
-
   //Slide 2
     import Slide2Foreground from '@components/SliderPages/Slide2/Slide2Foreground'
     import Slide2Background from '@components/SliderPages/Slide2/Slide2Background'
-
   //Slide 3
     import Slide3Foreground from '@components/SliderPages/Slide3/Slide3Foreground'
     import Slide3Background from '@components/SliderPages/Slide3/Slide3Background'
-
   //Slide 4
     import Slide4Foreground from '@components/SliderPages/Slide4/Slide4Foreground'
     import Slide4Background from '@components/SliderPages/Slide4/Slide4Background'
-
   //Slide 5
     import Slide5Foreground from '@components/SliderPages/Slide5/Slide5Foreground'
     import Slide5Background from '@components/SliderPages/Slide5/Slide5Background'
-
-
-  //import Button1 from '@components/Button1'
 
 /*===== Styles =====*/
   import componentStyles from './styles.module.scss'
@@ -70,12 +63,13 @@ export default function PageSlider({
       let lastSlideExecute = false;
 
       //console logs
-      console.log("line path length: ", length);
-      console.log("screen width: ", screenWidth);
-
-      console.log("numberOfSlides: ", numberOfSlides);
-      console.log("timePerSlide: ", timePerSlide);
-      console.log("totalTime: ", totalTime);
+      /* console.groupCollapsed("===== Slider Animation Info =====");
+        console.log("line path length: ", length);
+        console.log("screen width: ", screenWidth);
+        console.log("numberOfSlides: ", numberOfSlides);
+        console.log("timePerSlide: ", timePerSlide);
+        console.log("totalTime: ", totalTime);
+      console.groupEnd(); */
 
       //CSS animation settings
       path.style.strokeDasharray = length;
@@ -89,12 +83,12 @@ export default function PageSlider({
       path.style.animationPlayState = "paused";
 
       function sliderLock(){
-        console.log("sliderLock()");
+        //console.log("sliderLock()");
         foregroundSlider.allowSlideNext="false";
         foregroundSlider.allowSlidePrev="false";
       }
       function sliderUnlock(){
-        console.log("sliderUnlock()");
+        //console.log("sliderUnlock()");
         foregroundSlider.allowSlideNext="true"
         foregroundSlider.allowSlidePrev="true"
       }
@@ -181,7 +175,7 @@ export default function PageSlider({
                 bodyTarget.setAttribute(controlColorAttr,'darkBlueBackground');
               } else{
                 //exceeded number of slides
-                console.error("error: out of bounds for control scheme")
+                //console.error("error: out of bounds for control scheme")
               }
           }
 
@@ -207,20 +201,20 @@ export default function PageSlider({
               bodyTarget.setAttribute("data-current-slide",currentSlide);
               controlState(currentSlide);
             //debug info
-              console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
+              //console.log("slideDetect() function | CURRENT SLIDE: ",currentSlide);
             //return currentSlide; 
           }
 
           function slideDetectDirection(){
             
             foregroundSlider.addEventListener('reachend', (event) => {
-              console.log(' ==== lastSlide ===== ');
+              //console.log(' ==== lastSlide ===== ');
               //lineDrawSectionShort();
               lastSlide = true;
             });
 
             foregroundSlider.addEventListener('slidenexttransitionend', (event) => {
-              console.log('slideDetectDirection() | NEXT');
+              //console.log('slideDetectDirection() | NEXT');
               if(lastSlide == true){
                 if(lastSlideExecute == true){
                   //do nothing, deactivates this code
@@ -228,23 +222,23 @@ export default function PageSlider({
                   //lineDrawSectionShort();
                   lastSlideExecute = true;
                 }
-                console.log("lastSlide: ", lastSlide);
-                console.log("lastSlideExecute: ", lastSlideExecute);
+                //console.log("lastSlide: ", lastSlide);
+                //console.log("lastSlideExecute: ", lastSlideExecute);
               }else{
                 //lineDrawSection();
-                console.log("lastSlide: ", lastSlide);
-                console.log("lastSlideExecute: ", lastSlideExecute);
+                //console.log("lastSlide: ", lastSlide);
+                //console.log("lastSlideExecute: ", lastSlideExecute);
               }
               
             });
             foregroundSlider.addEventListener('slideprevtransitionend', (event) => {
-              console.log('slideDetectDirection() | PREV');
+              //console.log('slideDetectDirection() | PREV');
             });
           }
 
           foregroundSlider.addEventListener('slidechange', (event) => {
             //console.log('slide changed');
-            slideDetect();
+            //slideDetect();
           });
 
           function scrollDetect(){
@@ -254,11 +248,11 @@ export default function PageSlider({
               }else{
                 if(e.deltaY >= 0){
                   // Wheel Down
-                  console.log('Down');
+                  //console.log('Down');
                   nextSlide();
                 } else {
                   // Wheel Up
-                  console.log('Up');
+                  //console.log('Up');
                   prevSlide();
                 }
               }
