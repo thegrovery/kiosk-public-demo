@@ -68,7 +68,8 @@
 /* ===== =================== ===== */
   //These variables are absolutely necessary for the GTM tags, and they MUST match the corresponding variables in GTM.
   const analyticsEventName = "custom_ga_event";
-  const utmAnalyticsEventName = "custom_utm_event"
+  const utmAnalyticsEventName = "custom_utm_event";
+  const customAnalyticsEventPrefix = "custom_event_";
 
 /* ===== ==================================== ===== */
 /* ===== Main Function - General Event Pusher ===== */
@@ -107,6 +108,39 @@
      console.log("===== Custom Analytics Event Error =====");
     }
   };
+
+
+/* ===== ======================================= ===== */
+/* ===== Main Function - Custom Event Pusher ===== */
+/* ===== ======================================= ===== */
+
+function CustomAnalyticsEvent(event_name){
+  //Set vars - event name & sub-parameters
+  //const eventName = analyticsEventName; //static, do not update
+  //eventCat = eventCat || 'no_category'; //gives default/fallback value
+  //eventLab = eventLab || 'no_label';
+  //eventAct = eventAct || 'no_action';
+  //eventVal = eventVal || 'no_value';
+
+  event_name = customAnalyticsEventPrefix+event_name;
+
+  //console log tester
+  console.groupCollapsed("===== Custom Analytics Event Triggered =====");
+    console.log("Event Name: ["+event_name+"]");
+    console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
+  console.groupEnd();
+
+  try {
+   //Push event to datalayer
+   window.dataLayer = window.dataLayer || [];
+   dataLayer.push({
+     'event_name': event_name,
+   });
+   console.log("===== Custom Analytics Event Pushed =====");
+  } catch (e) {
+   console.log("===== Custom Analytics Event Error =====");
+  }
+};
 
 
 /* ===== ================================ ===== */
@@ -296,6 +330,8 @@
       let eventAct = "in_page_navigation";
       let eventVal = "n_a";
       AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+
+      CustomAnalyticsEvent(slideViewEvent);
     }, false);
 
 
@@ -319,60 +355,3 @@
 
 
 /* ===== END of file ===== */
-    
-
-
-
-
-
-
-
-
-
-
-
-
-/* ============================================================ */
-
-/* ===== =============================== ===== */
-/* ===== Deprecated but saving for later ===== */
-/* ===== =============================== ===== */
-
-  /* ===== Define target element vars ===== */
-    //control buttons
-    const controlNext = document.querySelector('#control-next');
-    const controlPrev = document.querySelector('#control-prev');
-    const controlInitial = document.querySelector('#control-initial');
-
-  /* ===== EventListeners with function settings ===== */
-    //next button click listener
-    /*controlNext.addEventListener('click', function() {
-      let eventCat = "slide_navigation";
-      let eventLab = "test_eventLab";
-      let eventAct = "next_control_button";
-      let eventVal = "n_a";
-      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
-    }, false);*/
-
-    //prev button click listener
-    /*controlPrev.addEventListener('click', function() {
-      let eventCat = "slide_navigation";
-      let eventLab = "test_eventLab";
-      let eventAct = "next_control_button";
-      let eventVal = "n_a";
-      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
-    }, false);*/
-
-    //init button click listener
-    /*controlInitial.addEventListener('click', function() {
-      let eventCat = "slide_navigation";
-      let eventLab = "test_eventLab";
-      let eventAct = "next_control_button";
-      let eventVal = "n_a";
-      AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
-    }, false);*/
-
-    
-    
-
-    
