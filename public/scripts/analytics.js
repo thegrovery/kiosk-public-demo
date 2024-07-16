@@ -3,7 +3,9 @@
   CUSTOM ANALYTICS EVENTS 
   - Connects to Google Analytics via Google Tag Manager
   
-
+  WARNINGS:
+  - Event Naming Rules for GA: https://support.google.com/analytics/answer/13316687?hl=en&ref_topic=13367860&sjid=17187452480426313666-NA#zippy=%2Cweb
+  -- Shortlist: 'click', 'error', 'form_submit', 'form_start', 'file_download'
 ============================================================
   - Functions:
 
@@ -110,11 +112,11 @@
   };
 
 
-/* ===== ======================================= ===== */
-/* ===== Main Function - Custom Event Pusher ===== */
-/* ===== ======================================= ===== */
+/* ===== =================================== ===== */
+/* ===== Main Function - Simple Event Pusher ===== */
+/* ===== =================================== ===== */
 
-function CustomAnalyticsEvent(event_name){
+function SimpleAnalyticsEvent(event_name){
   //Set vars - event name & sub-parameters
   //const eventName = analyticsEventName; //static, do not update
   //eventCat = eventCat || 'no_category'; //gives default/fallback value
@@ -126,8 +128,9 @@ function CustomAnalyticsEvent(event_name){
 
   //console log tester
   console.groupCollapsed("===== Dynamically-Named Analytics Event Triggered =====");
-    console.log("Event Name: ["+event_name+"]");
-    console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name > 'GAEvent' > 'Event Label'.");
+    console.log("Event Name: [dynamic_event_name]");
+    console.log("Event Detail: ["+event_name+"]");
+    console.log("NOTES: To QA events, look under: Google Analytics Container > Realtime > Event Count by Event Name");
   console.groupEnd();
 
   try {
@@ -332,9 +335,24 @@ function CustomAnalyticsEvent(event_name){
       let eventVal = "n_a";
       AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
 
-      CustomAnalyticsEvent(slideViewEvent);
+      SimpleAnalyticsEvent(slideViewEvent);
     }, false);
 
+    //First Slide Event - page loads on first slide, doesn't activate main trigger
+    window.addEventListener("load", (event) => {
+      //Site always loads on Slide 1, insert statically
+        let slideViewEvent = "slide_1_view";
+      
+      //Complex Analytics Event
+        let eventCat = "slide_navigation";
+        let eventLab = slideViewEvent;
+        let eventAct = "in_page_navigation";
+        let eventVal = "n_a";
+        AnalyticsEvent(eventCat, eventLab, eventAct, eventVal);
+
+      //Simple Analytics Event
+        SimpleAnalyticsEvent(slideViewEvent);
+    });
 
   /* ===== UTM Event Trigger ===== */ 
     if(checkForUTM()){
@@ -353,6 +371,5 @@ function CustomAnalyticsEvent(event_name){
       //UTMs not present in current URL, do nothing
     }
     
-
 
 /* ===== END of file ===== */
