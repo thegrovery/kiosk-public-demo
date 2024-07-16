@@ -41,7 +41,8 @@ export default function Home({ allPostsData }) {
     <Layout home pageActionState="lvl-1" >
       
       <Head>
-        <title>KIOSK Demo | {siteData.siteTitleBase}</title>
+        {/*<title>KIOSK Demo | {siteData.siteTitleBase}</title> */}
+        <title>KIOSK Demo | Grovery Kiosk Experience</title>
       </Head>
 
       <div className={pageStyles.pageLayout}>
