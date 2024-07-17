@@ -370,6 +370,24 @@ function SimpleAnalyticsEvent(event_name){
     } else {
       //UTMs not present in current URL, do nothing
     }
+
+  /* ===== Form Submit Event Trigger ===== */ 
+    window.addEventListener("message", function(event) {
+      if(event.data.eventName == "onFormSubmitted"){
+        //console.log("===== FORM SUBMIT HERE =====");
+
+        try {
+          //Push event to datalayer
+          window.dataLayer = window.dataLayer || [];
+          dataLayer.push({
+            'event': "hubspot_form_submit",
+          });
+          console.log("===== Form Submit Event Pushed =====");
+         } catch (e) {
+          console.log("===== Form Submit Event Error =====");
+         }
+      }
+    });
     
 
 /* ===== END of file ===== */
