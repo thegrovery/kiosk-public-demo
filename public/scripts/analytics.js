@@ -105,9 +105,9 @@
        'eventLabel':     eventLab,
        'eventValue':     eventVal,
      });
-     console.log("===== Custom Analytics Event Pushed =====");
+     //console.log("===== Custom Analytics Event Pushed =====");
     } catch (e) {
-     console.log("===== Custom Analytics Event Error =====");
+     //console.log("===== Custom Analytics Event Error =====");
     }
   };
 
@@ -186,9 +186,9 @@ function SimpleAnalyticsEvent(event_name){
          'utm_term':     utm_term,
          'utm_state':    utm_state,
        });
-       console.log("===== Custom UTM Analytics Event Pushed =====");
+       //console.log("===== Custom UTM Analytics Event Pushed =====");
       } catch (e) {
-       console.log("===== Custom UTM Analytics Event Error =====");
+       //console.log("===== Custom UTM Analytics Event Error =====");
       }
   };
 
@@ -382,9 +382,9 @@ function SimpleAnalyticsEvent(event_name){
           dataLayer.push({
             'event': "hubspot_form_submit",
           });
-          console.log("===== Form Submit Event Pushed =====");
+          //console.log("===== Form Submit Event Pushed =====");
          } catch (e) {
-          console.log("===== Form Submit Event Error =====");
+          //console.log("===== Form Submit Event Error =====");
          }
       }
     });
