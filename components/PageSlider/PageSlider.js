@@ -238,7 +238,7 @@ export default function PageSlider({
 
           foregroundSlider.addEventListener('slidechange', (event) => {
             //console.log('slide changed');
-            //slideDetect();
+            slideDetect();
           });
 
           function scrollDetect(){
