@@ -49,7 +49,7 @@
 	}
 
 	.textElement{
-		--size: 35vw;
+		--size: 36vw;
 		width: var(--size);
 		height: var(--size);
 		//border: dashed 2px #000;
@@ -84,9 +84,15 @@
 			background-color: #137d99;
 			position: relative;
 			z-index: 3;
-			font-size: 1rem;
+			font-size: $fontSizeBodySmall;
 			text-align: center;
-			max-width: 85%
+			max-width: 85%;
+
+			svg{
+				width: 6.5rem !important;
+				margin: auto;
+				margin-top: 1rem;
+			}
 		}
 	}
 

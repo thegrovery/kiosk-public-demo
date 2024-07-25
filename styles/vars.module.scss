@@ -62,7 +62,11 @@
 		$fontSizeHeading:	calc(2.5 * #{$fontScale});
 		$fontSizeSubhead:	calc(2 * #{$fontScale});
 		$fontSizeBody:		calc(1.5 * #{$fontScale});
+		$fontSizeBodySmall:	calc(1.25 * #{$fontScale});
 		$fontSizeDetail:	calc(0.75 * #{$fontScale});
+		//FUNCTION: round up 
+		//$fontSizeHeading: round($fontSizeHeading);
+		//$fontSizeBody: round($fontSizeBody);
 
 	/***** Static Font Sizes *****/
 		/*$fontSizeHeading:	36px;
