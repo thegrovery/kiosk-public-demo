@@ -80,7 +80,7 @@
 		}
 
 		.inner{
-			color: #0E4C61;
+			color: $darkBlue;
 			background-color: #c0e231;
 			position: relative;
 			z-index: 3;
@@ -89,10 +89,10 @@
 
 			.button{
 				color: $white;
-				background-color: $darkGreen;
+				background-color: $darkBlue;
 				padding: 0.5em 3em;
 				border-radius: 2em;
-				border: solid 3px $darkGreen;
+				border: solid 3px $darkBlue;
 				&:hover{
 					//border: solid 3px $white;
 				}

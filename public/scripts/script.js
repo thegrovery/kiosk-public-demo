@@ -34,13 +34,13 @@ function fullPageLoad () {
     let lastSlideExecute = false;
 
     //console logs
-    /* console.groupCollapsed("===== Slider Animation Info =====");
+    console.groupCollapsed("===== Slider Animation Info =====");
       console.log("line path length: ", length);
       console.log("screen width: ", screenWidth);
       console.log("numberOfSlides: ", numberOfSlides);
       console.log("timePerSlide: ", timePerSlide);
       console.log("totalTime: ", totalTime);
-    console.groupEnd(); */
+    console.groupEnd(); 
 
     //CSS animation settings
     path.style.strokeDasharray = length;
@@ -114,7 +114,7 @@ function fullPageLoad () {
       const controlPrev = document.querySelector('#control-prev');
       const controlInitial = document.querySelector('#control-initial');
       const controlBackToStart = document.querySelector('#control-back-to-start');
-      const docBody = document.querySelector('body');
+      let docBody = document.querySelector('body');
       //control state vars
       const bodyTarget = document.querySelector('body');
       const controlStateAttr = 'data-control-state';

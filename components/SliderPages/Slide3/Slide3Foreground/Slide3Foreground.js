@@ -38,12 +38,11 @@ export default function Slide3Foreground({
                 <strong>The Grovery's comprehensive event activation and support services are designed to empower partners with impactful and dynamic</strong> presences at industry trade shows and conferences. Leveraging our full suite of brand strategy and digital media and marketing services, we craft pre- , during, and post- conference engagements that drive meaningful connections, generate leads, and convert prospects into loyal customers.
               </p>
               <br/>
-              <div>[VIDEO OPEN BUTTON]</div>
               <a
-                id="ContactModalOpen" 
                 className={componentStyles.button}
-                data-modal-open='support'
-              >Contact Us</a>
+                data-modal-open="VideoModal"
+                data-modal-iframe="https://www.youtube.com/embed/nM4okRvCg2g?si=kl5BtiGt_MEKVE9r"
+              >Open Video</a>
             </div>
             
           </div>      

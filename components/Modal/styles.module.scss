@@ -28,6 +28,7 @@ $backdropColor: rgba($black, 0.25);
 	/* ===== Modal Selection ===== */
 		.PDFModal,
 		.VideoModal,
+		.iFrameModal,
 		.SupportModal,
 		.ContactModal,
 		.InactivityModal{
@@ -39,7 +40,7 @@ $backdropColor: rgba($black, 0.25);
 			}
 		}
 		&[data-modal-show="VideoModal"]{
-			.VideoModal{
+			.iFrameModal{
 				display: block;
 			}
 		}
@@ -77,14 +78,71 @@ $backdropColor: rgba($black, 0.25);
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 75%;
+	height: 85vh;
 	//min-width: 1000px;
 	max-width: 100%;
+	//aspect-ratio: 18/9;
 	z-index: 2;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transition: $transitionMedium;
 }
+
+.iFrameModal{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: $white;
+	border-radius: 3px;
+	
+	//padding: 2.25rem $clampLarge 0;
+
+	.closeButton{
+		position: absolute;
+		top: $clampSmall;
+		right: $clampSmall;
+		width: $clampSmall;
+		aspect-ratio: 1/1;
+		cursor: pointer;
+	}
+	
+	.iframeWrapper{
+		width:100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		aspect-ratio: 18/9;
+	}
+	iframe{
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		width: 75%;
+		height: 75%;
+		aspect-ratio: 18/9;
+	}
+
+	.titleArea{
+		text-align: center;
+		padding: $clampSmall;
+		font-size: $clampSmall;
+		color: $red;
+	}
+
+	.copyArea{
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		max-width:50vw;
+		margin: auto;
+		padding: $clampSmall;
+		font-size: $clampExtraSmall;
+	}
+}
+
 
 .PDFModal{
 	position: relative;
