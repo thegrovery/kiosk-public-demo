@@ -20,11 +20,13 @@ export default function VideoModal({
       className={componentStyles.iFrameModal}
     >
 
-      <div 
-        className={componentStyles.closeButton}
-        data-modal-close="true"
-      >
-        <CloseIcon/>
+      <div className={componentStyles.closeButtonSection}>
+        <div 
+          className={componentStyles.closeButton}
+          data-modal-close="true"
+        >
+          <CloseIcon/>
+        </div>
       </div>
       
       {/*<div id="VideoModalTitle" className={componentStyles.titleArea}>
