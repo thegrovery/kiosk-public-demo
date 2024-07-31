@@ -55,6 +55,7 @@ export default function ContactModal({
           </div>
           <div className={componentStyles.right}>
             {/*<ResourcesForm/>*/}
+            {/* #ContactForm use global styling in main.scss*/}
             <div id="ContactForm">
               <div dangerouslySetInnerHTML={{ __html: formHtml }} />  
             </div>

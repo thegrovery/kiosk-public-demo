@@ -136,6 +136,7 @@ $borderRadius: 0.15rem;
 		overflow-y: scroll;
 		height: calc(#{$modalHeight} - 2.5rem);
 		padding: 1rem;
+		padding-top: 0rem;
 		margin-top: 0.5rem;
 				
 	&::-webkit-scrollbar {
@@ -150,184 +151,184 @@ $borderRadius: 0.15rem;
 	}
 
 
-
-.iFrameModal{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	background-color: $white;
-	padding: 0.5rem;
-	padding-top: 0;
-	border-radius: 3px;
-	
-	.iframeWrapper{
-		width:100%;
+/* ===== ====================================== ===== */
+/* ===== iFrame Modal - Use for Videos and PDFs ===== */
+/* ===== ====================================== ===== */
+	.iFrameModal{
+		position: relative;
 		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: calc(#{$modalHeight} - 2.5rem);
-		aspect-ratio: 18/9;
-		margin-top: 0.5rem;
-	}
-	iframe{
 		width: 100%;
-		height: 100%;
-	}
-
-	/* .titleArea{
-		text-align: center;
-		padding: $clampSmall;
-		font-size: $clampSmall;
-		color: $red;
-	}
-
-	.copyArea{
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		max-width:50vw;
-		margin: auto;
-		padding: $clampSmall;
-		font-size: $clampExtraSmall;
-	} */
-}
-
-//SEARCH: ContactModal
-.ContactModal{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	background-color: $white;
-	padding: 0.5rem;
-	padding-top: 0;
-	border-radius: 3px;
-
-	/*Modal Heading*/
-	.heading{
-		text-align: center;
-		display: block;
-		width: 100%;
-		max-width: 1200px;
-		margin: auto;
-		margin-bottom: $clampLarge;
-		h2{
-			font-size: $clampLarge;
-			margin-bottom: $clampSmall;
-		}
-		p{
-			font-size: $clampSmall;
-		}
-	}
-
-	.splitLayout{
-		display: flex;
-		//justify-content: center;
-		//align-items: flex-start;
-		.left{
-			width: 50%;
-			padding: 0.5rem 1rem;
+		background-color: $white;
+		padding: 0.5rem;
+		padding-top: 0;
+		border-radius: 3px;
+		
+		.iframeWrapper{
+			width:100%;
+			height: 100%;
 			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
+			justify-content: center;
 			align-items: center;
+			height: calc(#{$modalHeight} - 2.5rem);
+			aspect-ratio: 18/9;
+			margin-top: 0.5rem;
 		}
-		.right{
-			width: 50%;
-			padding: 0.5rem 2.5rem 2rem 2.5rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: center;
-			border-left: solid 3px $black;
+		iframe{
+			width: 100%;
+			height: 100%;
 		}
-	}
 
-	.qrCodeSection{
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		h3{
+		/* .titleArea{
 			text-align: center;
-			font-size: 1rem;
-			margin-bottom: 1rem;
+			padding: $clampSmall;
+			font-size: $clampSmall;
+			color: $red;
 		}
-		a{
-			font-size: 0.65rem;
-			color: $black;
-			margin-top: 0.5em;
-		}
+
+		.copyArea{
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			max-width:50vw;
+			margin: auto;
+			padding: $clampSmall;
+			font-size: $clampExtraSmall;
+		} */
 	}
 
-	@media (max-width: $contentWidthMd) {
-		/*Activates BELOW 1000px*/
+/* ===== ================================ ===== */
+/* ===== Contact Modal - Form and QR Code ===== */
+/* ===== ================================ ===== */
+	.ContactModal{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		background-color: $white;
+		padding: 0.5rem;
+		padding-top: 0;
+		border-radius: 3px;
+
+		/*Modal Heading*/
+		.heading{
+			text-align: center;
+			display: block;
+			width: 100%;
+			max-width: 1200px;
+			margin: auto;
+			margin-bottom: $fontSizeBody;
+			h2{
+				font-size: $fontSizeHeading;
+				margin-bottom: $fontSizeDetail;
+			}
+			p{
+				font-size: $fontSizeBody;
+			}
+		}
+
 		.splitLayout{
 			display: flex;
-			flex-direction: column-reverse;
+			//justify-content: center;
+			//align-items: flex-start;
 			.left{
-				width: 100%;
+				width: 50%;
 				padding: 0.5rem 1rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
 			}
 			.right{
-				width: 100%;
+				width: 50%;
 				padding: 0.5rem 2.5rem 2rem 2.5rem;
-				border-left: none;
-				//border-bottom: solid 3px $black;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				border-left: solid 3px $black;
+			}
+		}
+
+		.qrCodeSection{
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			h3{
+				text-align: center;
+				font-size: 1rem;
+				margin-bottom: 1rem;
+			}
+			a{
+				font-size: 0.65rem;
+				color: $black;
+				margin-top: 0.5em;
+			}
+		}
+
+		@media (max-width: $contentWidthMd) {
+			/*Activates BELOW 1000px*/
+			.splitLayout{
+				display: flex;
+				flex-direction: column-reverse;
+				.left{
+					width: 100%;
+					padding: 0.5rem 1rem;
+				}
+				.right{
+					width: 100%;
+					padding: 0.5rem 2.5rem 2rem 2.5rem;
+					border-left: none;
+					//border-bottom: solid 3px $black;
+				}
 			}
 		}
 	}
-}
 
-
-
-
-
-
-
-
-.InactivityModal{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	background-color: $white;
-	padding: 0 $clampLarge;
-
-	.closeButton{
-		position: absolute;
-		top: $clampSmall;
-		right: $clampSmall;
-		width: $clampSmall;
-		aspect-ratio: 1/1;
-		cursor: pointer;
-	}
-
-	.titleArea{
-		text-align: center;
-		padding: $clampSmall;
-		font-size: $clampSmall;
-	}
-
-	.copyArea{
-		display: flex;
-		justify-content: center;
+/* ===== ============================================================ ===== */
+/* ===== Inactivity Modal - resets site after X minute of no activity ===== */
+/* ===== ============================================================ ===== */
+	.InactivityModal{
+		position: relative;
+		height: 100%;
 		width: 100%;
-		max-width:50vw;
-		margin: auto;
-		padding: $clampSmall;
-		font-size: $clampSmall;
-	}
+		background-color: $white;
+		padding: 0 $clampLarge;
 
-	.buttonArea{
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		max-width:50vw;
-		margin: auto;
-		padding: $clampSmall;
-		font-size: $clampExtraSmall;
+		.closeButton{
+			position: absolute;
+			top: $clampSmall;
+			right: $clampSmall;
+			width: $clampSmall;
+			aspect-ratio: 1/1;
+			cursor: pointer;
+		}
+
+		.titleArea{
+			text-align: center;
+			padding: $clampSmall;
+			font-size: $clampSmall;
+		}
+
+		.copyArea{
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			max-width:50vw;
+			margin: auto;
+			padding: $clampSmall;
+			font-size: $clampSmall;
+		}
+
+		.buttonArea{
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			max-width:50vw;
+			margin: auto;
+			padding: $clampSmall;
+			font-size: $clampExtraSmall;
+		}
 	}
-}
 
 
 /* ===== ==================================== ===== */

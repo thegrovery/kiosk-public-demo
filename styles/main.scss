@@ -262,73 +262,73 @@
 /* ============================ */
 /* ===== Hubspot Form CSS ===== */
 /* ============================ */
-
-#ContactForm{
-  height: 100%;
-  width: 100%;
-  >div{
+//Requires global-level styling because it loads in via script
+  #ContactForm{
     height: 100%;
-    >.hbspt-form{
+    width: 100%;
+    >div{
       height: 100%;
+      >.hbspt-form{
+        height: 100%;
+      }
     }
-  }
-  //labels
-  label span{
-    font-size: 0.65rem;
-    font-weight: 600;
-    position: relative;
-    bottom: -5px;
-    left: 0.5rem;
-  }
-  input,textarea{
-    width: 100%;
-    border: solid 3px $black;
-    border-radius: 0.5rem;
-    padding: 0.35rem 0.5rem;
-    font-size: 0.85rem;
-  }
-  textarea::placeholder{
-    opacity: 0.65;
-  }
-  //submit button
-  .hs-button{
-    color: $white;
-    background-color: $darkBlue;
-    font-size: 0.85rem;
-    padding: 0.5em 3em;
-    margin-top: 0.5em;
-    border-radius: 2em;
-    border: solid 3px $darkBlue;
-    cursor: pointer;
-    transition: $transitionFast;
-    &:hover{
-      //border: solid 3px $darkGreen;
-      //background-color: $darkGreen;
+    //labels
+    label span{
+      font-size: $fontSizeDetail;
+      font-weight: 600;
+      position: relative;
+      bottom: -5px;
+      left: 0.5rem;
     }
-  }
+    input,textarea{
+      width: 100%;
+      border: solid 3px $black;
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.85rem;
+    }
+    textarea::placeholder{
+      opacity: 0.65;
+    }
+    //submit button
+    .hs-button{
+      color: $white;
+      background-color: $darkBlue;
+      font-size: 0.85rem;
+      padding: 0.5em 3em;
+      margin-top: 0.5em;
+      border-radius: 2em;
+      border: solid 3px $darkBlue;
+      cursor: pointer;
+      transition: $transitionFast;
+      &:hover{
+        //border: solid 3px $darkGreen;
+        //background-color: $darkGreen;
+      }
+    }
 
-  .hs-error-msgs{
-    font-size: 0.5rem;
-    list-style: none;
-  }
-
-  .submitted-message {
-    height: 100%;
-    width: 100%;
-    border: solid 3px $black;
-    border-radius: 0.5rem;
-    padding: 0.35rem 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-
-    h3{
-      font-size: 1rem;
+    .hs-error-msgs{
+      font-size: 0.5rem;
+      list-style: none;
     }
-    p{
-      font-size: 0.65rem;
+
+    .submitted-message {
+      height: 100%;
+      width: 100%;
+      border: solid 3px $black;
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+
+      h3{
+        font-size: 1rem;
+      }
+      p{
+        font-size: 0.65rem;
+      }
     }
   }
-}
