@@ -1,111 +1,164 @@
 @import "@styles/vars.module.scss";
 
 $backdropColor: rgba($black, 0.25);
+$modalHeight: 85vh;
+$borderRadius: 0.15rem;
 
-.ModalWrapper{
-	position: fixed;
-	top: 0%;
-	left: 0%;
-	height: 100%;
-	width: 100%;
-	z-index: 10000;
-	transition: $transitionMedium;
 
-	/* ===== Modal State ===== */
-		&[data-modal-status="inactive"]{
-			opacity: 0%;
-			pointer-events: none;
+/* ===== ========================================================== ===== */
+/* ===== ModalWrapper | Outter container element for modal elements ===== */
+/* ===== ========================================================== ===== */
 
-			.modalInner{
-				transform: translate(-50%, -40%);
-			}
-		}
-		&[data-modal-status="active"]{
-			opacity: 100%;
-			pointer-events: auto;
-		}
+	.ModalWrapper{
+		position: fixed;
+		top: 0%;
+		left: 0%;
+		height: 100%;
+		width: 100%;
+		z-index: 10000;
+		transition: $transitionMedium;
 
-	/* ===== Modal Selection ===== */
-		.PDFModal,
-		.VideoModal,
-		.iFrameModal,
-		.SupportModal,
-		.ContactModal,
-		.InactivityModal{
-			display: none;
-		}
-		&[data-modal-show="PDFModal"]{
-			.PDFModal{
-				display: block;
+		/* ===== Modal State ===== */
+			&[data-modal-status="inactive"]{
+				opacity: 0%;
+				pointer-events: none;
+
+				.modalInner{
+					transform: translate(-50%, -40%);
+				}
 			}
-		}
-		&[data-modal-show="VideoModal"]{
-			.iFrameModal{
-				display: block;
+			&[data-modal-status="active"]{
+				opacity: 100%;
+				pointer-events: auto;
 			}
-		}
-		&[data-modal-show="SupportModal"]{
-			.SupportModal{
-				display: block;
-			}
-		}
-		&[data-modal-show="ContactModal"]{
-			.ContactModal{
-				display: block;
-			}
-		}
-		&[data-modal-show="InactivityModal"]{
+
+		/* ===== Modal Selection ===== */
+			.PDFModal,
+			.VideoModal,
+			.iFrameModal,
+			.SupportModal,
+			.ContactModal,
 			.InactivityModal{
-				display: block;
+				display: none;
 			}
+			&[data-modal-show="PDFModal"]{
+				.PDFModal{
+					display: block;
+				}
+			}
+			&[data-modal-show="VideoModal"]{
+				.iFrameModal{
+					display: block;
+				}
+			}
+			&[data-modal-show="SupportModal"]{
+				.SupportModal{
+					display: block;
+				}
+			}
+			&[data-modal-show="ContactModal"]{
+				.ContactModal{
+					display: block;
+				}
+			}
+			&[data-modal-show="InactivityModal"]{
+				.InactivityModal{
+					display: block;
+				}
+			}
+		//end
+	}
+
+/* ===== ==================== ===== */
+/* ===== Inner Modal Elements ===== */
+/* ===== ==================== ===== */
+	.backdrop{
+		background-color: $backdropColor;
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.modalInner{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 75%;
+		height: 90vh; //determines size of visible modal element
+		max-width: 100%;
+		//aspect-ratio: 18/9;
+		z-index: 2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: $transitionMedium;
+
+		/* box-shadow: 
+			0 2px 1px rgba(0,0,0,0.09), 
+			0 4px 2px rgba(0,0,0,0.09), 
+			0 8px 4px rgba(0,0,0,0.09), 
+			0 16px 8px rgba(0,0,0,0.09), 
+			0 32px 16px rgba(0,0,0,0.09); */
+		box-shadow: 
+			0 1px 1px rgba($black,0.08), 
+			0 2px 2px rgba($black,0.12), 
+			0 4px 4px rgba($black,0.16), 
+			0 8px 8px rgba($black,0.20);
+		
+	}
+
+	.closeButtonSection{
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		position: relative;
+		height: 2.5rem;
+		padding-top: 0.5rem;
+
+		.closeButton{
+			position: relative;
+			top: 0rem;
+			right: 0rem;
+			width: 2rem;
+			aspect-ratio: 1/1;
+			cursor: pointer;
+			border: solid 3px $black;
+			border-radius: 3px;
+			padding: 0.25rem;
 		}
-	//end
-}
+	}
 
-.backdrop{
-	background-color: $backdropColor;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-}
+	.scrollSection{
+		overflow-y: scroll;
+		height: calc(#{$modalHeight} - 2.5rem);
+		padding: 1rem;
+		margin-top: 0.5rem;
+				
+	&::-webkit-scrollbar {
+		width: clamp(2px, 0.25vw, 5px);
+	}
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $accentColor;
+	}
+	}
 
-.modalInner{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 75%;
-	height: 85vh;
-	//min-width: 1000px;
-	max-width: 100%;
-	//aspect-ratio: 18/9;
-	z-index: 2;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: $transitionMedium;
-}
+
 
 .iFrameModal{
 	position: relative;
 	height: 100%;
 	width: 100%;
 	background-color: $white;
+	padding: 0.5rem;
+	padding-top: 0;
 	border-radius: 3px;
-	
-	//padding: 2.25rem $clampLarge 0;
-
-	.closeButton{
-		position: absolute;
-		top: $clampSmall;
-		right: $clampSmall;
-		width: $clampSmall;
-		aspect-ratio: 1/1;
-		cursor: pointer;
-	}
 	
 	.iframeWrapper{
 		width:100%;
@@ -113,19 +166,16 @@ $backdropColor: rgba($black, 0.25);
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		height: calc(#{$modalHeight} - 2.5rem);
 		aspect-ratio: 18/9;
+		margin-top: 0.5rem;
 	}
 	iframe{
 		width: 100%;
 		height: 100%;
-		padding: 0;
-		margin: 0;
-		width: 75%;
-		height: 75%;
-		aspect-ratio: 18/9;
 	}
 
-	.titleArea{
+	/* .titleArea{
 		text-align: center;
 		padding: $clampSmall;
 		font-size: $clampSmall;
@@ -140,17 +190,108 @@ $backdropColor: rgba($black, 0.25);
 		margin: auto;
 		padding: $clampSmall;
 		font-size: $clampExtraSmall;
-	}
+	} */
 }
 
-
-.PDFModal{
+//SEARCH: ContactModal
+.ContactModal{
 	position: relative;
 	height: 100%;
 	width: 100%;
 	background-color: $white;
+	padding: 0.5rem;
+	padding-top: 0;
 	border-radius: 3px;
-	padding: 2.25rem $clampLarge 0;
+
+	/*Modal Heading*/
+	.heading{
+		text-align: center;
+		display: block;
+		width: 100%;
+		max-width: 1200px;
+		margin: auto;
+		margin-bottom: $clampLarge;
+		h2{
+			font-size: $clampLarge;
+			margin-bottom: $clampSmall;
+		}
+		p{
+			font-size: $clampSmall;
+		}
+	}
+
+	.splitLayout{
+		display: flex;
+		//justify-content: center;
+		//align-items: flex-start;
+		.left{
+			width: 50%;
+			padding: 0.5rem 1rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+		}
+		.right{
+			width: 50%;
+			padding: 0.5rem 2.5rem 2rem 2.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			border-left: solid 3px $black;
+		}
+	}
+
+	.qrCodeSection{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		h3{
+			text-align: center;
+			font-size: 1rem;
+			margin-bottom: 1rem;
+		}
+		a{
+			font-size: 0.65rem;
+			color: $black;
+			margin-top: 0.5em;
+		}
+	}
+
+	@media (max-width: $contentWidthMd) {
+		/*Activates BELOW 1000px*/
+		.splitLayout{
+			display: flex;
+			flex-direction: column-reverse;
+			.left{
+				width: 100%;
+				padding: 0.5rem 1rem;
+			}
+			.right{
+				width: 100%;
+				padding: 0.5rem 2.5rem 2rem 2.5rem;
+				border-left: none;
+				//border-bottom: solid 3px $black;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+.InactivityModal{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: $white;
+	padding: 0 $clampLarge;
 
 	.closeButton{
 		position: absolute;
@@ -160,27 +301,24 @@ $backdropColor: rgba($black, 0.25);
 		aspect-ratio: 1/1;
 		cursor: pointer;
 	}
-	
-	.iframeWrapper{
-		width: 100%;
-		aspect-ratio: 18/9;
-	}
-	iframe{
-		width: 100%;
-		height: 100%;
-		padding: 0;
-		margin: 0;
-		margin-bottom: calc(-1 * #{$clampMedium});
-	}
 
 	.titleArea{
 		text-align: center;
 		padding: $clampSmall;
 		font-size: $clampSmall;
-		color: $red;
 	}
 
 	.copyArea{
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		max-width:50vw;
+		margin: auto;
+		padding: $clampSmall;
+		font-size: $clampSmall;
+	}
+
+	.buttonArea{
 		display: flex;
 		justify-content: center;
 		width: 100%;
@@ -191,6 +329,12 @@ $backdropColor: rgba($black, 0.25);
 	}
 }
 
+
+/* ===== ==================================== ===== */
+/* ===== Old Scrap Code - ready to be deleted ===== */
+/* ===== ==================================== ===== */
+
+/* Not used in this project */
 .SupportModal{
 	position: relative;
 	height: 100%;
@@ -329,20 +473,14 @@ $backdropColor: rgba($black, 0.25);
 	}
 }
 
-
-//SEARCH: ContactModal
-.ContactModal{
+/* To be replaced with iFrameModal */
+.PDFModal{
 	position: relative;
 	height: 100%;
 	width: 100%;
 	background-color: $white;
-	padding: 1rem;
 	border-radius: 3px;
-	.scroll{
-		overflow-y: auto;
-		max-height: 85vh;
-		padding: 0 1vw;
-	}
+	padding: 2.25rem $clampLarge 0;
 
 	.closeButton{
 		position: absolute;
@@ -352,121 +490,27 @@ $backdropColor: rgba($black, 0.25);
 		aspect-ratio: 1/1;
 		cursor: pointer;
 	}
-
-	/*Modal Heading*/
-	.heading{
-		text-align: center;
-		display: block;
+	
+	.iframeWrapper{
 		width: 100%;
-		max-width: 1200px;
-		margin: auto;
-		margin-bottom: $clampLarge;
-		h2{
-			font-size: $clampLarge;
-			margin-bottom: $clampSmall;
-		}
-		p{
-			font-size: $clampSmall;
-		}
+		aspect-ratio: 18/9;
 	}
-
-	.splitLayout{
-		display: flex;
-		//justify-content: center;
-		//align-items: flex-start;
-		.left{
-			width: 50%;
-			padding: 0.5rem 1rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: center;
-		}
-		.right{
-			width: 50%;
-			padding: 0.5rem 2.5rem 2rem 2.5rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: center;
-			border-left: solid 3px $black;
-		}
-	}
-
-	.qrCodeSection{
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		h3{
-			text-align: center;
-			font-size: 1rem;
-			margin-bottom: 1rem;
-		}
-		a{
-			font-size: 0.65rem;
-			color: $black;
-			margin-top: 0.5em;
-			/*padding: 0.5em 1em;
-			background: $darkBlue;
-			border-radius: 0.5rem;*/
-		}
-	}
-
-	.modalFooter{
-		border-top: solid 2px $accentColor;
-		padding-top: 1em;
-		font-size: $clampSmall;
-		text-align: center;
-		h5{
-			font-size: inherit;
-			width: 100%;
-			max-width: 1000px;
-			margin: auto;
-		}
-		p{
-			font-size: $clampExtraSmall;
-			width: 100%;
-			max-width: 1000px;
-			margin: auto;
-			margin-top: $clampMedium;
-		}
-	}
-}
-
-.InactivityModal{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	background-color: $white;
-	padding: 0 $clampLarge;
-
-	.closeButton{
-		position: absolute;
-		top: $clampSmall;
-		right: $clampSmall;
-		width: $clampSmall;
-		aspect-ratio: 1/1;
-		cursor: pointer;
+	iframe{
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		margin-bottom: calc(-1 * #{$clampMedium});
 	}
 
 	.titleArea{
 		text-align: center;
 		padding: $clampSmall;
 		font-size: $clampSmall;
+		color: $red;
 	}
 
 	.copyArea{
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		max-width:50vw;
-		margin: auto;
-		padding: $clampSmall;
-		font-size: $clampSmall;
-	}
-
-	.buttonArea{
 		display: flex;
 		justify-content: center;
 		width: 100%;

@@ -25,15 +25,17 @@ export default function ContactModal({
       id="ContactModal"
       className={componentStyles.ContactModal}
     >
-
-      <div 
-        className={componentStyles.closeButton}
-        data-modal-close="true"
-      >
-        <CloseIcon/>
+      <div className={componentStyles.closeButtonSection}>
+        <div 
+          className={componentStyles.closeButton}
+          data-modal-close="true"
+        >
+          <CloseIcon/>
+        </div>
       </div>
       
-      <div className={componentStyles.scroll}>
+      
+      <div className={componentStyles.scrollSection}>
         
         <div className={componentStyles.heading}>
           <h2>Contact Us</h2>
