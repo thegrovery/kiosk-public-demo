@@ -150,50 +150,54 @@ $borderRadius: 0.15rem;
 	}
 
 
-
-.iFrameModal{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	background-color: $white;
-	padding: 0.5rem;
-	padding-top: 0;
-	border-radius: 3px;
-	
-	.iframeWrapper{
-		width:100%;
+/* ===== ====================================== ===== */
+/* ===== iFrame Modal - Use for Videos and PDFs ===== */
+/* ===== ====================================== ===== */
+	.iFrameModal{
+		position: relative;
 		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: calc(#{$modalHeight} - 2.5rem);
-		aspect-ratio: 18/9;
-		margin-top: 0.5rem;
-	}
-	iframe{
 		width: 100%;
-		height: 100%;
+		background-color: $white;
+		padding: 0.5rem;
+		padding-top: 0;
+		border-radius: 3px;
+		
+		.iframeWrapper{
+			width:100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: calc(#{$modalHeight} - 2.5rem);
+			aspect-ratio: 18/9;
+			margin-top: 0.5rem;
+		}
+		iframe{
+			width: 100%;
+			height: 100%;
+		}
+
+		/* .titleArea{
+			text-align: center;
+			padding: $clampSmall;
+			font-size: $clampSmall;
+			color: $red;
+		}
+
+		.copyArea{
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			max-width:50vw;
+			margin: auto;
+			padding: $clampSmall;
+			font-size: $clampExtraSmall;
+		} */
 	}
 
-	/* .titleArea{
-		text-align: center;
-		padding: $clampSmall;
-		font-size: $clampSmall;
-		color: $red;
-	}
-
-	.copyArea{
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		max-width:50vw;
-		margin: auto;
-		padding: $clampSmall;
-		font-size: $clampExtraSmall;
-	} */
-}
-
-//SEARCH: ContactModal
+/* ===== ================================ ===== */
+/* ===== Contact Modal - Form and QR Code ===== */
+/* ===== ================================ ===== */
 .ContactModal{
 	position: relative;
 	height: 100%;
