@@ -279,10 +279,10 @@ export default function Layout({
       </main>
 
       {/*Internal JS Scripts*/}
-        <Script src="/scripts/script.js" /> 
         <Script src="/scripts/modals.js" /> 
         <Script src="/scripts/analytics.js" /> 
-
+        <Script src="/scripts/script.js" />
+        <Script src="/scripts/slider.js" delay="50" />
     </div>
   )
 }
