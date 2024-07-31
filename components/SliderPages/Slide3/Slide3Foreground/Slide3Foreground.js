@@ -41,7 +41,8 @@ export default function Slide3Foreground({
               <a
                 className={componentStyles.button}
                 data-modal-open="VideoModal"
-                data-modal-iframe="https://www.youtube.com/embed/nM4okRvCg2g?si=kl5BtiGt_MEKVE9r"
+                /* data-modal-iframe="https://www.youtube.com/embed/nM4okRvCg2g?si=kl5BtiGt_MEKVE9r" */
+                data-modal-iframe="https://39959608.fs1.hubspotusercontent-na1.net/hubfs/39959608/Xpo-connect_RD1.3%20(1).mp4"
               >Open Video</a>
             </div>
             
