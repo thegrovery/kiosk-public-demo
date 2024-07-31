@@ -136,6 +136,7 @@ $borderRadius: 0.15rem;
 		overflow-y: scroll;
 		height: calc(#{$modalHeight} - 2.5rem);
 		padding: 1rem;
+		padding-top: 0rem;
 		margin-top: 0.5rem;
 				
 	&::-webkit-scrollbar {
@@ -214,13 +215,13 @@ $borderRadius: 0.15rem;
 			width: 100%;
 			max-width: 1200px;
 			margin: auto;
-			margin-bottom: $clampLarge;
+			margin-bottom: $fontSizeBody;
 			h2{
-				font-size: $clampLarge;
-				margin-bottom: $clampSmall;
+				font-size: $fontSizeHeading;
+				margin-bottom: $fontSizeDetail;
 			}
 			p{
-				font-size: $clampSmall;
+				font-size: $fontSizeBody;
 			}
 		}
 

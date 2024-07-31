@@ -25,7 +25,6 @@
 	$limeGreen:	#BEE330;
 	$darkGreen:	#88B336;
 	$orange:	#FF8D00;
-
 	//OLD - PREP FOR REMOVAL OR REUSE
 		$red: 		#00ffff;
 		$grey:		#F4EFEF;
@@ -59,7 +58,7 @@
 
 	/***** Scaled Font Sizes *****/
 		$fontScale: 1vw; //Font is calculated as 1% of screen width
-		$fontSizeHeading:	calc(2.5 * #{$fontScale});
+		$fontSizeHeading:	calc(2.75 * #{$fontScale});
 		$fontSizeSubhead:	calc(2 * #{$fontScale});
 		$fontSizeBody:		calc(1.5 * #{$fontScale});
 		$fontSizeBodySmall:	calc(1.25 * #{$fontScale});

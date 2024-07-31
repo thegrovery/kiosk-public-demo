@@ -27,7 +27,7 @@
   let numberOfSlides = 5;
   let timePerSlide = 2250; //in ms
   //let totalTime = timePerSlide * numberOfSlides;
-  let totalTime = 11000;
+  let totalTime = 10000;
   let lastSlide = false;
   let lastSlideExecute = false;
 
@@ -47,7 +47,8 @@
   path.style.animationDuration = "10s";
   //path.style.animationDelay = "1s";
   path.style.animationTimingFunction = "linear";
-  path.style.animationDirection = "forward";
+  path.style.animationDirection = "normal";
+  path.style.animationFillMode = "forwards";
   path.style.animationIterationCount = "1";
   path.style.animationPlayState = "paused";
 
@@ -95,7 +96,7 @@
     setTimeout(() => {
       path.style.animationPlayState = "paused";
       sliderUnlock();
-    }, timePerSlide * 0.35); //time in ms
+    }, timePerSlide * 1); //percentage of slide length
   }
 
 
@@ -163,12 +164,14 @@
             } else {
               reachedSlide = currentSlide;
               bodyTarget.setAttribute("data-reached-slide", reachedSlide);
+              lineDrawSection();
+              //DEPRECATED: no longer need to stop before end of line animation
               //check if last slide
-              if(reachedSlide == 5){
+              /* if(reachedSlide == 5){
                 lineDrawSectionShort();
               }else{
                 lineDrawSection();
-              }
+              } */
               
             }
 
