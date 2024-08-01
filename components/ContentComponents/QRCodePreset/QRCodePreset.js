@@ -11,7 +11,7 @@ import componentStyles from './styles.module.scss'
 
 export default function QRCodePreset({ 
   //Props
-  link, toolTipText, toolTipPlacement, color, 
+  link, toolTipText, toolTipPlacement, border, color, 
 }) {
   //console.log(author);
   useEffect(() => {
@@ -34,7 +34,10 @@ export default function QRCodePreset({
   });
 
   return (
-    <div className={componentStyles.QRCodePreset}>
+    <div 
+      className={componentStyles.QRCodePreset}
+      data-border={border}
+    >
       <QRCode 
           value={link ? link : "https://bms-kiosk-staging.netlify.app/"}
           size={256}
@@ -46,7 +49,7 @@ export default function QRCodePreset({
           data-tippy-placement={toolTipPlacement ? toolTipPlacement : "right"}*/
         />
         {toolTipText &&
-      <Tooltip 
+        <Tooltip 
           text={toolTipText}
           placement={toolTipPlacement}
         />

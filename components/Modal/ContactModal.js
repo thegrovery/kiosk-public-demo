@@ -48,6 +48,7 @@ export default function ContactModal({
               <h3>Scan to <br/>Learn More:</h3>
               <QRCodePreset 
                 link="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_scan"
+                border="black"
               />    
               <a href="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_link_click">[thegrovery.com/xpoconnect]</a>          
             </div>

@@ -6,16 +6,42 @@ $textColor: $white;
 
 .QRCodePreset{
 	position: relative;
-	display: flex;
+	display: inline-flex;
 	flex-direction: row;
 	//flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
+
 	svg{
-		padding: 5px;
-		border: solid 5px $black;
-		border-radius: 8%;
+		//padding: 5px;
+		margin: 0;
+		padding:0;
 		width: $qrCodeSize;
+		
+	}
+	&[data-border="black"]{
+		background-color: $black;
+		border-radius: 8%;
+		padding: 0.25rem;
+		svg{
+			border: solid 5px $black;
+		}
+	}
+	&[data-border="white"]{
+		background-color: $white;
+		border-radius: 8%;
+		padding: 0.25rem;
+		svg{
+			border: solid 5px $white;
+		}
+	}
+	&[data-border="darkBlue"]{
+		background-color: $darkBlue;
+		border-radius: 8%;
+		padding: 0.25rem;
+		svg{
+			border: solid 5px $darkBlue;
+		}
 	}
 
 	.Tooltip{
