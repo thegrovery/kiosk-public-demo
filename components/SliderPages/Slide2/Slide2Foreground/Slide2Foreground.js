@@ -38,11 +38,11 @@ export default function Slide2Foreground({
               <p>
                 <strong>XpoConnect is a powerful &amp; integrated service offering that</strong> combines the strengths of The Grovery’s Digital Marketing and Brand Strategy expertise, along with strategic message development and graphic design to supercharge your trade show and conference presence.
               </p>
-              <br/>
+              {/* <br/>
               <QRCodePreset 
                 link="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_scan"
                 border="white"
-              />
+              /> */}
             </div>
           </div>
 
