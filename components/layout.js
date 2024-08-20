@@ -175,36 +175,7 @@ export default function Layout({
         deviceDetect();
  
 
-    /* ================================ */
-    /* ===== Modal/Popup Controls ===== */
-    /* ================================ */
-      //define DOM targets
-        let ModalWrapper = document.querySelector("#ModalWrapper");
-        let ContactModalButton = document.querySelector("#ContactModalOpen");
-        let docBody = document.querySelector("body");
-
-      //Open modal functions
-        function ContactModalOpen(){
-          ModalWrapper.setAttribute("data-modal-status", "active");
-          ModalWrapper.setAttribute("data-modal-show", "ContactModal");
-          docBody.setAttribute("data-slider-scroll","false");
-
-          //IMPORTANT: add function for turning off scroll detect on sliders
-        }
-
-      //Close Modal Function (global)
-        function ModalClose(){
-          e.preventDefault();
-          //$("#SupportModal").attr("data-modal-status", "inactive");
-          ModalWrapper.setAttribute("data-modal-status", "inactive");
-          docBody.setAttribute("data-slider-scroll","true");
-        }
-
-      //EventListeners
-        ContactModalButton.addEventListener('click', () => {
-         console.log("ContactModalButton event listener");
-         ContactModalOpen();
-        });
+    
 
 
   }); //END useEffect()
@@ -308,9 +279,10 @@ export default function Layout({
       </main>
 
       {/*Internal JS Scripts*/}
-        <Script src="/scripts/script.js" /> 
+        <Script src="/scripts/modals.js" /> 
         <Script src="/scripts/analytics.js" /> 
-
+        <Script src="/scripts/script.js" />
+        <Script src="/scripts/slider.js" delay="50" />
     </div>
   )
 }

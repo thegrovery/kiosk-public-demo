@@ -18,32 +18,24 @@ export default function ContactModal({
   children, heading, 
 }) {
 
-  //console.log(author);
-  const modalClose = () => {
-    const element = document.getElementById("ModalWrapper");
-    element.setAttribute('data-modal-status', 'inactive');
-    const docBody = document.querySelector('body');
-    docBody.setAttribute("data-slider-scroll","true");
-  }
 
-  const closeClick = () => {
-    modalClose();
-  };
 
   return (
     <div 
       id="ContactModal"
       className={componentStyles.ContactModal}
     >
-
-      <div 
-        className={componentStyles.closeButton}
-        onClick={modalClose}
-      >
-        <CloseIcon/>
+      <div className={componentStyles.closeButtonSection}>
+        <div 
+          className={componentStyles.closeButton}
+          data-modal-close="true"
+        >
+          <CloseIcon/>
+        </div>
       </div>
       
-      <div className={componentStyles.scroll}>
+      
+      <div className={componentStyles.scrollSection}>
         
         <div className={componentStyles.heading}>
           <h2>Contact Us</h2>
@@ -55,8 +47,8 @@ export default function ContactModal({
             <div className={componentStyles.qrCodeSection}>
               <h3>Scan to <br/>Learn More:</h3>
               <QRCodePreset 
-                /*link="https://bms.claravine.com/global/599a76c9-d5ec-4ea5-98ba-683a3e967122"*/
                 link="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_scan"
+                border="black"
               />    
               <a href="https://thegrovery.com/xpoconnect?utm_source=kiosk_demo&utm_medium=qr_code_link_click">[thegrovery.com/xpoconnect]</a>          
             </div>
@@ -64,6 +56,7 @@ export default function ContactModal({
           </div>
           <div className={componentStyles.right}>
             {/*<ResourcesForm/>*/}
+            {/* #ContactForm use global styling in main.scss*/}
             <div id="ContactForm">
               <div dangerouslySetInnerHTML={{ __html: formHtml }} />  
             </div>

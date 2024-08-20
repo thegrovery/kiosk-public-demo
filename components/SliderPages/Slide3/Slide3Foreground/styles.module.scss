@@ -51,18 +51,18 @@
 	.textElement{
 		--size: 35vw;
 		width: 40vw;
-		height: 60vh;
+		min-height: 60vh;
 		//border: dashed 2px #000;
 		border-radius: 0.5em;
 		background-color: #c0e231;
 		position: absolute;
 		right: 30%;
-		bottom: 40%;
-		transform: translate3d(0%, 50%, 0px);
+		bottom: 5%;
+		//transform: translate3d(0%, 40%, 0px);
 		display:flex;
 		justify-content: center;
 		align-items: center;
-		font-size: 0.65rem;
+		//font-size: 0.65rem;
 		padding: 3em;
 		filter: $filterShadow2;
 
@@ -80,12 +80,23 @@
 		}
 
 		.inner{
-			color: #0E4C61;
+			color: $darkBlue;
 			background-color: #c0e231;
 			position: relative;
 			z-index: 3;
-			font-size: 1rem;
+			font-size: $fontSizeBody;
 			text-align: center;
+
+			.button{
+				color: $white;
+				background-color: $darkBlue;
+				padding: 0.5em 3em;
+				border-radius: 2em;
+				border: solid 3px $darkBlue;
+				&:hover{
+					//border: solid 3px $white;
+				}
+			}
 		}
 	}
 

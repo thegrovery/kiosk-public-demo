@@ -2,9 +2,8 @@
 import React from "react"
 import Link from 'next/link'
 
-
-//import Button1 from '@components/Button1'
 import Slide3Graphic from '@components/SVGComponents/Slide3Graphic'
+import QRCodePreset from "@components/ContentComponents/QRCodePreset";
 
 /*===== Styles =====*/
 import componentStyles from './styles.module.scss'
@@ -36,8 +35,14 @@ export default function Slide3Foreground({
             <div className={componentStyles.triangle}></div>
             <div className={componentStyles.inner}>
               <p>
-                <strong>The Grovery’s comprehensive event activation and support services are designed to empower partners with impactful and dynamic</strong> presences at industry trade shows and conferences. Leveraging our full suite of brand strategy and digital media and marketing services, we craft pre - , during, and post - conference engagements that drive meaningful connections, generate leads, and convert prospects into loyal customers.
+                <strong>The Grovery's comprehensive event activation and support services are designed to empower partners with impactful and dynamic</strong> presences at industry trade shows and conferences. Leveraging our full suite of brand strategy and digital media and marketing services, we craft pre-, during, and post- conference engagements that drive meaningful connections, generate leads, and convert prospects into loyal customers.
               </p>
+              {/* <br/>
+              <a
+                className={componentStyles.button}
+                data-modal-open="VideoModal"
+                data-modal-iframe="https://39959608.fs1.hubspotusercontent-na1.net/hubfs/39959608/Xpo-connect_RD1.3%20(1).mp4"
+              >Open Video</a> */}
             </div>
             
           </div>      

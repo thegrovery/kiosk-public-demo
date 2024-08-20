@@ -2,6 +2,7 @@
 import React from "react"
 import Link from 'next/link'
 import PDFModal from './PDFModal'
+import VideoModal from './VideoModal'
 import InactivityModal from './InactivityModal'
 import SupportModal from './SupportModal'
 import ContactModal from './ContactModal'
@@ -34,7 +35,7 @@ export default function Modal({
   //console.log(author);
   
 
-  const modalClose = () => {
+/*   const modalClose = () => {
     const element = document.getElementById("ModalWrapper");
     const iframe = document.getElementById("ModalIframe");
     const docBody = document.querySelector('body');
@@ -45,7 +46,7 @@ export default function Modal({
 
   const closeClick = () => {
     modalClose();
-  };
+  }; */
 
   return (
 
@@ -59,12 +60,13 @@ export default function Modal({
       {/*Backdrop filter, click to close*/}
       <div 
         className={componentStyles.backdrop} 
-        onClick={modalClose}
+        data-modal-close="true"
       />
       
       <div className={componentStyles.modalInner}>
         <SupportModal />
         <PDFModal  />
+        <VideoModal/>
         <ContactModal/>
         <InactivityModal />
 

@@ -16,33 +16,7 @@ export default function VideoThumbnail({
 
   //Currently using PDFModalfor corresponding modal
   useEffect(() => {
-    $(document).ready(function() {
-      //vars
-      let ModalWrapper = $("#ModalWrapper");
-      let PDFWindow = $("#PDFModal iframe");
-      let PDFTitle = $("#PDFModalTitle");
-
-      //open modal
-      $("[data-modal-open='video']").click(function(e){
-        e.preventDefault();
-        //set PDF in iframe
-        let videoLink = $(this).attr('data-video-url');
-        let pdfName = $(this).attr('data-video-name');
-        PDFWindow.attr("src", videoLink); 
-        //activate PDF modal
-        ModalWrapper.attr("data-modal-status", "active");
-        ModalWrapper.attr("data-modal-show", "PDFModal");
-        PDFTitle.text(pdfName);
-        
-      });
-
-      //close modal
-      $("[data-modal-close]").click(function(e){
-        e.preventDefault();
-        ModalWrapper.attr("data-modal-status", "inactive");
-      });
-
-    });
+    
   });
 
   return (

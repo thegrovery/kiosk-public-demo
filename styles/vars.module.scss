@@ -19,13 +19,12 @@
 	$offWhite: 	#F6F7F9;
 
 	$darkBlue:	#0E4C61;
-	$midBlue:		#137D99;
+	$midBlue:	#137D99;
 	$lightBlue:	#00DBBE;
 	$tealBlue:	#00DBBE;
 	$limeGreen:	#BEE330;
 	$darkGreen:	#88B336;
-	$orange:		#FF8D00;
-
+	$orange:	#FF8D00;
 	//OLD - PREP FOR REMOVAL OR REUSE
 		$red: 		#00ffff;
 		$grey:		#F4EFEF;
@@ -33,19 +32,19 @@
 		$grey_2: 	#fff;
 
 	//Primary Palette
-		$primaryGray: 			#A69F9F;
+		$primaryGray: 		#A69F9F;
 		$primaryLightGray: 	#EEE7E7;
-		$primaryPurple: 		#BE2BBB;
+		$primaryPurple: 	#BE2BBB;
 		$primaryDarkGray: 	#595454;
-		$primaryWhite:			#FFFFFF;
+		$primaryWhite:		#FFFFFF;
 
 	/***** Named Colors *****/
 		//only use other vars
 		$primaryColor:			$black;
 		$secondaryColor:		$white;
 		$backgroundColor:		$white;
-		$textColor:					$black;
-		$accentColor:				$darkBlue;
+		$textColor:				$black;
+		$accentColor:			$darkBlue;
 		$accentColor2:			$midBlue;
 
 /* ===== ============= ===== */
@@ -55,14 +54,18 @@
 	/***** Fonts *****/
 		$fontBody:		'gilroyregular';
 		$fontDisplay:	'gilroybold';
-		$fontAlt:			'gilroyregular';
+		$fontAlt:		'gilroyregular';
 
 	/***** Scaled Font Sizes *****/
 		$fontScale: 1vw; //Font is calculated as 1% of screen width
-		$fontSizeHeading:	calc(2.5 * #{$fontScale});
+		$fontSizeHeading:	calc(2.75 * #{$fontScale});
 		$fontSizeSubhead:	calc(2 * #{$fontScale});
 		$fontSizeBody:		calc(1.5 * #{$fontScale});
+		$fontSizeBodySmall:	calc(1.25 * #{$fontScale});
 		$fontSizeDetail:	calc(0.75 * #{$fontScale});
+		//FUNCTION: round up 
+		//$fontSizeHeading: round($fontSizeHeading);
+		//$fontSizeBody: round($fontSizeBody);
 
 	/***** Static Font Sizes *****/
 		/*$fontSizeHeading:	36px;
@@ -72,11 +75,11 @@
 
 	/***** Clamped Sizes Sizes *****/
 		$clampExtraExtraSmall:	clamp(6px, 1vw, 10px);
-		$clampExtraSmall:				clamp(10px, 1.2vw, 16px);
-		$clampSmall: 						clamp(12px, 1.5vw, 21px);
-		$clampMedium: 					clamp(14px, 2vw, 28px);
-		$clampLarge: 						clamp(24px, 4vw, 45px);
-		$clampExtraLarge: 			clamp(36px, 5.5vw, 60px);
+		$clampExtraSmall:		clamp(10px, 1.2vw, 16px);
+		$clampSmall: 			clamp(12px, 1.5vw, 21px);
+		$clampMedium: 			clamp(14px, 2vw, 28px);
+		$clampLarge: 			clamp(24px, 4vw, 45px);
+		$clampExtraLarge: 		clamp(36px, 5.5vw, 60px);
 
 	/***** Letter Spacing *****/
 		$letterSpacingWide:		0.05em;
@@ -88,18 +91,18 @@
 /* ===== ======================= ===== */
 
 	/***** Content Widths *****/
-		$contentWidthMin: 320px;
+		$contentWidthMin: 	320px;
 		$contentWidthSm: 	650px;
 		$contentWidthMd: 	1100px;
 		$contentWidthLg: 	1450px;
 		$contentWidthXl: 	1650px;
-		$contentWidthMax: 2400px;
+		$contentWidthMax: 	2400px;
 
 	/***** Z-Index Ranges *****/
-		$zIndexBase: 		0;
+		$zIndexBase: 	0;
 		$zIndexMedium: 	100;
-		$zIndexHigh: 		1000;
-		$zIndexMax: 		10000;
+		$zIndexHigh: 	1000;
+		$zIndexMax: 	10000;
 
 
 /* ===== ========================== ===== */
@@ -107,9 +110,9 @@
 /* ===== ========================== ===== */
 
 	/***** Transition Timings *****/
-		$transitionFast:		0.15s ease-in-out;
+		$transitionFast:	0.15s ease-in-out;
 		$transitionMedium:	0.3s ease-in-out;
-		$transitionSlow:		0.45s ease-in-out;
+		$transitionSlow:	0.45s ease-in-out;
 
 
 /* ===== =================== ===== */
@@ -117,7 +120,7 @@
 /* ===== =================== ===== */
 
 	/***** Border Settings *****/
-		$borderWidth:		clamp(2px, 0.1vw,3px);
+		$borderWidth:	clamp(2px, 0.1vw,3px);
 		$borderRadius:	20px;
 
 	/***** Shadows *****/

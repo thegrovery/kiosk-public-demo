@@ -48,7 +48,7 @@ export default function Slide5Foreground({
               <a
                 id="ContactModalOpen" 
                 className={componentStyles.button}
-                data-modal-open='support'
+                data-modal-open='ContactModal'
               >Contact Us</a>
             </div>
             
